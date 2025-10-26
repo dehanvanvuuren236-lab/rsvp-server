@@ -138,33 +138,25 @@
                                     <p id="response" style="margin-top:20px;color:green;"></p>
 
                                     <script>
-                                        const form = document.getElementById('rsvpForm');
-                                        const response = document.getElementById('response');
+    const form = document.getElementById('rsvpForm');
+    const response = document.getElementById('response');
 
-                                        form.addEventListener('submit', async (e) => {
-                                            e.preventDefault();
-                                            const name = document
-                                                .getElementById('name')
-                                                .value;
-                                            const email = document
-                                                .getElementById('email')
-                                                .value;
-                                            const guests = document
-                                                .getElementById('guests')
-                                                .value;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const guests = document.getElementById('guests').value;
 
-                                            const res = await fetch('/api/rsvp', {
-                                                method: 'POST',
-                                                headers: {
-                                                    'Content-Type': 'application/json'
-                                                },
-                                                body: JSON.stringify({name, email, guests})
-                                            });
+      const res = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, guests })
+      });
 
-                                            const data = await res.json();
-                                            response.textContent = data.message || data.error;
-                                        });
-                                    </script>
+      const data = await res.json();
+      response.textContent = data.message || data.error;
+    });
+  </script>
                                 </div>
                             </div>
                         </div>

@@ -1,24 +1,23 @@
-// server.js
+require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Replace with your Gmail and app password
+// Setup Gmail transporter
+console.log(process.env.EMAIL_USER, process.env.EMAIL_PASS ? 'PASS_LOADED' : 'PASS_MISSING');
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true, // Use SSL
+  service: 'gmail',
   auth: {
-    user: 'dehanvanvuuren236@gmail.com', // your Gmail
-    pass: 'mtwfqlfnaltsoled',    // app password (not your Gmail password)
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
@@ -29,32 +28,27 @@ app.post('/api/rsvp', async (req, res) => {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
-  // 1. Email to YOU (event host)
- const adminMail = {
-  from: '"RSVP Form" <dehanvanvuuren236@gmail.com>',
-  to: 'dehanvanvuuren236@gmail.com', // must be YOUR working Gmail
-  subject: `New RSVP from ${name}`,
-  text: `Name: ${name}\nEmail: ${email}\nGuests: ${guests}`
-};
+  // Email to the host
+  const adminMail = {
+    from: `"RSVP Form" <${process.env.EMAIL_USER}>`,
+    to: process.env.EMAIL_USER,
+    subject: `New RSVP from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nGuests: ${guests}`
+  };
 
-
-
-  // 2. Confirmation Email to USER
+  // Confirmation email to the user
   const userMail = {
-  from: '"Event Team" <dehanvanvuuren236@gmail.com>',
-  to: email, // this stays dynamic
-  subject: `Your RSVP is Confirmed!`,
-  text: `Hi ${name},\n\nThanks for RSVPing! We’ve recorded ${guests} guest(s) under your name.\n\nSee you there!\n\n– Event Team`
-};
-
+    from: `"Event Team" <${process.env.EMAIL_USER}>`,
+    to: email,
+    subject: `Your RSVP is Confirmed!`,
+    text: `Hi ${name},\n\nThanks for RSVPing! We’ve recorded ${guests} guest(s).\n\nSee you there!\n\n– Event Team`
+  };
 
   try {
-    // Send both emails in parallel
     await Promise.all([
       transporter.sendMail(adminMail),
       transporter.sendMail(userMail)
     ]);
-
     res.status(200).json({ message: 'RSVP and confirmation email sent successfully' });
   } catch (err) {
     console.error('Email send error:', err);
@@ -63,5 +57,5 @@ app.post('/api/rsvp', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
