@@ -13,6 +13,7 @@ app.use(express.static('public'));
 
 // Setup Gmail transporter
 console.log(process.env.EMAIL_USER, process.env.EMAIL_PASS ? 'PASS_LOADED' : 'PASS_MISSING');
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -56,9 +57,6 @@ app.post('/api/rsvp', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
-
