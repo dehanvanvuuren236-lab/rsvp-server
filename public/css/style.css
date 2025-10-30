@@ -5,6 +5,48 @@
   font-weight: normal;
   font-style: normal;
 }
+.rsvp-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.rsvp-form input {
+  width: 90%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.rsvp-btn {
+  background-color: #ff6b81;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rsvp-btn:hover {
+  background-color: #ff4757;
+  transform: translateY(-2px);
+}
+
+.rsvp-response {
+  margin-top: 15px;
+  font-size: 16px;
+  color: green;
+  font-weight: 600;
+}
+
 @font-face { font-family: Amsterdam; src: url('../fonts/AmsterdamOne.ttf'); } 
 /* =======================================================
 *

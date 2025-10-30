@@ -122,41 +122,63 @@
                                     <h2>"I Love You To The Moon And Back Times Infinity And Beyond"</h2>
                                     <div class="flipTimebox">
                                         <div class="clock clock-fix"></div>
-                                    </div>
-                                    <h2>RSVP</h2>
-                                    <form id="rsvpForm">
-                                        <input type="text" id="name" placeholder="Your Name" required="required"><br><br>
-                                        <input type="email" id="email" placeholder="Your Email" required="required"><br><br>
-                                        <input
-                                            type="number"
-                                            id="guests"
-                                            placeholder="Number of Guests"
-                                            required="required"><br><br>
-                                        <button type="submit">Submit RSVP</button>
-                                    </form>
-
+                                   <h2>RSVP</h2>
+<div class="rsvp-container animate-box" data-animate-effect="fadeIn">
+  <form id="rsvpForm" class="rsvp-form">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="number" id="guests" placeholder="Number of Guests" min="1" required>
+    <button type="submit" class="rsvp-btn">Send RSVP</button>
+  </form>
+  <p id="response" class="rsvp-response"></p>
+</div>
                                     <p id="response" style="margin-top:20px;color:green;"></p>
+<script>
+const form = document.getElementById('rsvpForm');
+const response = document.getElementById('response');
 
-                                    <script>
-    const form = document.getElementById('rsvpForm');
-    const response = document.getElementById('response');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const guests = document.getElementById('guests').value;
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const guests = document.getElementById('guests').value.trim();
 
-      const res = await fetch('/api/rsvp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, guests })
-      });
+  if (!name || !email || !guests) {
+    response.textContent = "Please fill out all fields.";
+    response.style.color = "red";
+    return;
+  }
 
-      const data = await res.json();
-      response.textContent = data.message || data.error;
+  try {
+    response.textContent = "Sending RSVP...";
+    response.style.color = "#333";
+
+    const res = await fetch('https://rsvp-server-drjw.onrender.com/api/rsvp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, guests })
     });
-  </script>
+
+    const data = await res.json();
+
+    if (res.ok) {
+      response.textContent = data.message;
+      response.style.color = "green";
+      form.reset();
+    } else {
+      response.textContent = data.error || "Something went wrong.";
+      response.style.color = "red";
+    }
+
+  } catch (err) {
+    response.textContent = "Failed to send RSVP. Please try again.";
+    response.style.color = "red";
+    console.error(err);
+  }
+});
+</script>
+
                                 </div>
                             </div>
                         </div>
@@ -484,36 +506,6 @@ src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
 <script src="js/simplyCountdown.js"></script>
 <!-- Main -->
 <script src="js/main.js"></script>
-<script>
-document
-    .getElementById('rsvp-form')
-    .addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const name = document
-            .getElementById('name')
-            .value;
-        const email = document
-            .getElementById('email')
-            .value;
-        const guests = document
-            .getElementById('guests')
-            .value;
-
-        const response = await fetch('/api/rsvp', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name, email, guests})
-        });
-
-        const result = await response.json();
-        document
-            .getElementById('response')
-            .textContent = result.message || result.error;
-    });
-</script>
 <center>View Source Code on
 <a href="https://github.com/shyamjos/wedding-website">GitHub
     <img src="images/github-logo.png">
