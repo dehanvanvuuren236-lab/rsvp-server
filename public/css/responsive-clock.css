@@ -1,55 +1,121 @@
-/* Flip Clock Wrapper */
+/* ======================================== 
+   Flip Clock Responsive CSS
+======================================== */
+.flipTimebox {
+  margin: 40px auto;
+  padding: 0 10px;
+  text-align: center;
+}
+
 .flipTimebox .flip-clock-wrapper {
-  margin: 4em auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-left: 0;
+  margin: 0 auto !important;
+  padding: 0;
 }
 
-/* Flip Clock Digits */
-.flipTimebox .flip-clock-wrapper ul {
-  width: clamp(22px, 5vw, 60px); /* responsive width */
+.flipTimebox .flip-clock-wrapper ul.flip {
+  width: 12vw; /* relative to viewport */
+  max-width: 60px; /* limit on desktop */
+  min-width: 25px; /* minimum for small devices */
   margin: 2px;
+  list-style: none;
 }
 
 .flipTimebox .flip-clock-wrapper ul li {
-  width: 100%; /* inherit from ul */
-  line-height: clamp(25px, 5vw, 60px);
+  width: 100%;
+  line-height: 1;
 }
 
 .flipTimebox .flip-clock-wrapper ul li a div div.inn {
-  font-size: clamp(20px, 6vw, 48px); /* responsive font size */
+  font-size: clamp(22px, 3vw, 48px); /* responsive font with min/max */
 }
 
-/* Flip Clock Dividers */
+.flipTimebox .flip-clock-dot {
+  height: 6px;
+  width: 6px;
+  margin: 0 3px;
+}
+
 .flipTimebox .flip-clock-divider {
-  width: clamp(5px, 1vw, 10px);
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
 }
 
 .flipTimebox .flip-clock-divider .flip-clock-label {
-  font-size: clamp(10px, 2vw, 14px);
-  color: white;
-  font-weight: bold;
-  font-family: "Sofia Sans Condensed", sans-serif;
+  font-size: 0.9em;
+  color: white !important;
+  font-weight: bold !important;
+  font-family: 'Sofia Sans Condensed' !important;
+  margin-top: 4px;
 }
 
-/* Flip Clock Dots */
-.flipTimebox .flip-clock-dot {
-  height: clamp(4px, 1vw, 6px);
-  width: clamp(4px, 1vw, 6px);
-  margin-left: 0;
-}
-
-/* Meridium (AM/PM) */
+/* MERIDIEM */
 .flipTimebox .flip-clock-meridium {
-  font-size: clamp(14px, 3vw, 20px) !important;
+  font-size: 1.2em;
+  margin-top: 5px;
 }
 
-/* Flip Clock Box Margins for Mobile */
+/* ========================================
+   Media Queries
+======================================== */
+
+/* Tablets & small devices */
+@media screen and (max-width: 768px) {
+  .flipTimebox .flip-clock-wrapper ul.flip {
+    width: 14vw;
+    max-width: 50px;
+  }
+
+  .flipTimebox .flip-clock-wrapper ul li a div div.inn {
+    font-size: clamp(20px, 4vw, 40px);
+  }
+}
+
+/* Mobile devices */
 @media screen and (max-width: 480px) {
   .flipTimebox {
-    margin: 3em 1em 6em 1em;
+    margin: 30px auto;
+    padding: 0 5px;
+  }
+
+  .flipTimebox .flip-clock-wrapper ul.flip {
+    width: 18vw;
+    max-width: 40px;
+  }
+
+  .flipTimebox .flip-clock-wrapper ul li a div div.inn {
+    font-size: clamp(18px, 5vw, 32px);
+  }
+
+  .flipTimebox .flip-clock-dot {
+    height: 5px;
+    width: 5px;
+  }
+
+  .flipTimebox .flip-clock-divider .flip-clock-label {
+    font-size: 0.8em;
+    margin-top: 2px;
+  }
+}
+
+/* Extra small phones */
+@media screen and (max-width: 360px) {
+  .flipTimebox .flip-clock-wrapper ul.flip {
+    width: 20vw;
+    max-width: 35px;
+  }
+
+  .flipTimebox .flip-clock-wrapper ul li a div div.inn {
+    font-size: clamp(16px, 6vw, 28px);
+  }
+
+  .flipTimebox .flip-clock-dot {
+    height: 4px;
+    width: 4px;
   }
 }

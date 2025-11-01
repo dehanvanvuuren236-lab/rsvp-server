@@ -83,25 +83,30 @@
                             </div>
 
                            <!-- RSVP Form -->
+<!-- RSVP Form -->
 <h2>RSVP</h2>
 <div class="rsvp-container animate-box" data-animate-effect="fadeIn">
-    <form id="rsvpForm" class="rsvp-form">
-        <div id="namesContainer">
-            <input type="text" name="name" placeholder="Guest Name" required>
-        </div>
-        <button type="button" id="addNameBtn" class="add-name-btn">+ Add Another Name</button>
+  <form id="rsvpForm" class="rsvp-form">
+    
+    <!-- Multiple Names -->
+    <label for="names">Your Name(s)</label>
+    <input type="text" id="names" placeholder="Enter names separated by commas" required>
 
-        <input type="email" id="email" placeholder="Your Email" required>
+    <!-- Email -->
+    <label for="email">Your Email</label>
+    <input type="email" id="email" placeholder="Your Email" required>
 
-        <div class="guest-counts">
-            <input type="number" id="adults" placeholder="Number of Adults" min="0" required>
-            <input type="number" id="children" placeholder="Number of Children" min="0" required>
-        </div>
+    <!-- Guests: Adults and Kids -->
+    <div class="guest-inputs">
+      <input type="number" id="adults" placeholder="Number of Adults" min="0" required>
+      <input type="number" id="kids" placeholder="Number of Kids" min="0" required>
+    </div>
 
-        <button type="submit" class="rsvp-btn">Send RSVP</button>
-    </form>
-    <p id="response" style="margin-top:20px;"></p>
+    <button type="submit" class="rsvp-btn">Send RSVP</button>
+  </form>
+  <p id="response" style="margin-top:20px;"></p>
 </div>
+
 
 <style>
     .add-name-btn {

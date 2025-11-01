@@ -47,13 +47,16 @@ async function sendEmail(msg, label) {
 app.post('/api/rsvp', async (req, res) => {
   console.log('📥 Received RSVP request:', JSON.stringify(req.body));
 
-const { names, email, adults, children } = req.body;
+  const { names, email, guests } = req.body;
 
-  if (!names || !email) {
+  if (!names || !email || !guests) {
     console.warn('⚠️ RSVP missing required fields:', req.body);
     return res.status(400).json({ error: 'All fields are required.' });
   }
 
+  const { adults = 0, kids = 0 } = guests;
+
+  // Convert names to a string if array
   const nameList = Array.isArray(names) ? names.join(', ') : names;
 
   // Basic email validation
@@ -67,13 +70,12 @@ const { names, email, adults, children } = req.body;
   const adminMsg = {
     to: process.env.EMAIL_FROM,
     from: process.env.EMAIL_FROM,
-    subject: `💌 New RSVP from ${name}`,
-    text: `Names: ${nameList}\nEmail: ${email}\nAdults: ${adults}\nChildren: ${children}`,
+    subject: `💌 New RSVP from ${nameList}`,
+    text: `Names: ${nameList}\nEmail: ${email}\nAdults: ${adults}\nChildren: ${kids}`,
     html: `<p><b>Names:</b> ${nameList}</p>
-       <p><b>Email:</b> ${email}</p>
-       <p><b>Adults:</b> ${adults}</p>
-       <p><b>Children:</b> ${children}</p>`
-
+           <p><b>Email:</b> ${email}</p>
+           <p><b>Adults:</b> ${adults}</p>
+           <p><b>Children:</b> ${kids}</p>`
   };
 
   // Confirmation email to guest
@@ -82,10 +84,10 @@ const { names, email, adults, children } = req.body;
     from: { email: process.env.EMAIL_FROM, name: 'Dehan ❤️ Michaela Wedding' },
     subject: 'Your RSVP is Confirmed!',
     html: `<div style="text-align:center; background:#fffafc; padding:25px; border-radius:10px;">
-      <h2 style="color:#c85a9e;">Hi ${name},</h2>
-      <p>Thank you for RSVPing! We’ve recorded <b>${guests}</b> guest(s).</p>
+      <h2 style="color:#c85a9e;">Hi ${nameList},</h2>
+      <p>Thank you for RSVPing! We’ve recorded <b>${adults}</b> adult(s) and <b>${kids}</b> child(ren).</p>
       <p>We can’t wait to celebrate with you on <b>16 May 2026</b> at Rustic Gem Venue, Cullinan.</p>
-      <p>With love,<br>Dehan & Michaela</p>
+      <p>💖 With love,<br>Dehan & Michaela</p>
     </div>`
   };
 
@@ -101,9 +103,4 @@ const { names, email, adults, children } = req.body;
     console.error('❌ Error sending emails:', err);
     res.status(500).json({ error: 'Failed to send RSVP or confirmation email. Please try again.' });
   }
-});
-
-// ✅ Start server
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
 });
