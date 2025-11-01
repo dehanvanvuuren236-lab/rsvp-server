@@ -23,8 +23,7 @@ app.use(express.static('public'));
 
 // ✅ Environment variable check
 if (!process.env.SENDGRID_API_KEY || !process.env.EMAIL_FROM) {
-  console.error("❌ Missing SENDGRID_API_KEY or EMAIL_FROM in environment variables!");
-  process.exit(1);
+  console.warn("❌ Missing SENDGRID_API_KEY or EMAIL_FROM in environment variables! Emails won't send.");
 }
 
 // ✅ Initialize SendGrid
@@ -103,4 +102,8 @@ app.post('/api/rsvp', async (req, res) => {
     console.error('❌ Error sending emails:', err);
     res.status(500).json({ error: 'Failed to send RSVP or confirmation email. Please try again.' });
   }
+});
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
