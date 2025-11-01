@@ -97,66 +97,112 @@
                                 <div class="clock clock-fix"></div>
                             </div>
 
-                            <!-- RSVP Form -->
-                            <h2>RSVP</h2>
-                            <div class="rsvp-container animate-box" data-animate-effect="fadeIn">
-                                <form id="rsvpForm" class="rsvp-form">
-                                    <input type="text" id="name" placeholder="Your Name" required>
-                                    <input type="email" id="email" placeholder="Your Email" required>
-                                    <input type="number" id="guests" placeholder="Number of Guests" min="1" required>
-                                    <button type="submit" class="rsvp-btn">Send RSVP</button>
-                                </form>
-                                <p id="response" style="margin-top:20px;"></p>
-                            </div>
+                           <!-- RSVP Form -->
+<h2>RSVP</h2>
+<div class="rsvp-container animate-box" data-animate-effect="fadeIn">
+    <form id="rsvpForm" class="rsvp-form">
+        <div id="namesContainer">
+            <input type="text" name="name" placeholder="Guest Name" required>
+        </div>
+        <button type="button" id="addNameBtn" class="add-name-btn">+ Add Another Name</button>
 
-                            <script>
-                                const form = document.getElementById('rsvpForm');
-                                const response = document.getElementById('response');
+        <input type="email" id="email" placeholder="Your Email" required>
 
-                                form.addEventListener('submit', async (e) => {
-                                    e.preventDefault();
+        <div class="guest-counts">
+            <input type="number" id="adults" placeholder="Number of Adults" min="0" required>
+            <input type="number" id="children" placeholder="Number of Children" min="0" required>
+        </div>
 
-                                    const name = document.getElementById('name').value.trim();
-                                    const email = document.getElementById('email').value.trim();
-                                    const guests = document.getElementById('guests').value.trim();
+        <button type="submit" class="rsvp-btn">Send RSVP</button>
+    </form>
+    <p id="response" style="margin-top:20px;"></p>
+</div>
 
-                                    if (!name || !email || !guests) {
-                                        response.textContent = "Please fill out all fields.";
-                                        response.style.color = "red";
-                                        return;
-                                    }
+<style>
+    .add-name-btn {
+        display: block;
+        margin: 10px 0;
+        background: #f3f3f3;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: 0.2s;
+    }
+    .add-name-btn:hover {
+        background: #e5e5e5;
+    }
+    .guest-counts {
+        display: flex;
+        gap: 10px;
+    }
+    .guest-counts input {
+        flex: 1;
+    }
+</style>
 
-                                    // Show spinner
-                                    response.innerHTML = '<span class="rsvp-spinner"></span>Sending RSVP...';
-                                    response.style.color = "#333";
+<script>
+    const form = document.getElementById('rsvpForm');
+    const response = document.getElementById('response');
+    const namesContainer = document.getElementById('namesContainer');
+    const addNameBtn = document.getElementById('addNameBtn');
 
-                                    try {
-                                        const res = await fetch('https://rsvp-server-drjw.onrender.com/api/rsvp', {
-                                            method: 'POST',
-                                            headers: { 'Content-Type': 'application/json' },
-                                            body: JSON.stringify({ name, email, guests })
-                                        });
+    addNameBtn.addEventListener('click', () => {
+        const newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.name = 'name';
+        newInput.placeholder = 'Guest Name';
+        newInput.required = true;
+        namesContainer.appendChild(newInput);
+    });
 
-                                        const data = await res.json();
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-                                        if (res.ok) {
-                                            response.textContent = data.message;
-                                            response.style.color = "green";
-                                            form.reset();
-                                        } else {
-                                            response.textContent = data.error || "Something went wrong.";
-                                            response.style.color = "red";
-                                        }
-                                    } catch (err) {
-                                        response.textContent = "Failed to send RSVP. Please try again.";
-                                        response.style.color = "red";
-                                        console.error(err);
-                                    }
+        const nameInputs = document.querySelectorAll('input[name="name"]');
+        const names = Array.from(nameInputs).map(input => input.value.trim()).filter(Boolean);
+        const email = document.getElementById('email').value.trim();
+        const adults = document.getElementById('adults').value.trim();
+        const children = document.getElementById('children').value.trim();
 
-                                    // Auto-clear after 10 seconds
-                                    setTimeout(() => { response.textContent = ''; }, 10000);
-                                });
-                            </script>
+        if (!names.length || !email) {
+            response.textContent = "Please fill out all fields.";
+            response.style.color = "red";
+            return;
+        }
+
+        response.innerHTML = '<span class="rsvp-spinner"></span>Sending RSVP...';
+        response.style.color = "#333";
+
+        try {
+            const res = await fetch('https://rsvp-server-drjw.onrender.com/api/rsvp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ names, email, adults, children })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                response.textContent = data.message;
+                response.style.color = "green";
+                form.reset();
+                namesContainer.innerHTML = '<input type="text" name="name" placeholder="Guest Name" required>';
+            } else {
+                response.textContent = data.error || "Something went wrong.";
+                response.style.color = "red";
+            }
+        } catch (err) {
+            response.textContent = "Failed to send RSVP. Please try again.";
+            response.style.color = "red";
+            console.error(err);
+        }
+
+        setTimeout(() => { response.textContent = ''; }, 10000);
+    });
+</script>
+
 
                         </div>
                     </div>

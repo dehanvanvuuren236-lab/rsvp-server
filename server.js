@@ -47,12 +47,14 @@ async function sendEmail(msg, label) {
 app.post('/api/rsvp', async (req, res) => {
   console.log('📥 Received RSVP request:', JSON.stringify(req.body));
 
-  const { name, email, guests } = req.body;
+const { names, email, adults, children } = req.body;
 
-  if (!name || !email || !guests) {
+  if (!names || !email) {
     console.warn('⚠️ RSVP missing required fields:', req.body);
     return res.status(400).json({ error: 'All fields are required.' });
   }
+
+  const nameList = Array.isArray(names) ? names.join(', ') : names;
 
   // Basic email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -66,13 +68,12 @@ app.post('/api/rsvp', async (req, res) => {
     to: process.env.EMAIL_FROM,
     from: process.env.EMAIL_FROM,
     subject: `💌 New RSVP from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nGuests: ${guests}`,
-    html: `<div>
-      <h3>New RSVP Received 🎉</h3>
-      <p><b>Name:</b> ${name}</p>
-      <p><b>Email:</b> ${email}</p>
-      <p><b>Guests:</b> ${guests}</p>
-    </div>`
+    text: `Names: ${nameList}\nEmail: ${email}\nAdults: ${adults}\nChildren: ${children}`,
+    html: `<p><b>Names:</b> ${nameList}</p>
+       <p><b>Email:</b> ${email}</p>
+       <p><b>Adults:</b> ${adults}</p>
+       <p><b>Children:</b> ${children}</p>`
+
   };
 
   // Confirmation email to guest
@@ -84,7 +85,7 @@ app.post('/api/rsvp', async (req, res) => {
       <h2 style="color:#c85a9e;">Hi ${name},</h2>
       <p>Thank you for RSVPing! We’ve recorded <b>${guests}</b> guest(s).</p>
       <p>We can’t wait to celebrate with you on <b>16 May 2026</b> at Rustic Gem Venue, Cullinan.</p>
-      <p>💖 With love,<br>Dehan & Michaela</p>
+      <p>With love,<br>Dehan & Michaela</p>
     </div>`
   };
 
