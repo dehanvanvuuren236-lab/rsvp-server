@@ -603,37 +603,118 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
         <h2>Accommodation</h2>
-        <p class="section-subtitle">Comfortable and elegant stays near our venue</p>
+        <p class="section-subtitle">Comfortable and elegant stays at our venue</p>
       </div>
     </div>
 
     <div class="row accommodation-gallery">
-      <!-- Example Accommodation Images -->
+      <!-- Accommodation 1 -->
       <div class="col-md-4 col-sm-6 animate-box">
-        <div class="accommodation-card" style="background-image: url('images/hotel1.jpg');">
-          <div class="accommodation-overlay">
-            <span>Grand Palace Hotel</span>
+        <div class="accommodation-card">
+          <div class="accommodation-slider">
+            <img src="images/CabinOutside.jpg" alt="Cabin Outside">
+            <img src="images/CabinInside.jpg" alt="Cabin Inside">
+            <img src="images/CabinBathroomOutside.jpg" alt="Cabin Bathroom Outside">
+            <img src="images/CabinBathroomInside.jpg" alt="Cabin Bathroom Inside">
           </div>
+          <div class="accommodation-overlay">
+            <span>Wooden Cabins</span>
+          </div>
+          <!-- Carousel Arrows -->
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
         </div>
       </div>
+
+      <!-- Accommodation 2 -->
       <div class="col-md-4 col-sm-6 animate-box">
-        <div class="accommodation-card" style="background-image: url('images/hotel2.jpg');">
-          <div class="accommodation-overlay">
-            <span>Riverside Suites</span>
+        <div class="accommodation-card">
+          <div class="accommodation-slider">
+            <img src="images/GuestHouseMain.jpg" alt="Guest House Main Area">
+            <img src="images/GuestHouse1.jpg" alt="Guest House Room 1">
+            <img src="images/GuestHouse2.jpg" alt="Guest House Room 2">
+            <img src="images/GuestHouse3.jpg" alt="Guest House Room 2">
+            <img src="images/GuestHouse4.jpg" alt="Guest House Room 4">
           </div>
+          <div class="accommodation-overlay">
+            <span>Guest House</span>
+          </div>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
         </div>
       </div>
+
+      <!-- Accommodation 3 -->
       <div class="col-md-4 col-sm-6 animate-box">
-        <div class="accommodation-card" style="background-image: url('images/hotel3.jpg');">
-          <div class="accommodation-overlay">
-            <span>City Center Inn</span>
+        <div class="accommodation-card">
+          <div class="accommodation-slider">
+            <img src="images/EnSuiteOutside.jpg" alt="En Suite Outside">
+            <img src="images/EnSuiteInside.jpg" alt="En Suite Inside">
           </div>
+          <div class="accommodation-overlay">
+            <span>En Suite Rooms</span>
+          </div>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
         </div>
       </div>
-      <!-- Add more accommodation images similarly -->
+
+      <!-- Add more accommodations similarly -->
+
     </div>
   </div>
 </div>
+
+<script>
+document.querySelectorAll('.accommodation-card').forEach(card => {
+  const slider = card.querySelector('.accommodation-slider');
+  const images = slider.querySelectorAll('img');
+  const prevBtn = card.querySelector('.prev');
+  const nextBtn = card.querySelector('.next');
+  let currentIndex = 0;
+  let startX = 0;
+  let endX = 0;
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  // Arrow buttons
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateSlider();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateSlider();
+  });
+
+  // Swipe support for mobile
+  slider.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', e => {
+    endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) {
+      // Swipe left → next
+      currentIndex = (currentIndex + 1) % images.length;
+      updateSlider();
+    } else if (endX - startX > 50) {
+      // Swipe right → prev
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateSlider();
+    }
+  });
+
+  // Optional: Auto slide every 5s
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateSlider();
+  }, 5000);
+});
+</script>
 
 <div class="gototop js-top">
 <a href="#" class="js-gotop">
