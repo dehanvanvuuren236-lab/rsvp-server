@@ -535,3 +535,69 @@ body::before {
         gap: 8px;
     }
 }
+
+/* ========================================
+   Dress Code Section
+======================================== */
+#fh5co-dresscode {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6em 0;
+}
+
+.dresscode-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 30px 20px;
+  margin: 15px auto;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dresscode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.dresscode-card img {
+  width: 80px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.dresscode-card h3 {
+  font-family: "Amsterdam", serif;
+  font-size: 1.6em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dresscode-card p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1em;
+  color: #666;
+}
+
+.color-swatches {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.color-swatches span {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+/* --- Mobile Adjustments --- */
+@media screen and (max-width: 768px) {
+  .dresscode-card {
+    margin-bottom: 25px;
+  }
+
+  .dresscode-card img {
+    width: 60px;
+  }
+}
