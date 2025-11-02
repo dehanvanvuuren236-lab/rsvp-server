@@ -716,7 +716,7 @@ body::before {
   justify-content: center;
   opacity: 0;
   color: #fff;
-  font-family: "Parisienne", cursive;
+  font-family: "Sofia Sans Condensed", sans-serif;
   font-size: 1.4rem;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -774,5 +774,121 @@ body::before {
 
   .accommodation-gallery {
     gap: 10px;
+  }
+}
+/* 💒 Venue & Location Section Styling */
+.venue-location-section {
+  position: relative;
+  background: url('images/wedding-bg.jpg') center/cover no-repeat;
+  color: #fff;
+  padding: 80px 20px;
+}
+
+.venue-location-section .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.venue-location-section .container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 🩷 Venue Card */
+.venue-card {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+.venue-card h3 {
+  color: #c85a9e;
+  font-family: "Great Vibes", cursive;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.venue-details {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.venue-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* 🗺️ Location Section */
+.location-section {
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  padding: 25px 20px;
+  border-radius: 12px;
+}
+
+.location-section h3 {
+  color: #c85a9e;
+  font-family: "Great Vibes", cursive;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.map-container {
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+.directions {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* 📱 Mobile Friendly Layout */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .venue-details {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .venue-card,
+  .location-section {
+    padding: 20px 15px;
+  }
+
+  .map-container iframe {
+    height: 250px;
   }
 }
