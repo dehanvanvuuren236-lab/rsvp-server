@@ -2,332 +2,343 @@
    Fonts
 ======================================== */
 @font-face {
-  font-family: 'icomoon';
-  src: url("../fonts/icomoon/icomoon.eot?srf3rx");
-  src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"),
-       url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"),
-       url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"),
-       url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'icomoon';
+    src: url("../fonts/icomoon/icomoon.eot?srf3rx");
+    src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
 }
 
-@font-face { 
-  font-family: 'Amsterdam'; 
-  src: url('../fonts/AmsterdamOne.ttf'); 
+@font-face {
+    font-family: 'Amsterdam';
+    src: url("../fonts/AmsterdamOne.ttf");
 }
 
 /* ========================================
    Global Styles
 ======================================== */
 body {
-  font-family: "Work Sans", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #828282;
-  background: #fff;
+    font-family: "Work Sans", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #828282;
+    background: #fff;
 }
 
 a {
-  color: #646464;
-  transition: color 0.5s;
-  text-decoration: none;
+    color: #646464;
+    transition: color 0.5s;
+    text-decoration: none;
 }
 
-a:hover, a:focus {
-  color: #646464;
-  outline: none;
+a:focus,
+a:hover {
+    color: #646464;
+    outline: none;
 }
 
 p {
-  margin-bottom: 20px;
-  color: #646464;
-  font-family: "Engagement", Arial, serif;
+    margin-bottom: 20px;
+    color: #646464;
+    font-family: "Engagement", Arial, serif;
 }
 
-h1, h2, h3, h4, h5, h6, figure {
-  color: #000;
-  font-family: "Work Sans", Arial, sans-serif;
-  font-weight: 400;
-  margin: 0 0 20px;
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #000;
+    font-family: "Work Sans", Arial, sans-serif;
+    font-weight: 400;
+    margin: 0 0 20px;
 }
 
 ::selection {
-  color: #fff;
-  background: #646464;
+    color: #fff;
+    background: #646464;
 }
 
 /* ========================================
    Containers & Layout
 ======================================== */
 .rsvp-container {
-  max-width: 450px;
-  margin: 20px auto;
-  padding: 20px;
-  background: rgba(255,255,255,0.95);
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  text-align: center;
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
 .rsvp-form input {
-  width: 90%;
-  padding: 12px 15px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  box-sizing: border-box;
+    width: 90%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 .guest-inputs {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .guest-inputs input {
-  flex: 1 1 45%;
+    flex: 1 1 45%;
 }
 
 .rsvp-btn {
-  background-color: #ff6b81;
-  color: #fff;
-  padding: 12px 25px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    background-color: #ff6b81;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .rsvp-btn:hover {
-  background-color: #ff4757;
-  transform: translateY(-2px);
+    background-color: #ff4757;
+    transform: translateY(-2px);
 }
 
 #response {
-  font-size: 16px;
-  margin-top: 15px;
+    font-size: 16px;
+    margin-top: 15px;
 }
 
 @media screen and (max-width: 480px) {
-  .guest-inputs input {
-    flex: 1 1 100%;
-  }
+    .guest-inputs input {
+        flex: 1 1 100%;
+    }
 
-  .rsvp-container {
-    width: 90%;
-    padding: 15px;
-  }
+    .rsvp-container {
+        width: 90%;
+        padding: 15px;
+    }
 
-  .rsvp-btn {
-    width: 100%;
-    font-size: 15px;
-  }
+    .rsvp-btn {
+        width: 100%;
+        font-size: 15px;
+    }
 }
 
 #page {
-  position: relative;
-  overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-  transition: 0.5s;
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
 }
 
 .offcanvas #page {
-  overflow: hidden;
-  position: absolute;
+    overflow: hidden;
+    position: absolute;
 }
 
 .offcanvas #page:after {
-  content: "";
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  background: rgba(0,0,0,0.7);
-  z-index: 101;
-  transition: 2s;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 101;
+    transition: 2s;
 }
 
 /* ========================================
    Header & Navigation
 ======================================== */
 @media screen and (max-width: 768px) {
-  .fh5co-nav ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(0,0,0,0.8);
-    border-radius: 8px;
-    padding: 10px;
-  }
+    .fh5co-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0,0,0,0.8);
+        border-radius: 8px;
+        padding: 10px;
+    }
 
-  .fh5co-nav ul li {
-    display: block;
-    margin: 10px 0;
-  }
+    .fh5co-nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 
-  .fh5co-nav ul li a {
-    font-size: 18px;
-    padding: 10px 0;
-    color: #fff;
-  }
+    .fh5co-nav ul li a {
+        font-size: 18px;
+        padding: 10px 0;
+        color: #fff;
+    }
 }
 
-
 .fh5co-nav {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 40px 0;
-  z-index: 1001;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 40px 0;
+    z-index: 1001;
 }
 
 .fh5co-nav #fh5co-logo {
-  font-size: 40px;
-  line-height: 40px;
-  font-family: "Sofia Sans Condensed";
+    font-size: 40px;
+    line-height: 40px;
+    font-family: "Sofia Sans Condensed";
 }
 
 .fh5co-nav ul {
-  padding: 0;
-  margin: 2px 0 0;
-  list-style: none;
+    padding: 0;
+    margin: 2px 0 0;
+    list-style: none;
 }
 
 .fh5co-nav ul li {
-  display: inline;
+    display: inline;
 }
 
 .fh5co-nav ul li a {
-  font-size: 20px;
-  font-family: "Sofia Sans Condensed";
-  padding: 30px 10px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  transition: 0.5s;
+    font-size: 20px;
+    font-family: "Sofia Sans Condensed";
+    padding: 30px 10px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    transition: 0.5s;
 }
 
-.fh5co-nav ul li a:hover,
+.fh5co-nav ul li a:active,
 .fh5co-nav ul li a:focus,
-.fh5co-nav ul li a:active {
-  color: #fff;
+.fh5co-nav ul li a:hover {
+    color: #fff;
 }
 
 /* Dropdown */
 .fh5co-nav ul li.has-dropdown .dropdown {
-  width: 130px;
-  background: #fff;
-  padding: 20px;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 1002;
-  box-shadow: 0px 14px 33px -9px rgba(0,0,0,0.75);
+    width: 130px;
+    background: #fff;
+    padding: 20px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1002;
+    box-shadow: 0 14px 33px -9px rgba(0,0,0,0.75);
 }
 
-.fh5co-nav ul li.has-dropdown:hover a,
-.fh5co-nav ul li.has-dropdown:focus a {
-  color: #fff;
+.fh5co-nav ul li.has-dropdown:focus a,
+.fh5co-nav ul li.has-dropdown:hover a {
+    color: #fff;
 }
 
 /* ========================================
    Sections
 ======================================== */
-.fh5co-section, #fh5co-testimonial, #fh5co-services, #fh5co-started,
-#fh5co-footer, #fh5co-event, #fh5co-couple-story, #fh5co-couple,
-#fh5co-gallery {
-  padding: 7em 0;
-  clear: both;
+#fh5co-couple,
+#fh5co-couple-story,
+#fh5co-event,
+#fh5co-footer,
+#fh5co-gallery,
+#fh5co-services,
+#fh5co-started,
+#fh5co-testimonial,
+.fh5co-section {
+    padding: 7em 0;
+    clear: both;
 }
 
 .fh5co-section-gray {
-  background: rgba(0,0,0,0.04);
+    background: rgba(0,0,0,0.04);
 }
 
 /* ========================================
    Timeline
 ======================================== */
 @media screen and (max-width: 768px) {
-  .timeline:before {
-    left: 10px;
-  }
+    .timeline:before {
+        left: 10px;
+    }
 
-  .timeline > li > .timeline-panel {
-    width: 90% !important;
-    float: none;
-    margin: 0 auto 20px;
-  }
+    .timeline > li > .timeline-panel {
+        width: 90% !important;
+        float: none;
+        margin: 0 auto 20px;
+    }
 
-  #fh5co-gallery-list {
-    flex-direction: column;
-    align-items: center;
-  }
+    #fh5co-gallery-list {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  #fh5co-gallery-list li {
-    width: 95%;
-    min-height: 250px;
-  }
+    #fh5co-gallery-list li {
+        width: 95%;
+        min-height: 250px;
+    }
 }
 
-
 .timeline {
-  list-style: none;
-  padding: 20px 0;
-  position: relative;
+    list-style: none;
+    padding: 20px 0;
+    position: relative;
 }
 
 .timeline:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background-color: #d4d4d4;
-  left: 50%;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #d4d4d4;
+    left: 50%;
 }
 
 .timeline > li {
-  margin-bottom: 20px;
-  position: relative;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 .timeline > li > .timeline-panel {
-  width: 40%;
-  float: left;
-  border: 1px solid #d4d4d4;
-  padding: 30px;
-  border-radius: 4px;
-  position: relative;
+    width: 40%;
+    float: left;
+    border: 1px solid #d4d4d4;
+    padding: 30px;
+    border-radius: 4px;
+    position: relative;
 }
 
 .timeline > li.timeline-inverted > .timeline-panel {
-  float: right;
+    float: right;
 }
 
 /* ========================================
    Gallery
 ======================================== */
 #fh5co-gallery-list {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 }
 
 #fh5co-gallery-list li {
-  list-style: none;
-  margin: 0 0 10px 1%;
-  min-height: 400px;
-  border-radius: 7px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
+    list-style: none;
+    margin: 0 0 10px 1%;
+    min-height: 400px;
+    border-radius: 7px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 /* ========================================
@@ -335,57 +346,192 @@ h1, h2, h3, h4, h5, h6, figure {
 ======================================== */
 /* --- Mobile Responsive RSVP Form --- */
 @media screen and (max-width: 768px) {
-  .rsvp-container {
-    width: 90%;
-    padding: 20px 10px;
-    margin: 20px auto;
-  }
+    .rsvp-container {
+        width: 90%;
+        padding: 20px 10px;
+        margin: 20px auto;
+    }
 
-  .rsvp-form input {
-    width: 100%;
-    font-size: 16px;
-    padding: 14px;
-  }
+    .rsvp-form input {
+        width: 100%;
+        font-size: 16px;
+        padding: 14px;
+    }
 
-  .rsvp-btn {
-    width: 100%;
-    font-size: 17px;
-    padding: 14px;
-  }
+    .rsvp-btn {
+        width: 100%;
+        font-size: 17px;
+        padding: 14px;
+    }
 
-  .fh5co-section, #fh5co-testimonial, #fh5co-services, #fh5co-started,
-  #fh5co-footer, #fh5co-event, #fh5co-couple-story, #fh5co-couple,
-  #fh5co-gallery {
-    padding: 3em 0;
-  }
+    #fh5co-couple,
+    #fh5co-couple-story,
+    #fh5co-event,
+    #fh5co-footer,
+    #fh5co-gallery,
+    #fh5co-services,
+    #fh5co-started,
+    #fh5co-testimonial,
+    .fh5co-section {
+        padding: 3em 0;
+    }
 
-  #fh5co-gallery-list li.one-third {
-    width: 49%;
-  }
+    #fh5co-gallery-list li.one-third {
+        width: 49%;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  #fh5co-gallery-list li.one-third {
-    width: 100%;
-  }
+    #fh5co-gallery-list li.one-third {
+        width: 100%;
+    }
 
-  .timeline:before {
-    margin-left: -64px;
-  }
+    .timeline:before {
+        margin-left: -64px;
+    }
 
-  .timeline > li > .timeline-panel {
-    width: 75% !important;
-  }
+    .timeline > li > .timeline-panel {
+        width: 75% !important;
+    }
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-.container, .section {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+.container,
+.section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   Background Image (Global)
+======================================== */
+body {
+    background-image: url("../images/wedding-bg.jpg");
+    /* replace with your actual path */
+    background-size: cover;
+    /* make it fill the screen */
+    background-position: center;
+    /* keep focus centered */
+    background-attachment: fixed;
+    /* subtle parallax effect on desktop */
+    background-repeat: no-repeat;
+}
+
+/* Add a soft overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.6);
+    /* adjust opacity for brightness */
+    z-index: -1;
+}
+
+/* For mobile, disable fixed attachment (for smoother scrolling) */
+@media screen and (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-position: center top;
+    }
+
+    body::before {
+        background: rgba(255, 255, 255, 0.75);
+        /* slightly brighter on mobile */
+    }
+}
+
+.rsvp-container {
+    backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* ========================================
+   Improved Gallery Styling
+======================================== */
+#fh5co-gallery-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#fh5co-gallery-list li {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#fh5co-gallery-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+#fh5co-gallery-list a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Overlay effect */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: "Sofia Sans Condensed", sans-serif;
+}
+
+#fh5co-gallery-list li:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+    #fh5co-gallery-list {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 10px;
+    }
+
+    #fh5co-gallery-list li {
+        min-height: 200px;
+    }
+
+    .gallery-overlay span {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #fh5co-gallery-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
 }
