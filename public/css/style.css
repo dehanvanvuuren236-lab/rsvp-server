@@ -681,101 +681,97 @@ body::before {
   }
 }
 
-/* ========================================
-   Accommodation Section
+/* ======================================== 
+   Accommodation Section Styles
 ======================================== */
+
+#fh5co-accommodation {
+  background-color: #fff;
+  padding: 60px 0;
+}
+
+.accommodation-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
 .accommodation-card {
   position: relative;
-  width: 100%;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+
+.accommodation-card:hover {
+  transform: translateY(-5px);
 }
 
 .accommodation-slider {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
   width: 100%;
-  height: 250px;
 }
 
 .accommodation-slider img {
   width: 100%;
+  height: auto;
   flex-shrink: 0;
+  border-radius: 15px;
   object-fit: cover;
-  height: 250px;
-  border-radius: 12px;
 }
 
+/* Overlay (title bar) */
 .accommodation-overlay {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
   color: #fff;
-  font-family: "Sofia Sans Condensed", sans-serif;
-  font-size: 1.4rem;
+  font-family: "Playfair Display", "Amsterdam", serif;
+  font-size: 1.6rem;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 10px 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
 }
 
+/* Hover effect (desktop only) */
 .accommodation-card:hover .accommodation-overlay {
   opacity: 1;
+  transform: translateY(0);
 }
 
-/* Carousel Arrows */
-.accommodation-card button.prev,
-.accommodation-card button.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-}
-
-.accommodation-card button.prev {
-  left: 10px;
-}
-
-.accommodation-card button.next {
-  right: 10px;
-}
-
-.accommodation-card button:hover {
-  background: rgba(0,0,0,0.8);
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .accommodation-slider img {
-    height: 180px;
-  }
-
-  .accommodation-card button.prev,
-  .accommodation-card button.next {
-    display: none; /* hide arrows on mobile for swipe */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .accommodation-slider img {
-    height: 150px;
-  }
-
+/* ======================================== 
+   Mobile Responsiveness
+======================================== */
+@media (max-width: 768px) {
   .accommodation-gallery {
-    gap: 10px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .accommodation-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Always show overlay at bottom for mobile */
+  .accommodation-overlay {
+    opacity: 1 !important;
+    transform: translateY(0);
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 1.3rem;
+    padding: 8px 0;
   }
 }
+
 /* 💒 Venue & Location Section Styling */
 .venue-location-section {
   position: relative;

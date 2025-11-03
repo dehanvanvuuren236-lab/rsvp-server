@@ -517,7 +517,7 @@
                             </div>
 
                             <div class="row accommodation-gallery">
-                                <!-- Accommodation 1 -->
+                                <!-- Accommodation Card -->
                                 <div class="col-md-4 col-sm-6 animate-box">
                                     <div class="accommodation-card">
                                         <div class="accommodation-slider">
@@ -527,33 +527,26 @@
                                             <img src="images/CabinBathroomInside.jpg" alt="Cabin Bathroom Inside">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>Wooden Cabins</span>
-                                        </div>
-                                        <!-- Carousel Arrows -->
-                                        <button class="prev">&#10094;</button>
-                                        <button class="next">&#10095;</button>
+                                            <span>Wooden Cabins</span></div>
                                     </div>
                                 </div>
 
-                                <!-- Accommodation 2 -->
+                                <!-- Accommodation Card -->
                                 <div class="col-md-4 col-sm-6 animate-box">
                                     <div class="accommodation-card">
                                         <div class="accommodation-slider">
                                             <img src="images/GuestHouseMain.jpg" alt="Guest House Main Area">
                                             <img src="images/GuestHouse1.jpg" alt="Guest House Room 1">
                                             <img src="images/GuestHouse2.jpg" alt="Guest House Room 2">
-                                            <img src="images/GuestHouse3.jpg" alt="Guest House Room 2">
+                                            <img src="images/GuestHouse3.jpg" alt="Guest House Room 3">
                                             <img src="images/GuestHouse4.jpg" alt="Guest House Room 4">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>Guest House</span>
-                                        </div>
-                                        <button class="prev">&#10094;</button>
-                                        <button class="next">&#10095;</button>
+                                            <span>Guest House</span></div>
                                     </div>
                                 </div>
 
-                                <!-- Accommodation 3 -->
+                                <!-- Accommodation Card -->
                                 <div class="col-md-4 col-sm-6 animate-box">
                                     <div class="accommodation-card">
                                         <div class="accommodation-slider">
@@ -561,47 +554,29 @@
                                             <img src="images/EnSuiteInside.jpg" alt="En Suite Inside">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>En Suite Rooms</span>
-                                        </div>
-                                        <button class="prev">&#10094;</button>
-                                        <button class="next">&#10095;</button>
+                                            <span>En Suite Rooms</span></div>
                                     </div>
                                 </div>
-
-                                <!-- Add more accommodations similarly -->
-
                             </div>
                         </div>
                     </div>
 
+                    <!-- ======================================== Swipe Slider Script
+                    ======================================== -->
                     <script>
                         document
                             .querySelectorAll('.accommodation-card')
                             .forEach(card => {
                                 const slider = card.querySelector('.accommodation-slider');
                                 const images = slider.querySelectorAll('img');
-                                const prevBtn = card.querySelector('.prev');
-                                const nextBtn = card.querySelector('.next');
                                 let currentIndex = 0;
                                 let startX = 0;
-                                let endX = 0;
 
                                 function updateSlider() {
                                     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
                                 }
 
-                                // Arrow buttons
-                                prevBtn.addEventListener('click', () => {
-                                    currentIndex = (currentIndex - 1 + images.length) % images.length;
-                                    updateSlider();
-                                });
-
-                                nextBtn.addEventListener('click', () => {
-                                    currentIndex = (currentIndex + 1) % images.length;
-                                    updateSlider();
-                                });
-
-                                // Swipe support for mobile
+                                // Touch swipe logic
                                 slider.addEventListener('touchstart', e => {
                                     startX = e
                                         .touches[0]
@@ -609,52 +584,24 @@
                                 });
 
                                 slider.addEventListener('touchend', e => {
-                                    endX = e
+                                    const endX = e
                                         .changedTouches[0]
                                         .clientX;
                                     if (startX - endX > 50) {
-                                        // Swipe left → next
-                                        currentIndex = (currentIndex + 1) % images.length;
-                                        updateSlider();
+                                        currentIndex = (currentIndex + 1) % images.length; // Swipe left
                                     } else if (endX - startX > 50) {
-                                        // Swipe right → prev
-                                        currentIndex = (currentIndex - 1 + images.length) % images.length;
-                                        updateSlider();
+                                        currentIndex = (currentIndex - 1 + images.length) % images.length; // Swipe right
                                     }
+                                    updateSlider();
                                 });
 
-                                // Optional: Auto slide every 5s
+                                // Optional auto-slide
                                 setInterval(() => {
                                     currentIndex = (currentIndex + 1) % images.length;
                                     updateSlider();
                                 }, 5000);
                             });
                     </script>
-
-                    <div class="gototop js-top">
-                        <a href="#" class="js-gotop">
-                            <i class="icon-arrow-up"></i>
-                        </a>
-                    </div>
-
-                    <!-- JS -->
-                    <script src="js/jquery.min.js"></script>
-                    <script src="js/clock.js"></script>
-                    <script src="js/jquery.easing.1.3.js"></script>
-                    <script src="js/bootstrap.min.js"></script>
-                    <script src="js/jquery.waypoints.min.js"></script>
-                    <script src="js/owl.carousel.min.js"></script>
-                    <script src="js/jquery.countTo.js"></script>
-                    <script src='https://momentjs.com/downloads/moment.js'></script>
-                    <script
-                        src='https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js'></script>
-                    <script
-                        src='https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.js'></script>
-                    <script src="js/jquery.stellar.min.js"></script>
-                    <script src="js/jquery.magnific-popup.min.js"></script>
-                    <script src="js/magnific-popup-options.js"></script>
-                    <script src="js/simplyCountdown.js"></script>
-                    <script src="js/main.js"></script>
 
                 </body>
             </html>
