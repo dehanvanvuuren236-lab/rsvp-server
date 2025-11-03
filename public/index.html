@@ -517,7 +517,7 @@
                             </div>
 
                             <div class="row accommodation-gallery">
-                                <!-- Accommodation Card -->
+                                <!-- Accommodation 1 -->
                                 <div class="col-md-4 col-sm-6 animate-box">
                                     <div class="accommodation-card">
                                         <div class="accommodation-slider">
@@ -527,11 +527,12 @@
                                             <img src="images/CabinBathroomInside.jpg" alt="Cabin Bathroom Inside">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>Wooden Cabins</span></div>
+                                            <span>Wooden Cabins</span>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Accommodation Card -->
+                                <!-- Accommodation 2 -->
                                 <div class="col-md-4 col-sm-6 animate-box">
                                     <div class="accommodation-card">
                                         <div class="accommodation-slider">
@@ -542,11 +543,12 @@
                                             <img src="images/GuestHouse4.jpg" alt="Guest House Room 4">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>Guest House</span></div>
+                                            <span>Guest House</span>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Accommodation Card -->
+                                <!-- Accommodation 3 -->
                                 <div class="col-md-4 col-sm-6 animate-box">
                                     <div class="accommodation-card">
                                         <div class="accommodation-slider">
@@ -554,29 +556,31 @@
                                             <img src="images/EnSuiteInside.jpg" alt="En Suite Inside">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>En Suite Rooms</span></div>
+                                            <span>En Suite Rooms</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ======================================== Swipe Slider Script
+                    <!-- ======================================== 
+                    Swipe Slider Script
                     ======================================== -->
                     <script>
+                        // Simple swipe slider (no arrows, no auto-scroll)
                         document
-                            .querySelectorAll('.accommodation-card')
-                            .forEach(card => {
-                                const slider = card.querySelector('.accommodation-slider');
-                                const images = slider.querySelectorAll('img');
+                            .querySelectorAll('.accommodation-slider')
+                            .forEach(slider => {
                                 let currentIndex = 0;
+                                const images = slider.querySelectorAll('img');
                                 let startX = 0;
+                                let endX = 0;
 
                                 function updateSlider() {
                                     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
                                 }
 
-                                // Touch swipe logic
                                 slider.addEventListener('touchstart', e => {
                                     startX = e
                                         .touches[0]
@@ -584,22 +588,21 @@
                                 });
 
                                 slider.addEventListener('touchend', e => {
-                                    const endX = e
+                                    endX = e
                                         .changedTouches[0]
                                         .clientX;
-                                    if (startX - endX > 50) {
-                                        currentIndex = (currentIndex + 1) % images.length; // Swipe left
-                                    } else if (endX - startX > 50) {
-                                        currentIndex = (currentIndex - 1 + images.length) % images.length; // Swipe right
-                                    }
-                                    updateSlider();
-                                });
+                                    const diff = startX - endX;
 
-                                // Optional auto-slide
-                                setInterval(() => {
-                                    currentIndex = (currentIndex + 1) % images.length;
-                                    updateSlider();
-                                }, 5000);
+                                    if (diff > 50) {
+                                        // Swipe left → next
+                                        currentIndex = (currentIndex + 1) % images.length;
+                                        updateSlider();
+                                    } else if (diff < -50) {
+                                        // Swipe right → previous
+                                        currentIndex = (currentIndex - 1 + images.length) % images.length;
+                                        updateSlider();
+                                    }
+                                });
                             });
                     </script>
 
