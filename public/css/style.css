@@ -1,3 +1,12 @@
+:root {
+  --primary-color: #b8a9c9;      /* Soft Purple */
+  --secondary-color: #c3b1d1;    /* Dusty Lavender */
+  --accent-color: #6f42c1;       /* Deep Purple */
+  --text-color: #2f2f2f;         /* Dark Gray */
+  --light-gray: #f2f2f2;
+  --black: #000000;
+}
+
 /* ========================================
    Google Fonts
 ======================================== */
@@ -25,51 +34,100 @@
 /* ========================================
    Global Styles
 ======================================== */
+b/* General Body & Typography */
 body {
-    font-family: "Merriweather", serif; /* elegant readable body */
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #828282;
-    background: #fff;
-}
-
-a {
-    color: #646464;
-    transition: color 0.5s;
-    text-decoration: none;
-}
-
-a:focus,
-a:hover {
-    color: #646464;
-    outline: none;
-}
-
-/* Paragraphs */
-p {
-    font-family: "Playfair Display", serif;
-    color: #646464;
-    margin-bottom: 20px;
+  color: var(--text-color);
+  background-color: var(--light-gray);
+  font-family: "Merriweather", serif;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6, figure {
-    font-family: "Parisienne", cursive; /* romantic script for headings */
-    font-weight: 400;
-    color: #000;
-    margin: 0 0 20px;
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-family: "Playfair Display", serif;
 }
 
-/* RSVP Container Headings */
-.rsvp-container h2 {
-    font-family: "Amsterdam", serif;
+/* Section Titles */
+.fh5co-heading h2 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
-/* Selection */
-::selection {
-    color: #fff;
-    background: #646464;
+/* Buttons */
+.btn, button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover, button:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Section Backgrounds */
+.fh5co-section, .fh5co-bg {
+  background-color: var(--light-gray);
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Icons */
+.icon {
+  color: var(--accent-color);
+}
+
+/* Accommodation / Venue Cards */
+.accommodation-card, .event-wrap {
+  background: white;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accommodation-card:hover, .event-wrap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+/* Q&A Section */
+#fh5co-faq {
+  background: var(--light-gray);
+}
+
+.faq-question {
+  background: var(--secondary-color);
+  color: var(--black);
+}
+
+.faq-item.active .faq-question {
+  background: var(--primary-color);
+  color: white;
+}
+
+.faq-icon {
+  color: var(--black);
+}
+
+header, .fh5co-heading h2 {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ========================================
