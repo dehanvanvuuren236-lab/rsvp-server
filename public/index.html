@@ -527,8 +527,10 @@
                                             <img src="images/CabinBathroomInside.jpg" alt="Cabin Bathroom Inside">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>Wooden Cabins</span>
-                                        </div>
+                                            <span>Wooden Cabins</span></div>
+                                        <div class="slider-dots"></div>
+                                        <button class="prev">&#10094;</button>
+                                        <button class="next">&#10095;</button>
                                     </div>
                                 </div>
 
@@ -543,8 +545,10 @@
                                             <img src="images/GuestHouse4.jpg" alt="Guest House Room 4">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>Guest House</span>
-                                        </div>
+                                            <span>Guest House</span></div>
+                                        <div class="slider-dots"></div>
+                                        <button class="prev">&#10094;</button>
+                                        <button class="next">&#10095;</button>
                                     </div>
                                 </div>
 
@@ -556,31 +560,64 @@
                                             <img src="images/EnSuiteInside.jpg" alt="En Suite Inside">
                                         </div>
                                         <div class="accommodation-overlay">
-                                            <span>En Suite Rooms</span>
-                                        </div>
+                                            <span>En Suite Rooms</span></div>
+                                        <div class="slider-dots"></div>
+                                        <button class="prev">&#10094;</button>
+                                        <button class="next">&#10095;</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ======================================== 
-                    Swipe Slider Script
+                    <!-- ======================================== Swipe Slider Script
                     ======================================== -->
                     <script>
-                        // Simple swipe slider (no arrows, no auto-scroll)
+                        // Universal swipe + arrow + dots slider
                         document
-                            .querySelectorAll('.accommodation-slider')
-                            .forEach(slider => {
-                                let currentIndex = 0;
+                            .querySelectorAll('.accommodation-card')
+                            .forEach(card => {
+                                const slider = card.querySelector('.accommodation-slider');
                                 const images = slider.querySelectorAll('img');
+                                const prevBtn = card.querySelector('.prev');
+                                const nextBtn = card.querySelector('.next');
+                                const dotsContainer = card.querySelector('.slider-dots');
+                                let currentIndex = 0;
                                 let startX = 0;
                                 let endX = 0;
 
+                                // Create indicator dots
+                                images.forEach((_, i) => {
+                                    const dot = document.createElement('span');
+                                    if (i === 0) 
+                                        dot
+                                            .classList
+                                            .add('active');
+                                    dotsContainer.appendChild(dot);
+                                });
+
+                                const dots = dotsContainer.querySelectorAll('span');
+
                                 function updateSlider() {
                                     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                                    dots.forEach(dot => dot.classList.remove('active'));
+                                    dots[currentIndex]
+                                        .classList
+                                        .add('active');
                                 }
 
+                                // Arrow buttons (desktop only)
+                                prevBtn.addEventListener('click', () => {
+                                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                                    updateSlider();
+                                });
+
+                                nextBtn.addEventListener('click', () => {
+                                    currentIndex = (currentIndex + 1) % images.length;
+                                    updateSlider();
+                                });
+
+                                // Swipe support (mobile)
                                 slider.addEventListener('touchstart', e => {
                                     startX = e
                                         .touches[0]
@@ -594,11 +631,9 @@
                                     const diff = startX - endX;
 
                                     if (diff > 50) {
-                                        // Swipe left → next
                                         currentIndex = (currentIndex + 1) % images.length;
                                         updateSlider();
                                     } else if (diff < -50) {
-                                        // Swipe right → previous
                                         currentIndex = (currentIndex - 1 + images.length) % images.length;
                                         updateSlider();
                                     }
