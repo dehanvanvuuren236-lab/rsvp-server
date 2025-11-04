@@ -34,12 +34,13 @@
 /* ========================================
    Global Styles
 ======================================== */
-b/* General Body & Typography */
+/* General Body & Typography */
 body {
   color: var(--text-color);
-  background-color: var(--light-gray);
   font-family: "Merriweather", serif;
+  background: url("../images/wedding-bg.jpg") center/cover no-repeat fixed;
 }
+
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
@@ -527,30 +528,15 @@ img {
 /* ========================================
    Background Image (Global)
 ======================================== */
-body {
-    background-image: url("../images/wedding-bg.jpg");
-    /* replace with your actual path */
-    background-size: cover;
-    /* make it fill the screen */
-    background-position: center;
-    /* keep focus centered */
-    background-attachment: fixed;
-    /* subtle parallax effect on desktop */
-    background-repeat: no-repeat;
-}
-
 /* Add a soft overlay for readability */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.6);
-    /* adjust opacity for brightness */
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.3); /* lighter overlay for better readability */
     z-index: -1;
 }
+
 
 /* For mobile, disable fixed attachment (for smoother scrolling) */
 @media screen and (max-width: 768px) {
@@ -690,17 +676,18 @@ body::before {
 
 @media screen and (max-width: 768px) {
   #fh5co-dresscode {
-    padding: 4em 1em;
+    padding: 3em 1em; /* reduce padding */
   }
 
   #fh5co-dresscode h2 {
-    font-size: 36px;
+    font-size: 32px; /* smaller on mobile */
   }
 
   .dresscode-text {
     font-size: 18px;
   }
 }
+
 /* ========================================
    Dress Code Section Gallery
 ======================================== */
@@ -1069,6 +1056,25 @@ body::before {
   font-size: 16px;
   color: #555;
   line-height: 1.7;
+}
+
+/* ========================================
+   Optional Polish — Elegant Header Overlay
+======================================== */
+header h1, 
+header h2, 
+header nav a {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 1px;
+}
+
+/* Make navigation overlay soft and elegant */
+.fh5co-nav {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  padding: 20px 0;
+  border-radius: 0 0 10px 10px;
 }
 
 /* Mobile Adjustments */
