@@ -505,7 +505,8 @@
                         </div>
                     </div>
 
-                    <!-- ======================================== Accommodation Section
+                    <!-- ======================================== 
+                    Accommodation Section
                     ======================================== -->
                     <div id="fh5co-accommodation" class="fh5co-section">
                         <div class="container text-center">
@@ -570,75 +571,74 @@
                         </div>
                     </div>
 
-                    <!-- ======================================== Swipe Slider Script
+                    <!-- ======================================== 
+                    Swipe Slider Script
                     ======================================== -->
                     <script>
-                        // Universal swipe + arrow + dots slider
-                        document
-                            .querySelectorAll('.accommodation-card')
-                            .forEach(card => {
-                                const slider = card.querySelector('.accommodation-slider');
-                                const images = slider.querySelectorAll('img');
-                                const prevBtn = card.querySelector('.prev');
-                                const nextBtn = card.querySelector('.next');
-                                const dotsContainer = card.querySelector('.slider-dots');
-                                let currentIndex = 0;
-                                let startX = 0;
-                                let endX = 0;
+                        document.querySelectorAll('.accommodation-card').forEach(card => {
+  const slider = card.querySelector('.accommodation-slider');
+  const images = slider.querySelectorAll('img');
+  const prevBtn = card.querySelector('.prev');
+  const nextBtn = card.querySelector('.next');
+  const dotsContainer = card.querySelector('.slider-dots');
+  let currentIndex = 0;
+  let startX = 0;
+  let isSwiping = false;
 
-                                // Create indicator dots
-                                images.forEach((_, i) => {
-                                    const dot = document.createElement('span');
-                                    if (i === 0) 
-                                        dot
-                                            .classList
-                                            .add('active');
-                                    dotsContainer.appendChild(dot);
-                                });
+  // Create indicator dots
+  images.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+  });
+  const dots = dotsContainer.querySelectorAll('span');
 
-                                const dots = dotsContainer.querySelectorAll('span');
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
+  }
 
-                                function updateSlider() {
-                                    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-                                    dots.forEach(dot => dot.classList.remove('active'));
-                                    dots[currentIndex]
-                                        .classList
-                                        .add('active');
-                                }
+  // Arrow buttons (desktop only)
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateSlider();
+    });
 
-                                // Arrow buttons (desktop only)
-                                prevBtn.addEventListener('click', () => {
-                                    currentIndex = (currentIndex - 1 + images.length) % images.length;
-                                    updateSlider();
-                                });
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateSlider();
+    });
+  }
 
-                                nextBtn.addEventListener('click', () => {
-                                    currentIndex = (currentIndex + 1) % images.length;
-                                    updateSlider();
-                                });
+  // Swipe gestures
+  slider.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isSwiping = true;
+  });
 
-                                // Swipe support (mobile)
-                                slider.addEventListener('touchstart', e => {
-                                    startX = e
-                                        .touches[0]
-                                        .clientX;
-                                });
+  slider.addEventListener('touchmove', e => {
+    if (!isSwiping) return;
+    e.preventDefault(); // prevents scroll jank
+  }, { passive: false });
 
-                                slider.addEventListener('touchend', e => {
-                                    endX = e
-                                        .changedTouches[0]
-                                        .clientX;
-                                    const diff = startX - endX;
+  slider.addEventListener('touchend', e => {
+    if (!isSwiping) return;
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
 
-                                    if (diff > 50) {
-                                        currentIndex = (currentIndex + 1) % images.length;
-                                        updateSlider();
-                                    } else if (diff < -50) {
-                                        currentIndex = (currentIndex - 1 + images.length) % images.length;
-                                        updateSlider();
-                                    }
-                                });
-                            });
+    if (diff > 50) {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateSlider();
+    } else if (diff < -50) {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateSlider();
+    }
+    isSwiping = false;
+  });
+});
+
                     </script>
 
                 </body>
