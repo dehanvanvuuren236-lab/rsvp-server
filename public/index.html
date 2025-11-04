@@ -360,107 +360,108 @@
                 </div>
             </div>
 
-            <div id="fh5co-services" class="fh5co-section-gray">
-                <div class="container">
+            <!-- ======================================== 
+      Q&A Section
+======================================== -->
+<section id="fh5co-faq" class="fh5co-section-gray">
+  <div class="container text-center">
+    <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
+      <h2>Questions & Answers</h2>
+      <p class="section-subtitle">Everything you need to know for our special day</p>
+    </div>
 
-                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                        <h2>Questions & Answer</h2>
-                    </div>
+    <div class="faq-container">
+      <!-- Question 1 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          What time should I arrive?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We recommend arriving 30 minutes before the ceremony to ensure you're seated and ready for the festivities.</p>
+        </div>
+      </div>
 
-                    <br>
-                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+      <!-- Question 2 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I bring a plus one?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>If your invitation includes a plus one, they will be listed on your RSVP. We wish we could invite everyone!</p>
+        </div>
+      </div>
 
-                        <h3>Question</h3>
-                        <h4>
-                            What time should I arive?
-                        </h4>
-                        <h3>Answer</h3>
-                        <h4>
-                            We recomend ariving 30mins before the cermony time, to ensure you are seated and
-                            ready for the festivities
-                        </h4>
-                        <br>
-                        <br>
-                        <br>
+      <!-- Question 3 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          Is there accommodation on the premises?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes! We have reserved the farm for the weekend.  
+            Adults: R500 per person  
+            Kids (12 & under): R250 per child  
+            <br><br>
+            Rates apply for the entire weekend (Friday–Sunday).  
+            Please bring your own towels as they are not provided.
+          </p>
+        </div>
+      </div>
 
-                        <h3>Question</h3>
-                        <h4>
-                            Can I bring a plus one?
-                        </h4>
-                        <h3>Answer</h3>
-                        <h4>
-                            If you invitation includes a plus one they will be listed on your RSVP.
-                            <br>
-                            We wish we could invite everyone.
-                        </h4>
-                        <br>
-                        <br>
-                        <br>
+      <!-- Question 4 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          What activities are available at the venue?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Fishing, swimming, hiking, dirt bike track, off-road cycling, and ziplining!</p>
+        </div>
+      </div>
 
-                        <h3>Question</h3>
-                        <h4>
-                            Is there accomodation on the premises.
-                        </h4>
-                        <h3>Answer</h3>
-                        <h4>
-                            Yes! We have reserved the farm for the whole weekend, you can book with us at
-                            our special rate.
-                            <br>
-                            Adults @ R500 per person
-                            <br>
-                            Kids (12 & under) @ R250 per child.
-                            <br>
-                            Rates are calculated for the entirty of the weekend (Friday to Sunday).
-                            <br>
-                            This is a flat rate as listed above. It is up to you if you join us on Friday.
-                            <br>
-                            Please Note that towels are excluded from the Venue so please make sure to bring
-                            your own.
-                        </h4>
-                        <br>
-                        <br>
-                        <br>
+      <!-- Question 5 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          What is the weather like this time of year?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Typically cool mornings, warm days, and chilly evenings.  
+            Dress accordingly and bring a spare blanket for comfort.
+          </p>
+        </div>
+      </div>
 
-                        <h3>Questions</h3>
-                        <h4>
-                            What activities availble at the Venue?
-                        </h4>
-                        <h3>Answer</h3>
-                        <h4>
-                            Fishing, Swiming, Hicking, Dirt Bike Track, Offroad Bicycle Track, Ziplining.
-                        </h4>
-                        <br>
-                        <br>
-                        <br>
+      <!-- Question 6 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I bring my own alcohol?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No outside alcohol is allowed. Thank you for understanding!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        <h3>Question</h3>
-                        <h4>
-                            What is the weather like this time of year?
-                        </h4>
-                        <h3>Answer</h3>
-                        <h4>
-                            Typicaly cold in the mornings,
-                            <br>
-                            Warm during the day,
-                            <br>
-                            And cold during the evenings.
-                            <br>
-                            So dress according to the weather and bring a spare blanket incase.
-                        </h4>
-                        <br>
-                        <br>
-                        <br>
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faq = button.parentElement;
+      const isOpen = faq.classList.contains('active');
+      
+      document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+      if (!isOpen) faq.classList.add('active');
+    });
+  });
+</script>
 
-                        <h3>Question</h3>
-                        <h4>
-                            Can I bring My own Alcohol?
-                        </h4>
-                        <h3>Answer</h3>
-                        <h4>
-                            No own alcohol alowed.
-                        </h4>
-
-                    </div>
 
                     <!-- Dress Code Section -->
                     <div id="fh5co-dresscode" class="fh5co-section">
@@ -513,7 +514,8 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
                                     <h2>Accommodation</h2>
-                                    <p class="section-subtitle">Comfortable and elegant stays at our venue</p>
+                                    <p class="section-subtitle">Comfortable and elegant stays at our Venue.</p>
+                                    <p class="section-subtitle">Beds will be moved to accommodate our Guests.</p>
                                 </div>
                             </div>
 
