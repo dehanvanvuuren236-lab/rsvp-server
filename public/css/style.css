@@ -1406,3 +1406,103 @@ header nav a {
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+
+/* === Fix: force vertical stacking in header & RSVP ===
+   Put this at the end of style.css so it overrides previous rules
+*/
+
+ /* Make header content a column and center it */
+#fh5co-header .display-t {
+  display: flex !important;
+  flex-direction: column !important; /* stack children vertically */
+  align-items: center !important;    /* center horizontally */
+  justify-content: center !important;
+  gap: 12px;                          /* breathing room between items */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure the inner cell stacks and takes full width */
+#fh5co-header .display-tc {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+/* Make headings and the image full-width (but centered) so they appear one below the other */
+#fh5co-header h1,
+#fh5co-header h2,
+#fh5co-header img {
+  display: block;
+  width: 100%;
+  max-width: 900px;     /* prevents huge stretched text/image */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* RSVP container: block layout and constrained width so form elements stack */
+.rsvp-container {
+  display: block !important;
+  width: 100%;
+  max-width: 440px; /* controls width on desktop */
+  margin: 18px auto 0;
+  box-sizing: border-box;
+}
+
+/* Make form elements stack and take full width */
+.rsvp-form label,
+.rsvp-form input,
+.rsvp-form .guest-inputs,
+.add-name-btn,
+.rsvp-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Guest inputs: two columns on wide screens, stacked on small screens */
+.guest-inputs {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.guest-inputs input {
+  flex: 1 1 0;
+}
+
+/* Mobile: stack guest inputs vertically */
+@media (max-width: 600px) {
+  .guest-inputs {
+    flex-direction: column;
+  }
+
+  #fh5co-header h1 {
+    font-size: 28px; /* slightly smaller on small screens */
+  }
+
+  #fh5co-header h2 {
+    font-size: 16px;
+  }
+
+  #fh5co-header img {
+    max-width: 120px;
+  }
+}
+
+/* Safety: prevent accidental horizontal overflow caused by large elements */
+#fh5co-header,
+#fh5co-header * {
+  max-width: 100%;
+}
+
+/* If any earlier rule sets .row or .col in header to flex-row, force columns there */
+#fh5co-header .row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px;
+}
