@@ -78,6 +78,39 @@
     </head>
     <body>
 
+        <!-- ============================= NAVIGATION BAR =============================
+        -->
+        <nav class="main-nav">
+            <div class="container nav-container">
+                <a href="#home" class="logo">Rustic Gem</a>
+                <button class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li>
+                        <a href="#fh5co-home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#fh5co-venue-location">Venue</a>
+                    </li>
+                    <li>
+                        <a href="#fh5co-accommodation">Accommodation</a>
+                    </li>
+                    <li>
+                        <a href="#fh5co-gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#fh5co-rsvp">RSVP</a>
+                    </li>
+                    <li>
+                        <a href="#fh5co-faq">Q&A</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
         <div class="fh5co-loader"></div>
         <div id="page">
 
@@ -360,288 +393,341 @@
                 </div>
             </div>
 
-            <!-- ======================================== 
-      Q&A Section
-======================================== -->
-<section id="fh5co-faq" class="fh5co-section-gray">
-  <div class="container text-center">
-    <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
-      <h2>Questions & Answers</h2>
-      <p class="section-subtitle">Everything you need to know for our special day</p>
-    </div>
+            <!-- ======================================== Q&A Section
+            ======================================== -->
+            <section id="fh5co-faq" class="fh5co-section-gray">
+                <div class="container text-center">
+                    <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
+                        <h2>Questions & Answers</h2>
+                        <p class="section-subtitle">Everything you need to know for our special day</p>
+                    </div>
 
-    <div class="faq-container">
-      <!-- Question 1 -->
-      <div class="faq-item">
-        <button class="faq-question">
-          What time should I arrive?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>We recommend arriving 30 minutes before the ceremony to ensure you're seated and ready for the festivities.</p>
-        </div>
-      </div>
-
-      <!-- Question 2 -->
-      <div class="faq-item">
-        <button class="faq-question">
-          Can I bring a plus one?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>If your invitation includes a plus one, they will be listed on your RSVP. We wish we could invite everyone!</p>
-        </div>
-      </div>
-
-      <!-- Question 3 -->
-      <div class="faq-item">
-        <button class="faq-question">
-          Is there accommodation on the premises?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Yes! We have reserved the farm for the weekend.  
-            Adults: R500 per person  
-            Kids (12 & under): R250 per child  
-            <br><br>
-            Rates apply for the entire weekend (Friday–Sunday).  
-            Please bring your own towels as they are not provided.
-          </p>
-        </div>
-      </div>
-
-      <!-- Question 4 -->
-      <div class="faq-item">
-        <button class="faq-question">
-          What activities are available at the venue?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Fishing, swimming, hiking, dirt bike track, off-road cycling, and ziplining!</p>
-        </div>
-      </div>
-
-      <!-- Question 5 -->
-      <div class="faq-item">
-        <button class="faq-question">
-          What is the weather like this time of year?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Typically cool mornings, warm days, and chilly evenings.  
-            Dress accordingly and bring a spare blanket for comfort.
-          </p>
-        </div>
-      </div>
-
-      <!-- Question 6 -->
-      <div class="faq-item">
-        <button class="faq-question">
-          Can I bring my own alcohol?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>No outside alcohol is allowed. Thank you for understanding!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const faq = button.parentElement;
-      const isOpen = faq.classList.contains('active');
-      
-      document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-      if (!isOpen) faq.classList.add('active');
-    });
-  });
-</script>
-
-
-                    <!-- Dress Code Section -->
-                    <div id="fh5co-dresscode" class="fh5co-section">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-                                    <h2>Dress Code</h2>
-                                </div>
+                    <div class="faq-container">
+                        <!-- Question 1 -->
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                What time should I arrive?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We recommend arriving 30 minutes before the ceremony to ensure you're seated
+                                    and ready for the festivities.</p>
                             </div>
+                        </div>
 
-                            <div class="row text-center animate-box">
-                                <div class="col-md-12">
-                                    <p class="dresscode-text">
-                                        We kindly request our guests to wear
-                                        <strong>black attire</strong>
-                                        for the celebration.
-                                    </p>
-                                </div>
+                        <!-- Question 2 -->
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Can I bring a plus one?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>If your invitation includes a plus one, they will be listed on your RSVP. We
+                                    wish we could invite everyone!</p>
                             </div>
+                        </div>
 
-                            <!-- Dress Code Gallery -->
-                            <div class="row dresscode-gallery animate-box">
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <img src="images/dresscode1.webp" alt="Dress Code Example 1">
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <img src="images/dresscode2.jpg" alt="Dress Code Example 2">
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <img src="images/dresscode3.jpg" alt="Dress Code Example 3">
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <img src="images/dresscode4.jpg" alt="Dress Code Example 4">
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <img src="images/dresscode5.jpg" alt="Dress Code Example 5">
-                                </div>
-                                <div class="col-md-2 col-sm-4 col-xs-6">
-                                    <img src="images/dresscode6.jpg" alt="Dress Code Example 6">
-                                </div>
+                        <!-- Question 3 -->
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Is there accommodation on the premises?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Yes! We have reserved the farm for the weekend. Adults: R500 per person Kids (12
+                                    & under): R250 per child
+                                    <br><br>
+                                    Rates apply for the entire weekend (Friday–Sunday). Please bring your own towels
+                                    as they are not provided.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                What activities are available at the venue?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Fishing, swimming, hiking, dirt bike track, off-road cycling, and ziplining!</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                What is the weather like this time of year?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>
+                                    Typically cool mornings, warm days, and chilly evenings. Dress accordingly and
+                                    bring a spare blanket for comfort.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Question 6 -->
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Can I bring my own alcohol?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>No outside alcohol is allowed. Thank you for understanding!</p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <!-- ======================================== 
-                    Accommodation Section
-                    ======================================== -->
-                    <div id="fh5co-accommodation" class="fh5co-section">
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
-                                    <h2>Accommodation</h2>
-                                    <p class="section-subtitle">Comfortable and elegant stays at our Venue.</p>
-                                    <p class="section-subtitle">Beds will be moved to accommodate our Guests.</p>
-                                </div>
-                            </div>
+            <script>
+                document
+                    .querySelectorAll('.faq-question')
+                    .forEach(button => {
+                        button.addEventListener('click', () => {
+                            const faq = button.parentElement;
+                            const isOpen = faq
+                                .classList
+                                .contains('active');
 
-                            <div class="row accommodation-gallery">
-                                <!-- Accommodation 1 -->
-                                <div class="col-md-4 col-sm-6 animate-box">
-                                    <div class="accommodation-card">
-                                        <div class="accommodation-slider">
-                                            <img src="images/CabinOutside.jpg" alt="Cabin Outside">
-                                            <img src="images/CabinInside.jpg" alt="Cabin Inside">
-                                            <img src="images/CabinBathroomOutside.jpg" alt="Cabin Bathroom Outside">
-                                            <img src="images/CabinBathroomInside.jpg" alt="Cabin Bathroom Inside">
-                                        </div>
-                                        <div class="accommodation-overlay">
-                                            <span>Wooden Cabins</span></div>
-                                        <div class="slider-dots"></div>
-                                        <button class="prev">&#10094;</button>
-                                        <button class="next">&#10095;</button>
-                                    </div>
-                                </div>
+                            document
+                                .querySelectorAll('.faq-item')
+                                .forEach(item => item.classList.remove('active'));
+                            if (!isOpen) 
+                                faq
+                                    .classList
+                                    .add('active');
+                            }
+                        );
+                    });
+            </script>
 
-                                <!-- Accommodation 2 -->
-                                <div class="col-md-4 col-sm-6 animate-box">
-                                    <div class="accommodation-card">
-                                        <div class="accommodation-slider">
-                                            <img src="images/GuestHouseMain.jpg" alt="Guest House Main Area">
-                                            <img src="images/GuestHouse1.jpg" alt="Guest House Room 1">
-                                            <img src="images/GuestHouse2.jpg" alt="Guest House Room 2">
-                                            <img src="images/GuestHouse3.jpg" alt="Guest House Room 3">
-                                            <img src="images/GuestHouse4.jpg" alt="Guest House Room 4">
-                                        </div>
-                                        <div class="accommodation-overlay">
-                                            <span>Guest House</span></div>
-                                        <div class="slider-dots"></div>
-                                        <button class="prev">&#10094;</button>
-                                        <button class="next">&#10095;</button>
-                                    </div>
-                                </div>
-
-                                <!-- Accommodation 3 -->
-                                <div class="col-md-4 col-sm-6 animate-box">
-                                    <div class="accommodation-card">
-                                        <div class="accommodation-slider">
-                                            <img src="images/EnSuiteOutside.jpg" alt="En Suite Outside">
-                                            <img src="images/EnSuiteInside.jpg" alt="En Suite Inside">
-                                        </div>
-                                        <div class="accommodation-overlay">
-                                            <span>En Suite Rooms</span></div>
-                                        <div class="slider-dots"></div>
-                                        <button class="prev">&#10094;</button>
-                                        <button class="next">&#10095;</button>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Dress Code Section -->
+            <div id="fh5co-dresscode" class="fh5co-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                            <h2>Dress Code</h2>
                         </div>
                     </div>
 
-                    <!-- ======================================== 
-                    Swipe Slider Script
-                    ======================================== -->
-                    <script>
-                        document.querySelectorAll('.accommodation-card').forEach(card => {
-  const slider = card.querySelector('.accommodation-slider');
-  const images = slider.querySelectorAll('img');
-  const prevBtn = card.querySelector('.prev');
-  const nextBtn = card.querySelector('.next');
-  const dotsContainer = card.querySelector('.slider-dots');
-  let currentIndex = 0;
-  let startX = 0;
-  let isSwiping = false;
+                    <div class="row text-center animate-box">
+                        <div class="col-md-12">
+                            <p class="dresscode-text">
+                                We kindly request our guests to wear
+                                <strong>black attire</strong>
+                                for the celebration.
+                            </p>
+                        </div>
+                    </div>
 
-  // Create indicator dots
-  images.forEach((_, i) => {
-    const dot = document.createElement('span');
-    if (i === 0) dot.classList.add('active');
-    dotsContainer.appendChild(dot);
-  });
-  const dots = dotsContainer.querySelectorAll('span');
+                    <!-- Dress Code Gallery -->
+                    <div class="row dresscode-gallery animate-box">
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <img src="images/dresscode1.webp" alt="Dress Code Example 1">
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <img src="images/dresscode2.jpg" alt="Dress Code Example 2">
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <img src="images/dresscode3.jpg" alt="Dress Code Example 3">
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <img src="images/dresscode4.jpg" alt="Dress Code Example 4">
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <img src="images/dresscode5.jpg" alt="Dress Code Example 5">
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <img src="images/dresscode6.jpg" alt="Dress Code Example 6">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  function updateSlider() {
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentIndex].classList.add('active');
-  }
+            <!-- ======================================== Accommodation Section
+            ======================================== -->
+            <div id="fh5co-accommodation" class="fh5co-section">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
+                            <h2>Accommodation</h2>
+                            <p class="section-subtitle">Comfortable and elegant stays at our Venue.</p>
+                            <p class="section-subtitle">Beds will be moved to accommodate our Guests.</p>
+                        </div>
+                    </div>
 
-  // Arrow buttons (desktop only)
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateSlider();
-    });
+                    <div class="row accommodation-gallery">
+                        <!-- Accommodation 1 -->
+                        <div class="col-md-4 col-sm-6 animate-box">
+                            <div class="accommodation-card">
+                                <div class="accommodation-slider">
+                                    <img src="images/CabinOutside.jpg" alt="Cabin Outside">
+                                    <img src="images/CabinInside.jpg" alt="Cabin Inside">
+                                    <img src="images/CabinBathroomOutside.jpg" alt="Cabin Bathroom Outside">
+                                    <img src="images/CabinBathroomInside.jpg" alt="Cabin Bathroom Inside">
+                                </div>
+                                <div class="accommodation-overlay">
+                                    <span>Wooden Cabins</span></div>
+                                <div class="slider-dots"></div>
+                                <button class="prev">&#10094;</button>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateSlider();
-    });
-  }
+                        <!-- Accommodation 2 -->
+                        <div class="col-md-4 col-sm-6 animate-box">
+                            <div class="accommodation-card">
+                                <div class="accommodation-slider">
+                                    <img src="images/GuestHouseMain.jpg" alt="Guest House Main Area">
+                                    <img src="images/GuestHouse1.jpg" alt="Guest House Room 1">
+                                    <img src="images/GuestHouse2.jpg" alt="Guest House Room 2">
+                                    <img src="images/GuestHouse3.jpg" alt="Guest House Room 3">
+                                    <img src="images/GuestHouse4.jpg" alt="Guest House Room 4">
+                                </div>
+                                <div class="accommodation-overlay">
+                                    <span>Guest House</span></div>
+                                <div class="slider-dots"></div>
+                                <button class="prev">&#10094;</button>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
 
-  // Swipe gestures
-  slider.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    isSwiping = true;
-  });
+                        <!-- Accommodation 3 -->
+                        <div class="col-md-4 col-sm-6 animate-box">
+                            <div class="accommodation-card">
+                                <div class="accommodation-slider">
+                                    <img src="images/EnSuiteOutside.jpg" alt="En Suite Outside">
+                                    <img src="images/EnSuiteInside.jpg" alt="En Suite Inside">
+                                </div>
+                                <div class="accommodation-overlay">
+                                    <span>En Suite Rooms</span></div>
+                                <div class="slider-dots"></div>
+                                <button class="prev">&#10094;</button>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  slider.addEventListener('touchmove', e => {
-    if (!isSwiping) return;
-    e.preventDefault(); // prevents scroll jank
-  }, { passive: false });
+            <!-- ======================================== Swipe Slider Script
+            ======================================== -->
+            <script>
+                document
+                    .querySelectorAll('.accommodation-card')
+                    .forEach(card => {
+                        const slider = card.querySelector('.accommodation-slider');
+                        const images = slider.querySelectorAll('img');
+                        const prevBtn = card.querySelector('.prev');
+                        const nextBtn = card.querySelector('.next');
+                        const dotsContainer = card.querySelector('.slider-dots');
+                        let currentIndex = 0;
+                        let startX = 0;
+                        let isSwiping = false;
 
-  slider.addEventListener('touchend', e => {
-    if (!isSwiping) return;
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
+                        // Create indicator dots
+                        images.forEach((_, i) => {
+                            const dot = document.createElement('span');
+                            if (i === 0) 
+                                dot
+                                    .classList
+                                    .add('active');
+                            dotsContainer.appendChild(dot);
+                        });
+                        const dots = dotsContainer.querySelectorAll('span');
 
-    if (diff > 50) {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateSlider();
-    } else if (diff < -50) {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateSlider();
-    }
-    isSwiping = false;
-  });
-});
+                        function updateSlider() {
+                            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                            dots.forEach(dot => dot.classList.remove('active'));
+                            dots[currentIndex]
+                                .classList
+                                .add('active');
+                        }
 
-                    </script>
+                        // Arrow buttons (desktop only)
+                        if (prevBtn && nextBtn) {
+                            prevBtn.addEventListener('click', () => {
+                                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                                updateSlider();
+                            });
 
-                </body>
-            </html>
+                            nextBtn.addEventListener('click', () => {
+                                currentIndex = (currentIndex + 1) % images.length;
+                                updateSlider();
+                            });
+                        }
+
+                        // Swipe gestures
+                        slider.addEventListener('touchstart', e => {
+                            startX = e
+                                .touches[0]
+                                .clientX;
+                            isSwiping = true;
+                        });
+
+                        slider.addEventListener('touchmove', e => {
+                            if (!isSwiping) 
+                                return;
+                            e.preventDefault(); // prevents scroll jank
+                        }, {passive: false});
+
+                        slider.addEventListener('touchend', e => {
+                            if (!isSwiping) 
+                                return;
+                            const endX = e
+                                .changedTouches[0]
+                                .clientX;
+                            const diff = startX - endX;
+
+                            if (diff > 50) {
+                                currentIndex = (currentIndex + 1) % images.length;
+                                updateSlider();
+                            } else if (diff < -50) {
+                                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                                updateSlider();
+                            }
+                            isSwiping = false;
+                        });
+                    });
+            </script>
+            <!-- ============================= FOOTER ============================= -->
+            <footer class="main-footer">
+                <div class="container footer-content">
+                    <p>© 2025 Rustic Gem Wedding | Designed with 💜 by Dehan & Co.</p>
+                    <ul class="footer-socials">
+                        <li>
+                            <a href="#">
+                                <i class="icon-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon-mail"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+
+            <script>
+                const navToggle = document.getElementById('nav-toggle');
+                const navLinks = document.getElementById('nav-links');
+
+                navToggle.addEventListener('click', () => {
+                    navLinks
+                        .classList
+                        .toggle('show');
+                });
+            </script>
+
+        </body>
+    </html>
