@@ -125,11 +125,21 @@ a:hover {
   color: var(--black);
 }
 
-header, .fh5co-heading h2 {
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Fix invisible header & section text */
+header, 
+.fh5co-heading h2 {
+  color: var(--primary-color);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
+
+/* Optional: make header stand out better on backgrounds */
+header {
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
 
 /* ========================================
    Dress Code Section
