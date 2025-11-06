@@ -289,15 +289,22 @@ header {
    NAVIGATION BAR STYLES
    ============================= */
 .main-nav {
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
   color: #fff;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
   padding: 12px 0;
-  transition: background 0.3s ease;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.main-nav.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .nav-container {
@@ -333,7 +340,7 @@ header {
 }
 
 .nav-links a:hover {
-  color: var(--secondary-color, #9b8fc1);
+  color: var(--secondary-color, #c1b7e0);
 }
 
 /* Mobile nav */
@@ -360,7 +367,7 @@ header {
     display: none;
     flex-direction: column;
     align-items: center;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     position: absolute;
     top: 100%;
     left: 0;
@@ -381,33 +388,30 @@ header {
    FOOTER STYLES
    ============================= */
 .main-footer {
-  background: #1b1b1b;
-  color: #ccc;
+  background: #1b1b1b; /* deep grey-black background */
+  color: #ccc; /* soft grey text */
   text-align: center;
   padding: 40px 20px;
   font-size: 0.95rem;
-  border-top: 2px solid var(--primary-color, #b09bd3);
+  border-top: 2px solid var(--primary-color, #b09bd3); /* soft purple accent */
 }
 
-.footer-socials {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 15px;
-  padding: 0;
+.main-footer p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif; /* wedding-appropriate font */
+  letter-spacing: 0.5px;
+  color: #e6e6e6;
 }
 
-.footer-socials a {
+.main-footer a {
   color: var(--primary-color, #b09bd3);
-  font-size: 1.2rem;
-  transition: color 0.3s;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.footer-socials a:hover {
+.main-footer a:hover {
   color: #fff;
 }
-
 
 /* ========================================
    Sections

@@ -80,32 +80,23 @@
 
         <!-- ============================= NAVIGATION BAR =============================
         -->
+
         <nav class="main-nav">
             <div class="container nav-container">
-                <a href="#home" class="logo">Rustic Gem</a>
-                <button class="nav-toggle" id="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links" id="nav-links">
+                <a href="#fh5co-header" class="nav-logo">Dehan & Michaela</a>
+                <ul class="nav-links">
                     <li>
-                        <a href="#fh5co-home">Home</a>
+                        <a href="#fh5co-rsvp">RSVP</a>
                     </li>
+
                     <li>
-                        <a href="#fh5co-venue-location">Venue</a>
-                    </li>
-                    <li>
-                        <a href="#fh5co-accommodation">Accommodation</a>
+                        <a href="#fh5co-dresscode">Dress Code</a>
                     </li>
                     <li>
                         <a href="#fh5co-gallery">Gallery</a>
                     </li>
                     <li>
-                        <a href="#fh5co-rsvp">RSVP</a>
-                    </li>
-                    <li>
-                        <a href="#fh5co-faq">Q&A</a>
+                        <a href="#fh5co-faq">FAQ</a>
                     </li>
                 </ul>
             </div>
@@ -138,155 +129,158 @@
                                         <div class="clock clock-fix"></div>
                                     </div>
 
-                                    <!-- RSVP Form -->
-                                    <h2>RSVP</h2>
-                                    <div class="rsvp-container animate-box" data-animate-effect="fadeIn">
-                                        <form id="rsvpForm" class="rsvp-form">
+                                    <section id="fh5co-rsvp">
+                                        <!-- RSVP Form -->
+                                        <h2>RSVP</h2>
+                                        <div class="rsvp-container animate-box" data-animate-effect="fadeIn">
+                                            <form id="rsvpForm" class="rsvp-form">
 
-                                            <!-- Multiple Names -->
-                                            <label>Your Name(s)</label>
-                                            <div id="namesContainer">
-                                                <input type="text" name="name" placeholder="Guest Name" required="required">
-                                            </div>
-                                            <button type="button" id="addNameBtn" class="add-name-btn">+ Add Another Name</button>
+                                                <!-- Multiple Names -->
+                                                <label>Your Name(s)</label>
+                                                <div id="namesContainer">
+                                                    <input type="text" name="name" placeholder="Guest Name" required="required">
+                                                </div>
+                                                <button type="button" id="addNameBtn" class="add-name-btn">+ Add Another Name</button>
 
-                                            <!-- Email -->
-                                            <label for="email">Your Email</label>
-                                            <input type="email" id="email" placeholder="Your Email" required="required">
+                                                <!-- Email -->
+                                                <label for="email">Your Email</label>
+                                                <input type="email" id="email" placeholder="Your Email" required="required">
 
-                                            <!-- Guests: Adults and Kids -->
-                                            <div class="guest-inputs">
-                                                <input
-                                                    type="number"
-                                                    id="adults"
-                                                    placeholder="Number of Adults"
-                                                    min="0"
-                                                    required="required">
-                                                <input
-                                                    type="number"
-                                                    id="kids"
-                                                    placeholder="Number of Kids"
-                                                    min="0"
-                                                    required="required">
-                                            </div>
+                                                <!-- Guests: Adults and Kids -->
+                                                <div class="guest-inputs">
+                                                    <input
+                                                        type="number"
+                                                        id="adults"
+                                                        placeholder="Number of Adults"
+                                                        min="0"
+                                                        required="required">
+                                                    <input
+                                                        type="number"
+                                                        id="kids"
+                                                        placeholder="Number of Kids"
+                                                        min="0"
+                                                        required="required">
+                                                </div>
 
-                                            <button type="submit" class="rsvp-btn">Send RSVP</button>
-                                        </form>
-                                        <p id="response" style="margin-top:20px;"></p>
-                                    </div>
+                                                <button type="submit" class="rsvp-btn">Send RSVP</button>
+                                            </form>
+                                            <p id="response" style="margin-top:20px;"></p>
+                                        </div>
 
-                                    <style>
-                                        .add-name-btn {
-                                            display: block;
-                                            margin: 10px 0;
-                                            background: #f3f3f3;
-                                            border: none;
-                                            padding: 8px 12px;
-                                            border-radius: 5px;
-                                            cursor: pointer;
-                                            font-size: 0.9rem;
-                                            transition: 0.2s;
-                                        }
-
-                                        .add-name-btn:hover {
-                                            background: #e5e5e5;
-                                        }
-
-                                        #namesContainer input {
-                                            display: block;
-                                            width: 90%;
-                                            margin: 5px auto;
-                                            padding: 10px;
-                                            border-radius: 8px;
-                                            border: 1px solid #ccc;
-                                        }
-                                    </style>
-
-                                    <script>
-                                        const form = document.getElementById('rsvpForm');
-                                        const response = document.getElementById('response');
-                                        const namesContainer = document.getElementById('namesContainer');
-                                        const addNameBtn = document.getElementById('addNameBtn');
-
-                                        // ✅ Add new name input
-                                        addNameBtn.addEventListener('click', () => {
-                                            const newInput = document.createElement('input');
-                                            newInput.type = 'text';
-                                            newInput.name = 'name';
-                                            newInput.placeholder = 'Guest Name';
-                                            newInput.required = true;
-                                            namesContainer.appendChild(newInput);
-                                        });
-
-                                        // ✅ Handle form submission
-                                        form.addEventListener('submit', async (e) => {
-                                            e.preventDefault();
-
-                                            const nameInputs = document.querySelectorAll('input[name="name"]');
-                                            const names = Array
-                                                .from(nameInputs)
-                                                .map(input => input.value.trim())
-                                                .filter(Boolean);
-                                            const email = document
-                                                .getElementById('email')
-                                                .value
-                                                .trim();
-                                            const adults = document
-                                                .getElementById('adults')
-                                                .value
-                                                .trim();
-                                            const kids = document
-                                                .getElementById('kids')
-                                                .value
-                                                .trim();
-
-                                            if (!names.length || !email) {
-                                                response.textContent = "Please fill out all fields.";
-                                                response.style.color = "red";
-                                                return;
+                                        <style>
+                                            .add-name-btn {
+                                                display: block;
+                                                margin: 10px 0;
+                                                background: #f3f3f3;
+                                                border: none;
+                                                padding: 8px 12px;
+                                                border-radius: 5px;
+                                                cursor: pointer;
+                                                font-size: 0.9rem;
+                                                transition: 0.2s;
                                             }
 
-                                            response.innerHTML = '<span class="rsvp-spinner"></span>Sending RSVP...';
-                                            response.style.color = "#333";
+                                            .add-name-btn:hover {
+                                                background: #e5e5e5;
+                                            }
 
-                                            try {
-                                                const res = await fetch('https://rsvp-server-drjw.onrender.com/api/rsvp', {
-                                                    method: 'POST',
-                                                    headers: {
-                                                        'Content-Type': 'application/json'
-                                                    },
-                                                    body: JSON.stringify({
-                                                        names,
-                                                        email,
-                                                        guests: {
-                                                            adults: Number(adults),
-                                                            kids: Number(kids)
-                                                        }
-                                                    })
-                                                });
+                                            #namesContainer input {
+                                                display: block;
+                                                width: 90%;
+                                                margin: 5px auto;
+                                                padding: 10px;
+                                                border-radius: 8px;
+                                                border: 1px solid #ccc;
+                                            }
+                                        </style>
 
-                                                const data = await res.json();
+                                        <script>
+                                            const form = document.getElementById('rsvpForm');
+                                            const response = document.getElementById('response');
+                                            const namesContainer = document.getElementById('namesContainer');
+                                            const addNameBtn = document.getElementById('addNameBtn');
 
-                                                if (res.ok) {
-                                                    response.textContent = data.message;
-                                                    response.style.color = "green";
-                                                    form.reset();
-                                                    namesContainer.innerHTML = '<input type="text" name="name" placeholder="Guest Name" required>';
-                                                } else {
-                                                    response.textContent = data.error || "Something went wrong.";
+                                            // ✅ Add new name input
+                                            addNameBtn.addEventListener('click', () => {
+                                                const newInput = document.createElement('input');
+                                                newInput.type = 'text';
+                                                newInput.name = 'name';
+                                                newInput.placeholder = 'Guest Name';
+                                                newInput.required = true;
+                                                namesContainer.appendChild(newInput);
+                                            });
+
+                                            // ✅ Handle form submission
+                                            form.addEventListener('submit', async (e) => {
+                                                e.preventDefault();
+
+                                                const nameInputs = document.querySelectorAll('input[name="name"]');
+                                                const names = Array
+                                                    .from(nameInputs)
+                                                    .map(input => input.value.trim())
+                                                    .filter(Boolean);
+                                                const email = document
+                                                    .getElementById('email')
+                                                    .value
+                                                    .trim();
+                                                const adults = document
+                                                    .getElementById('adults')
+                                                    .value
+                                                    .trim();
+                                                const kids = document
+                                                    .getElementById('kids')
+                                                    .value
+                                                    .trim();
+
+                                                if (!names.length || !email) {
+                                                    response.textContent = "Please fill out all fields.";
                                                     response.style.color = "red";
+                                                    return;
                                                 }
-                                            } catch (err) {
-                                                response.textContent = "Failed to send RSVP. Please try again.";
-                                                response.style.color = "red";
-                                                console.error(err);
-                                            }
 
-                                            setTimeout(() => {
-                                                response.textContent = '';
-                                            }, 10000);
-                                        });
-                                    </script>
+                                                response.innerHTML = '<span class="rsvp-spinner"></span>Sending RSVP...';
+                                                response.style.color = "#333";
+
+                                                try {
+                                                    const res = await fetch('https://rsvp-server-drjw.onrender.com/api/rsvp', {
+                                                        method: 'POST',
+                                                        headers: {
+                                                            'Content-Type': 'application/json'
+                                                        },
+                                                        body: JSON.stringify({
+                                                            names,
+                                                            email,
+                                                            guests: {
+                                                                adults: Number(adults),
+                                                                kids: Number(kids)
+                                                            }
+                                                        })
+                                                    });
+
+                                                    const data = await res.json();
+
+                                                    if (res.ok) {
+                                                        response.textContent = data.message;
+                                                        response.style.color = "green";
+                                                        form.reset();
+                                                        namesContainer.innerHTML = '<input type="text" name="name" placeholder="Guest Name" required>';
+                                                    } else {
+                                                        response.textContent = data.error || "Something went wrong.";
+                                                        response.style.color = "red";
+                                                    }
+                                                } catch (err) {
+                                                    response.textContent = "Failed to send RSVP. Please try again.";
+                                                    response.style.color = "red";
+                                                    console.error(err);
+                                                }
+
+                                                setTimeout(() => {
+                                                    response.textContent = '';
+                                                }, 10000);
+                                            });
+                                        </script>
+
+                                    </section>
 
                                 </div>
                             </div>
@@ -698,35 +692,52 @@
             <footer class="main-footer">
                 <div class="container footer-content">
                     <p>© 2025 Rustic Gem Wedding | Designed with 💜 by Dehan & Co.</p>
-                    <ul class="footer-socials">
-                        <li>
-                            <a href="#">
-                                <i class="icon-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-mail"></i>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </footer>
 
             <script>
                 const navToggle = document.getElementById('nav-toggle');
                 const navLinks = document.getElementById('nav-links');
+                const mainNav = document.querySelector('.main-nav');
 
+                // Toggle mobile nav
                 navToggle.addEventListener('click', () => {
                     navLinks
                         .classList
                         .toggle('show');
                 });
+
+                // Fade-in nav on scroll
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        mainNav
+                            .classList
+                            .add('visible');
+                    } else {
+                        mainNav
+                            .classList
+                            .remove('visible');
+                    }
+                });
+
+                // Smooth scrolling for internal links
+                document
+                    .querySelectorAll('a[href^="#"]')
+                    .forEach(anchor => {
+                        anchor.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const target = document.querySelector(this.getAttribute('href'));
+                            if (target) {
+                                window.scrollTo({
+                                    top: target.offsetTop - 60,
+                                    behavior: 'smooth'
+                                });
+                                navLinks
+                                    .classList
+                                    .remove('show'); // close mobile menu
+                            }
+                        });
+                    });
             </script>
 
         </body>
