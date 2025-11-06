@@ -1,6 +1,46 @@
 /* ======================================== 
    Flip Clock Responsive CSS
 ======================================== */
+
+/* ========================================
+   Flip Clock Color Palette & Glow
+======================================== */
+
+/* Top face of each digit */
+.flipTimebox .flip-clock-wrapper ul li a div div.inn {
+  background-color: var(--primary-color); /* Soft purple */
+  color: var(--light-gray);               /* Numbers */
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(111, 66, 193, 0.5); /* subtle glow */
+}
+
+/* Bottom/back face of each digit */
+.flipTimebox .flip-clock-wrapper ul li a div div.out {
+  background-color: var(--secondary-color); /* Dusty lavender */
+  color: var(--light-gray);
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(111, 66, 193, 0.4);
+}
+
+/* Colon/dots */
+.flipTimebox .flip-clock-dot {
+  background-color: var(--accent-color); /* Deep purple */
+  box-shadow: 0 0 5px rgba(111, 66, 193, 0.6);
+}
+
+/* Labels (Days, Hours, Minutes, Seconds) */
+.flipTimebox .flip-clock-divider .flip-clock-label {
+  color: var(--light-gray) !important;
+  font-weight: 600 !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Optional: add shadow to numbers for more depth */
+.flipTimebox .flip-clock-wrapper ul li a div div.inn,
+.flipTimebox .flip-clock-wrapper ul li a div div.out {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 .flipTimebox {
   margin: 40px auto;
   padding: 0 10px;

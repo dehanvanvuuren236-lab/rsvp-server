@@ -1,49 +1,41 @@
-$(document).ready(function() {
+$(document).ready(function () {
   let clock;
 
-  // Grab the current date
-  let currentDate = new Date();
+  // ✅ Grab the current date
+  const currentDate = new Date();
 
-  // Target future date/24 hour time/Timezone
-  let targetDate = moment.tz("2026-05-16 12:00", "South africa");
+  // ✅ Correct timezone for South Africa
+  const targetDate = moment.tz("2026-05-16 15:00", "Africa/Johannesburg");
 
-  // Calculate the difference in seconds between the future and current date
-  let diff = targetDate / 1000 - currentDate.getTime() / 1000;
+  // ✅ Calculate time difference in seconds
+  const diff = targetDate.unix() - moment(currentDate).unix();
 
+  // ✅ Initialize FlipClock
   if (diff <= 0) {
-    // If remaining countdown is 0
-    clock = $(".clock").FlipClock(0, {
+    $(".clock").FlipClock(0, {
       clockFace: "DailyCounter",
       countdown: true,
-      autostart: false
+      autoStart: false
     });
-    console.log("Date has already passed!")
-    
+    console.log("Date has already passed!");
   } else {
-    // Run countdown timer
     clock = $(".clock").FlipClock(diff, {
       clockFace: "DailyCounter",
       countdown: true,
+      autoStart: true,
       callbacks: {
-        stop: function() {
-          console.log("Timer has ended!")
+        stop: function () {
+          console.log("Timer has ended!");
         }
       }
     });
-    
-    // Check when timer reaches 0, then stop at 0
-    setTimeout(function() {
-      checktime();
-    }, 1000);
-    
-    function checktime() {
-      t = clock.getTime();
-      if (t <= 0) {
+
+    // ✅ Keep it from going negative
+    setInterval(() => {
+      if (clock.getTime() <= 0) {
         clock.setTime(0);
+        clock.stop();
       }
-      setTimeout(function() {
-        checktime();
-      }, 1000);
-    }
+    }, 1000);
   }
 });
