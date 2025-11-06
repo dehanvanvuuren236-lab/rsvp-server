@@ -35,9 +35,27 @@
    Global Styles
 ======================================== */
 
+/* ============================
+   Header Fix (no scroll)
+============================ */
 #fh5co-header {
-    height: 100vh; /* Full viewport height */
+  position: relative;
+  height: 100vh; /* full screen */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  overflow: hidden;
 }
+
+#fh5co-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+}
+
 
 /* General Body & Typography */
 body {
@@ -174,22 +192,26 @@ header {
   backdrop-filter: blur(6px); /* soft glass effect */
 }
 
-/* Input and Buttons */
 .rsvp-form input {
   width: 100%;
   padding: 12px 15px;
   margin-bottom: 15px;
-  border: 1px solid #aaa;
+  border: 1px solid #a079c9;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.3); /* darker for contrast */
+  color: #d5b4f3; /* soft purple text */
   font-size: 16px;
   transition: all 0.3s ease;
 }
 
+.rsvp-form input::placeholder {
+  color: #d5b4f3; /* soft purple placeholders */
+  opacity: 0.8;
+}
+
 .rsvp-form input:focus {
   border-color: #d5b4f3;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.45);
   outline: none;
 }
 
