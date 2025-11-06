@@ -163,106 +163,125 @@ header {
   text-align: center;
 }
 
-/* ========================================
-   RSVP Section Styling
-======================================== */
-#fh5co-rsvp {
-  background: transparent;
+/* ============================
+   Header Fix (non-scrollable but parallax)
+============================ */
+#fh5co-header {
+  position: relative;
+  height: 100vh; /* full screen height */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* allows movement */
+  overflow: hidden; /* prevent inner scroll */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  color: #e0e0e0;
-  padding: 5em 0;
 }
 
-#fh5co-rsvp h2 {
+/* Subtle dark overlay for visibility */
+#fh5co-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Text and RSVP Form Layer */
+#fh5co-header .container {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 0 15px;
+}
+
+/* Ensure content fits on all screens */
+#fh5co-header h1,
+#fh5co-header h2 {
+  color: #fff;
+  margin-bottom: 15px;
   font-family: "Amsterdam", serif;
-  font-size: 48px;
-  color: #d5b4f3; /* soft lavender purple */
-  margin-bottom: 30px;
 }
 
-/* RSVP Container */
+#fh5co-header img {
+  max-width: 150px;
+  margin: 20px 0;
+}
+
+/* RSVP form container in header */
 .rsvp-container {
-  background: rgba(30, 30, 30, 0.75); /* soft transparent black */
-  border: 1px solid rgba(213, 180, 243, 0.4); /* subtle purple border */
-  border-radius: 16px;
-  padding: 40px 30px;
-  max-width: 550px;
-  margin: 0 auto;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px); /* soft glass effect */
+  background: rgba(0, 0, 0, 0.4); /* transparent dark overlay */
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 25px auto 0 auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Input styling */
 .rsvp-form input {
   width: 100%;
   padding: 12px 15px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   border: 1px solid #a079c9;
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.3); /* darker for contrast */
-  color: #d5b4f3; /* soft purple text */
+  background: rgba(255, 255, 255, 0.15);
+  color: #d5b4f3;
   font-size: 16px;
   transition: all 0.3s ease;
 }
 
 .rsvp-form input::placeholder {
-  color: #d5b4f3; /* soft purple placeholders */
+  color: #d5b4f3;
   opacity: 0.8;
 }
 
 .rsvp-form input:focus {
   border-color: #d5b4f3;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(255, 255, 255, 0.25);
   outline: none;
 }
 
-/* Add Another Name Button */
-.add-name-btn {
-  background: transparent;
-  color: #d5b4f3;
-  border: 1px solid #d5b4f3;
-  border-radius: 8px;
-  padding: 8px 12px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.add-name-btn:hover {
-  background: #d5b4f3;
-  color: #1e1e1e;
-}
-
-/* Submit Button */
+/* RSVP button */
 .rsvp-btn {
-  width: 100%;
-  background: linear-gradient(90deg, #a079c9, #d5b4f3);
-  color: #1e1e1e;
+  background: #a079c9;
+  color: white;
   border: none;
-  border-radius: 10px;
-  padding: 14px;
-  font-weight: bold;
-  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.3s;
 }
 
 .rsvp-btn:hover {
-  background: linear-gradient(90deg, #d5b4f3, #a079c9);
-  transform: translateY(-2px);
+  background: #c5a3eb;
 }
 
-/* Responsive Adjustments */
+/* Mobile adjustments */
 @media screen and (max-width: 768px) {
-  #fh5co-rsvp {
-    padding: 3em 1em;
+  #fh5co-header {
+    background-position: center top;
   }
-  #fh5co-rsvp h2 {
-    font-size: 36px;
-  }
+
   .rsvp-container {
-    padding: 25px 20px;
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  #fh5co-header h1 {
+    font-size: 32px;
+  }
+
+  #fh5co-header h2 {
+    font-size: 18px;
   }
 }
+
 
 /* ========================================
    Dress Code Section
