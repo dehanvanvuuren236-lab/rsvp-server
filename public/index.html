@@ -84,6 +84,12 @@
         <nav class="main-nav">
             <div class="container nav-container">
                 <a href="#fh5co-header" class="nav-logo">Dehan & Michaela</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
                 <ul class="nav-links">
                     <li>
                         <a href="#fh5co-rsvp">RSVP</a>
@@ -166,120 +172,6 @@
                                             </form>
                                             <p id="response" style="margin-top:20px;"></p>
                                         </div>
-
-                                        <style>
-                                            .add-name-btn {
-                                                display: block;
-                                                margin: 10px 0;
-                                                background: #f3f3f3;
-                                                border: none;
-                                                padding: 8px 12px;
-                                                border-radius: 5px;
-                                                cursor: pointer;
-                                                font-size: 0.9rem;
-                                                transition: 0.2s;
-                                            }
-
-                                            .add-name-btn:hover {
-                                                background: #e5e5e5;
-                                            }
-
-                                            #namesContainer input {
-                                                display: block;
-                                                width: 90%;
-                                                margin: 5px auto;
-                                                padding: 10px;
-                                                border-radius: 8px;
-                                                border: 1px solid #ccc;
-                                            }
-                                        </style>
-
-                                        <script>
-                                            const form = document.getElementById('rsvpForm');
-                                            const response = document.getElementById('response');
-                                            const namesContainer = document.getElementById('namesContainer');
-                                            const addNameBtn = document.getElementById('addNameBtn');
-
-                                            // ✅ Add new name input
-                                            addNameBtn.addEventListener('click', () => {
-                                                const newInput = document.createElement('input');
-                                                newInput.type = 'text';
-                                                newInput.name = 'name';
-                                                newInput.placeholder = 'Guest Name';
-                                                newInput.required = true;
-                                                namesContainer.appendChild(newInput);
-                                            });
-
-                                            // ✅ Handle form submission
-                                            form.addEventListener('submit', async (e) => {
-                                                e.preventDefault();
-
-                                                const nameInputs = document.querySelectorAll('input[name="name"]');
-                                                const names = Array
-                                                    .from(nameInputs)
-                                                    .map(input => input.value.trim())
-                                                    .filter(Boolean);
-                                                const email = document
-                                                    .getElementById('email')
-                                                    .value
-                                                    .trim();
-                                                const adults = document
-                                                    .getElementById('adults')
-                                                    .value
-                                                    .trim();
-                                                const kids = document
-                                                    .getElementById('kids')
-                                                    .value
-                                                    .trim();
-
-                                                if (!names.length || !email) {
-                                                    response.textContent = "Please fill out all fields.";
-                                                    response.style.color = "red";
-                                                    return;
-                                                }
-
-                                                response.innerHTML = '<span class="rsvp-spinner"></span>Sending RSVP...';
-                                                response.style.color = "#333";
-
-                                                try {
-                                                    const res = await fetch('https://rsvp-server-drjw.onrender.com/api/rsvp', {
-                                                        method: 'POST',
-                                                        headers: {
-                                                            'Content-Type': 'application/json'
-                                                        },
-                                                        body: JSON.stringify({
-                                                            names,
-                                                            email,
-                                                            guests: {
-                                                                adults: Number(adults),
-                                                                kids: Number(kids)
-                                                            }
-                                                        })
-                                                    });
-
-                                                    const data = await res.json();
-
-                                                    if (res.ok) {
-                                                        response.textContent = data.message;
-                                                        response.style.color = "green";
-                                                        form.reset();
-                                                        namesContainer.innerHTML = '<input type="text" name="name" placeholder="Guest Name" required>';
-                                                    } else {
-                                                        response.textContent = data.error || "Something went wrong.";
-                                                        response.style.color = "red";
-                                                    }
-                                                } catch (err) {
-                                                    response.textContent = "Failed to send RSVP. Please try again.";
-                                                    response.style.color = "red";
-                                                    console.error(err);
-                                                }
-
-                                                setTimeout(() => {
-                                                    response.textContent = '';
-                                                }, 10000);
-                                            });
-                                        </script>
-
                                     </section>
 
                                 </div>
@@ -477,28 +369,6 @@
                 </div>
             </section>
 
-            <script>
-                document
-                    .querySelectorAll('.faq-question')
-                    .forEach(button => {
-                        button.addEventListener('click', () => {
-                            const faq = button.parentElement;
-                            const isOpen = faq
-                                .classList
-                                .contains('active');
-
-                            document
-                                .querySelectorAll('.faq-item')
-                                .forEach(item => item.classList.remove('active'));
-                            if (!isOpen) 
-                                faq
-                                    .classList
-                                    .add('active');
-                            }
-                        );
-                    });
-            </script>
-
             <!-- Dress Code Section -->
             <div id="fh5co-dresscode" class="fh5co-section">
                 <div class="container">
@@ -608,8 +478,37 @@
                 </div>
             </div>
 
-            <!-- ======================================== Swipe Slider Script
-            ======================================== -->
+            <!-- ============================= FOOTER ============================= -->
+            <footer class="main-footer">
+                <div class="container footer-content">
+                    <p>© 2025 Rustic Gem Wedding | Designed with 💜 by Dehan & Co.</p>
+                </div>
+            </footer>.
+
+            <script>
+                document
+                    .querySelectorAll('.faq-question')
+                    .forEach(button => {
+                        button.addEventListener('click', () => {
+                            const faq = button.parentElement;
+                            const isOpen = faq
+                                .classList
+                                .contains('active');
+
+                            document
+                                .querySelectorAll('.faq-item')
+                                .forEach(item => item.classList.remove('active'));
+                            if (!isOpen) 
+                                faq
+                                    .classList
+                                    .add('active');
+                            }
+                        );
+                    });
+            </script>
+
+            <!-- ======================================== Swipe Slider
+            Script======================================== -->
             <script>
                 document
                     .querySelectorAll('.accommodation-card')
@@ -688,26 +587,36 @@
                         });
                     });
             </script>
-            <!-- ============================= FOOTER ============================= -->
-            <footer class="main-footer">
-                <div class="container footer-content">
-                    <p>© 2025 Rustic Gem Wedding | Designed with 💜 by Dehan & Co.</p>
-                </div>
-            </footer>
-
             <script>
-                const navToggle = document.getElementById('nav-toggle');
-                const navLinks = document.getElementById('nav-links');
-                const mainNav = document.querySelector('.main-nav');
+                const navToggle = document.getElementById('navToggle');
+                const navLinks = document.getElementById('navLinks');
+                const mainNav = document.querySelector('.main-nav'); // reference your nav bar
 
-                // Toggle mobile nav
+                // Toggle mobile nav open/close
                 navToggle.addEventListener('click', () => {
+                    navToggle
+                        .classList
+                        .toggle('active');
                     navLinks
                         .classList
                         .toggle('show');
                 });
 
-                // Fade-in nav on scroll
+                // Close menu when a nav link is clicked
+                navLinks
+                    .querySelectorAll('a')
+                    .forEach(link => {
+                        link.addEventListener('click', () => {
+                            navToggle
+                                .classList
+                                .remove('active');
+                            navLinks
+                                .classList
+                                .remove('show');
+                        });
+                    });
+
+                // Fade-in nav on scroll (optional polish)
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
                         mainNav
@@ -732,12 +641,102 @@
                                     top: target.offsetTop - 60,
                                     behavior: 'smooth'
                                 });
+                                // Close mobile menu after navigating
+                                navToggle
+                                    .classList
+                                    .remove('active');
                                 navLinks
                                     .classList
-                                    .remove('show'); // close mobile menu
+                                    .remove('show');
                             }
                         });
                     });
+            </script>
+
+            <script>
+                const form = document.getElementById('rsvpForm');
+                const response = document.getElementById('response');
+                const namesContainer = document.getElementById('namesContainer');
+                const addNameBtn = document.getElementById('addNameBtn');
+
+                // ✅ Add new name input
+                addNameBtn.addEventListener('click', () => {
+                    const newInput = document.createElement('input');
+                    newInput.type = 'text';
+                    newInput.name = 'name';
+                    newInput.placeholder = 'Guest Name';
+                    newInput.required = true;
+                    namesContainer.appendChild(newInput);
+                });
+
+                // ✅ Handle form submission
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const nameInputs = document.querySelectorAll('input[name="name"]');
+                    const names = Array
+                        .from(nameInputs)
+                        .map(input => input.value.trim())
+                        .filter(Boolean);
+                    const email = document
+                        .getElementById('email')
+                        .value
+                        .trim();
+                    const adults = document
+                        .getElementById('adults')
+                        .value
+                        .trim();
+                    const kids = document
+                        .getElementById('kids')
+                        .value
+                        .trim();
+
+                    if (!names.length || !email) {
+                        response.textContent = "Please fill out all fields.";
+                        response.style.color = "red";
+                        return;
+                    }
+
+                    response.innerHTML = '<span class="rsvp-spinner"></span>Sending RSVP...';
+                    response.style.color = "#333";
+
+                    try {
+                        const res = await fetch('https://rsvp-server-drjw.onrender.com/api/rsvp', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                names,
+                                email,
+                                guests: {
+                                    adults: Number(adults),
+                                    kids: Number(kids)
+                                }
+                            })
+                        });
+
+                        const data = await res.json();
+
+                        if (res.ok) {
+                            response.textContent = data.message;
+                            response.style.color = "green";
+                            form.reset();
+                            namesContainer.innerHTML = '<input type="text" name="name" placeholder="Guest Name" required>';
+                        } else {
+                            response.textContent = data.error || "Something went wrong.";
+                            response.style.color = "red";
+                        }
+                    } catch (err) {
+                        response.textContent = "Failed to send RSVP. Please try again.";
+                        response.style.color = "red";
+                        console.error(err);
+                    }
+
+                    setTimeout(() => {
+                        response.textContent = '';
+                    }, 10000);
+                });
             </script>
 
         </body>
