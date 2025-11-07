@@ -196,16 +196,6 @@ header {
   text-align: center;
 }
 
-/* RSVP form container in header */
-.rsvp-container {
-  background: rgba(0, 0, 0, 0.4); /* transparent dark overlay */
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 400px;
-  margin: 25px auto 0 auto;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
 /* Input styling */
 .rsvp-form input {
   width: 100%;
@@ -256,15 +246,6 @@ header {
   text-align: center;
 }
 
-.rsvp-container {
-  background: rgba(0, 0, 0, 0.6); /* transparent dark box */
-  padding: 2em;
-  border-radius: 12px;
-  max-width: 500px;
-  margin: 0 auto;
-  backdrop-filter: blur(5px);
-}
-
 .rsvp-form label {
   display: block;
   text-align: left;
@@ -304,28 +285,6 @@ header {
 .rsvp-btn:hover {
   background-color: #c4a3ff;
 }
-
-
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-  #fh5co-header {
-    background-position: center top;
-  }
-
-  .rsvp-container {
-    max-width: 90%;
-    padding: 20px;
-  }
-
-  #fh5co-header h1 {
-    font-size: 32px;
-  }
-
-  #fh5co-header h2 {
-    font-size: 18px;
-  }
-}
-
 
 /* ========================================
    Dress Code Section
@@ -378,15 +337,6 @@ header {
 /* ========================================
    Containers & Layout
 ======================================== */
-.rsvp-container {
-    max-width: 450px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(255,255,255,0.95);
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    text-align: center;
-}
 
 .rsvp-form input {
     width: 90%;
@@ -428,22 +378,6 @@ header {
 #response {
     font-size: 16px;
     margin-top: 15px;
-}
-
-@media screen and (max-width: 480px) {
-    .guest-inputs input {
-        flex: 1 1 100%;
-    }
-
-    .rsvp-container {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .rsvp-btn {
-        width: 100%;
-        font-size: 15px;
-    }
 }
 
 #page {
@@ -721,42 +655,6 @@ header {
 /* ========================================
    Media Queries
 ======================================== */
-/* --- Mobile Responsive RSVP Form --- */
-@media screen and (max-width: 768px) {
-    .rsvp-container {
-        width: 90%;
-        padding: 20px 10px;
-        margin: 20px auto;
-    }
-
-    .rsvp-form input {
-        width: 100%;
-        font-size: 16px;
-        padding: 14px;
-    }
-
-    .rsvp-btn {
-        width: 100%;
-        font-size: 17px;
-        padding: 14px;
-    }
-
-    #fh5co-couple,
-    #fh5co-couple-story,
-    #fh5co-event,
-    #fh5co-footer,
-    #fh5co-gallery,
-    #fh5co-services,
-    #fh5co-started,
-    #fh5co-testimonial,
-    .fh5co-section {
-        padding: 3em 0;
-    }
-
-    #fh5co-gallery-list li.one-third {
-        width: 49%;
-    }
-}
 
 @media screen and (max-width: 480px) {
     #fh5co-gallery-list li.one-third {
@@ -811,10 +709,7 @@ body::before {
     }
 }
 
-.rsvp-container {
-    backdrop-filter: blur(6px);
-    background: rgba(255, 255, 255, 0.85);
-}
+
 
 /* ========================================
    Improved Gallery Styling
@@ -1488,15 +1383,6 @@ header nav a {
   text-align: center;
 }
 
-/* RSVP container: block layout and constrained width so form elements stack */
-.rsvp-container {
-  display: block !important;
-  width: 100%;
-  max-width: 440px; /* controls width on desktop */
-  margin: 18px auto 0;
-  box-sizing: border-box;
-}
-
 /* Make form elements stack and take full width */
 .rsvp-form label,
 .rsvp-form input,
@@ -1549,4 +1435,17 @@ header nav a {
   flex-direction: column !important;
   align-items: center !important;
   gap: 8px;
+}
+.rsvp-container {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 25px auto 0;
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.85); /* choose your preferred */
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+  text-align: center;
 }
