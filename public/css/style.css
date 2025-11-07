@@ -35,27 +35,47 @@
    Global Styles
 ======================================== */
 
-/* ============================
-   Header Fix (no scroll)
-============================ */
+/* ===============================
+   HEADER FIX
+=============================== */
 #fh5co-header {
   position: relative;
-  height: 100vh; /* full screen */
-  background-size: cover;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  background-size: cover; /* make sure BG fills container */
   background-position: center center;
-  background-attachment: fixed;
-  overflow: hidden;
+  background-attachment: fixed; /* makes parallax-like scroll */
+  display: table; /* restore original FH5CO structure */
+  color: #fff;
+  overflow: hidden; /* prevent header from being scrollable internally */
 }
 
 #fh5co-header .overlay {
+  background: rgba(0, 0, 0, 0.5); /* soften BG */
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
 }
 
+#fh5co-header .container {
+  position: relative;
+  z-index: 2;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#fh5co-header h1 {
+  font-size: 64px;
+  margin-bottom: 10px;
+}
+
+#fh5co-header h2 {
+  font-size: 24px;
+  color: #d6b6ff; /* soft purple accent */
+}
 
 /* General Body & Typography */
 body {
@@ -163,55 +183,6 @@ header {
   text-align: center;
 }
 
-/* ============================
-   Header Fix (non-scrollable but parallax)
-============================ */
-#fh5co-header {
-  position: relative;
-  height: 100vh; /* full screen height */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll; /* allows movement */
-  overflow: hidden; /* prevent inner scroll */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* Subtle dark overlay for visibility */
-#fh5co-header .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-/* Text and RSVP Form Layer */
-#fh5co-header .container {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  padding: 0 15px;
-}
-
-/* Ensure content fits on all screens */
-#fh5co-header h1,
-#fh5co-header h2 {
-  color: #fff;
-  margin-bottom: 15px;
-  font-family: "Amsterdam", serif;
-}
-
-#fh5co-header img {
-  max-width: 150px;
-  margin: 20px 0;
-}
-
 /* RSVP form container in header */
 .rsvp-container {
   background: rgba(0, 0, 0, 0.4); /* transparent dark overlay */
@@ -261,6 +232,66 @@ header {
 .rsvp-btn:hover {
   background: #c5a3eb;
 }
+
+/* ===============================
+   RSVP FORM FIX
+=============================== */
+#fh5co-rsvp {
+  background: rgba(255, 255, 255, 0.1); /* subtle transparency */
+  padding: 5em 1em;
+  color: #fff;
+  text-align: center;
+}
+
+.rsvp-container {
+  background: rgba(0, 0, 0, 0.6); /* transparent dark box */
+  padding: 2em;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  backdrop-filter: blur(5px);
+}
+
+.rsvp-form label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+  color: #d6b6ff; /* soft purple for labels */
+  font-weight: 500;
+}
+
+.rsvp-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.9);
+  color: #3b1f5e; /* dark purple text */
+  font-size: 16px;
+  outline: none;
+}
+
+.rsvp-form input::placeholder {
+  color: #7a5ca1;
+}
+
+.add-name-btn, .rsvp-btn {
+  background-color: #a883ff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  margin-top: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-name-btn:hover,
+.rsvp-btn:hover {
+  background-color: #c4a3ff;
+}
+
 
 /* Mobile adjustments */
 @media screen and (max-width: 768px) {
