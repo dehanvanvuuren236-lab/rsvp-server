@@ -35,46 +35,59 @@
    Global Styles
 ======================================== */
 
-/* ===============================
-   HEADER FIX
-=============================== */
-#fh5co-header {
+/* ========================================
+   HEADER / HERO SECTION
+======================================== */
+#fh5co-header.fh5co-cover {
   position: relative;
-  width: 100%;
-  height: 100vh; /* full viewport height */
-  background-size: cover; /* make sure BG fills container */
+  height: 100vh; /* Full viewport height */
+  background-size: cover;
   background-position: center center;
-  background-attachment: fixed; /* makes parallax-like scroll */
-  display: table; /* restore original FH5CO structure */
-  color: #fff;
-  overflow: hidden; /* prevent header from being scrollable internally */
+  background-attachment: fixed; /* Keeps parallax movement */
+  overflow: hidden; /* Prevent internal scroll */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column; /* Stack items vertically */
 }
 
 #fh5co-header .overlay {
-  background: rgba(0, 0, 0, 0.5); /* soften BG */
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Keep your soft dark overlay */
   z-index: 1;
 }
 
 #fh5co-header .container {
   position: relative;
   z-index: 2;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #fh5co-header h1 {
-  font-size: 64px;
-  margin-bottom: 10px;
+  font-family: "Amsterdam", serif;
+  font-size: 72px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+#fh5co-header img {
+  max-width: 180px;
+  margin: 20px 0;
 }
 
 #fh5co-header h2 {
-  font-size: 24px;
-  color: #d6b6ff; /* soft purple accent */
+  font-family: "Engagement", serif;
+  font-size: 28px;
+  color: #dcd3f3; /* soft purple */
+  margin-bottom: 10px;
 }
 
 /* General Body & Typography */
