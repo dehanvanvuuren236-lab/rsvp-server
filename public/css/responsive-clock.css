@@ -23,20 +23,27 @@
   padding: 0;
 }
 
-.flipTimebox .flip-clock-wrapper ul.flip {
-  width: 12vw;
-  max-width: 60px;
-  min-width: 25px;
-  margin: 2px;
+/* === FlipClock Core Reset Patch === */
+.flip-clock-wrapper ul {
+  position: relative;
   list-style: none;
-  perspective: 600px; /* 3D effect */
+  display: inline-block;
+  margin: 2px;
+  padding: 0;
 }
 
-.flipTimebox .flip-clock-wrapper ul li {
+.flip-clock-wrapper ul li {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
-  line-height: 1;
-  position: relative;
+  text-align: center;
+  transform-style: preserve-3d;
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease-in-out;
 }
+
 
 /* ==============================
    3D Flip Effect
