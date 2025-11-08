@@ -1,6 +1,6 @@
-/* =========================================================
+/* ========================================================= 
    ROOT VARIABLES
-   ========================================================= */
+========================================================= */
 :root {
   --primary-color: #b8a9c9;      /* Soft Purple */
   --secondary-color: #c3b1d1;    /* Dusty Lavender */
@@ -14,14 +14,12 @@
 
 /* =========================================================
    GOOGLE FONTS IMPORT
-   =========================================================
-   (Tip: Move to <head> in HTML for faster performance)
-   ========================================================= */
+========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Parisienne&family=Playfair+Display:wght@400;700&display=swap');
 
 /* =========================================================
    CUSTOM FONT-FACES
-   ========================================================= */
+========================================================= */
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon/icomoon.woff2?srf3rx") format("woff2"),
@@ -43,7 +41,7 @@
 
 /* =========================================================
    GLOBAL BASE STYLES
-   ========================================================= */
+========================================================= */
 html, body {
   margin: 0;
   padding: 0;
@@ -53,18 +51,10 @@ html, body {
   overflow-x: hidden;
 }
 
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", serif;
-  margin: 0;
-  color: var(--primary-color);
-}
-
-p {
-  margin: 0 0 1em 0;
-  line-height: 1.6;
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
 }
 
 a {
@@ -77,15 +67,7 @@ a:hover {
   color: var(--accent-color);
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* =========================================================
-   GLOBAL COMPONENTS (Buttons, etc.)
-   ========================================================= */
-.btn, button {
+button, .btn {
   background-color: var(--primary-color);
   color: var(--white);
   border: none;
@@ -95,8 +77,7 @@ img {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.btn:hover,
-button:hover {
+button:hover, .btn:hover {
   background-color: var(--accent-color);
   transform: scale(1.05);
 }
@@ -108,19 +89,18 @@ button:focus {
 
 /* =========================================================
    HEADER / HERO SECTION
-   ========================================================= */
+========================================================= */
 #fh5co-header.fh5co-cover {
   position: relative;
   height: 100vh;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   flex-direction: column;
+  text-align: center;
 }
 
 #fh5co-header .overlay {
@@ -158,340 +138,61 @@ button:focus {
   margin-bottom: 10px;
 }
 
-/* Prevent parallax issue on mobile */
+#fh5co-header .display-t,
+#fh5co-header .display-tc {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 12px;
+  padding: 0 15px;
+  max-width: 1000px;
+}
+
+#fh5co-header h1,
+#fh5co-header h2,
+#fh5co-header img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#fh5co-header .row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px;
+}
+
 @media (max-width: 768px) {
   #fh5co-header.fh5co-cover {
     background-attachment: scroll;
   }
-}
 
-/* =========================================================
-   SECTION BACKGROUNDS & CARDS
-   ========================================================= */
-.fh5co-section,
-.fh5co-bg {
-  background-color: var(--light-gray);
-}
-
-.overlay {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.accommodation-card,
-.event-wrap {
-  background: var(--white);
-  border: 1px solid var(--secondary-color);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.accommodation-card:hover,
-.event-wrap:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-}
-/* =========================================================
-   Q&A SECTION
-   ========================================================= */
-#fh5co-faq {
-  background: var(--light-gray);
-  padding: 5em 1em;
-  text-align: center;
-}
-
-.faq-question {
-  background: var(--secondary-color);
-  color: var(--black);
-  padding: 1em;
-  border-radius: 8px;
-  margin-bottom: 1em;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-}
-
-.faq-item.active .faq-question {
-  background: var(--primary-color);
-  color: var(--white);
-}
-
-.faq-icon {
-  color: var(--black);
-}
-
-/* =========================================================
-   HEADER / SECTION TITLES FIX
-   ========================================================= */
-header,
-.fh5co-heading h2 {
-  color: var(--primary-color);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-header {
-  background: rgba(0, 0, 0, 0.4);
-  color: var(--white);
-  padding: 40px 0;
-  text-align: center;
-}
-
-/* =========================================================
-   RSVP SECTION
-   ========================================================= */
-#fh5co-rsvp {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 5em 1em;
-  color: var(--white);
-  text-align: center;
-  position: relative;
-}
-
-.rsvp-container {
-  max-width: 600px;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 2em;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-}
-
-/* Labels */
-.rsvp-form label {
-  display: block;
-  text-align: left;
-  margin-top: 15px;
-  color: var(--secondary-color);
-  font-weight: 500;
-}
-
-/* Inputs */
-.rsvp-form input {
-  width: 100%;
-  padding: 12px 15px;
-  margin-top: 5px;
-  margin-bottom: 12px;
-  border: 1px solid var(--primary-color);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--accent-color);
-  font-size: 16px;
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-.rsvp-form input::placeholder {
-  color: var(--secondary-color);
-  opacity: 0.8;
-}
-
-.rsvp-form input:focus {
-  border-color: var(--accent-color);
-  background: rgba(255, 255, 255, 1);
-}
-
-/* Buttons */
-.add-name-btn,
-.rsvp-btn {
-  background-color: var(--primary-color);
-  color: var(--white);
-  border: none;
-  padding: 12px 20px;
-  margin-top: 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.add-name-btn:hover,
-.rsvp-btn:hover {
-  background-color: var(--accent-color);
-  transform: scale(1.05);
-}
-
-/* =========================================================
-   RESPONSIVE DESIGN
-   ========================================================= */
-@media screen and (max-width: 768px) {
-  #fh5co-faq,
-  #fh5co-rsvp {
-    padding: 3em 1em;
+  #fh5co-header h1 {
+    font-size: 28px;
   }
 
-  .rsvp-container {
-    padding: 1.5em;
+  #fh5co-header h2 {
+    font-size: 16px;
   }
-}
-/* ========================================
-   Dress Code Section
-======================================== */
-#fh5co-dresscode {
-    background: rgba(0, 0, 0, 0.8);
-    color: var(--white);
-    padding: 6em 0;
-    text-align: center;
-    position: relative;
-}
 
-#fh5co-dresscode h2 {
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(32px, 5vw, 48px);
-    color: var(--white);
-    margin-bottom: 10px;
-}
-
-.dresscode-subtitle {
-    font-family: "Merriweather", serif;
-    font-size: 20px;
-    color: #d3d3d3;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.dresscode-text {
-    font-family: "Playfair Display", serif;
-    font-size: 22px;
-    line-height: 1.8;
-    color: #f0f0f0;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* ========================================
-   Gallery Overlay Fonts
-======================================== */
-.gallery-overlay {
-    font-family: "Parisienne", cursive;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: var(--white);
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
-/* ========================================
-   RSVP FORM
-======================================== */
-.rsvp-form input,
-.guest-inputs input {
-    width: 100%;
-    max-width: 100%;
-    padding: 12px 15px;
-    margin: 10px 0;
-    border: 1px solid var(--primary-color);
-    border-radius: 10px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--accent-color);
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    outline: none;
-}
-
-.rsvp-form input::placeholder {
-    color: var(--secondary-color);
-    opacity: 0.8;
-}
-
-.rsvp-form input:focus {
-    border-color: var(--accent-color);
-    background: rgba(255, 255, 255, 1);
-}
-
-.guest-inputs {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.guest-inputs input {
-    flex: 1 1 45%;
-}
-
-/* Unified RSVP Buttons */
-.rsvp-btn,
-.add-name-btn {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 12px 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.rsvp-btn:hover,
-.add-name-btn:hover {
-    background-color: var(--accent-color);
-    transform: scale(1.05);
-}
-
-/* Response Message */
-#response {
-    font-size: 16px;
-    margin-top: 15px;
-}
-
-/* ========================================
-   Page & Offcanvas Layout
-======================================== */
-#page {
-    position: relative;
-    overflow-x: hidden;
-    width: 100%;
-    height: 100%;
-    transition: 0.5s;
-}
-
-.offcanvas #page {
-    overflow: hidden;
-    position: absolute;
-}
-
-.offcanvas #page:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,0.7);
-    z-index: 101;
-    transition: 2s;
-}
-
-/* ========================================
-   Responsive Adjustments
-======================================== */
-@media screen and (max-width: 768px) {
-    #fh5co-dresscode,
-    #fh5co-faq,
-    #fh5co-rsvp {
-        padding: 3em 1em;
-    }
-
-    .rsvp-container {
-        padding: 1.5em;
-    }
-    
-    #fh5co-dresscode h2 {
-        font-size: clamp(28px, 6vw, 36px);
-    }
-    
-    .guest-inputs input {
-        flex: 1 1 100%;
-    }
+  #fh5co-header img {
+    max-width: 120px;
+  }
 }
 
 /* =========================================================
-  NAVIGATION BAR
-  ========================================================= */
+   NAVIGATION BAR
+========================================================= */
 .main-nav {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
-  color: var(--white);
+  color: #fff;
   position: fixed;
   top: 0;
   width: 100%;
@@ -509,8 +210,8 @@ header {
 
 .nav-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
@@ -520,8 +221,8 @@ header {
   color: var(--primary-color);
   font-weight: 700;
   font-size: 1.4rem;
-  text-decoration: none;
   letter-spacing: 1px;
+  text-decoration: none;
 }
 
 .nav-links {
@@ -533,17 +234,16 @@ header {
 }
 
 .nav-links a {
-  color: var(--white);
-  text-decoration: none;
+  color: #fff;
   font-weight: 500;
-  transition: color 0.3s ease;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
   color: var(--secondary-color);
 }
 
-/* Mobile nav toggle (hamburger) */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -560,12 +260,11 @@ header {
   display: block;
   height: 3px;
   width: 100%;
-  background: var(--white);
+  background: #fff;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-/* Animate into “X” when active */
 .nav-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(4px, 4px);
 }
@@ -578,7 +277,6 @@ header {
   transform: rotate(-45deg) translate(4px, -4px);
 }
 
-/* Responsive behavior */
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
@@ -589,7 +287,7 @@ header {
     top: 60px;
     right: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0,0,0,0.9);
     flex-direction: column;
     align-items: center;
     display: none;
@@ -605,322 +303,27 @@ header {
   }
 }
 
-/* =============================
-   FOOTER STYLES
-   ============================= */
-.main-footer {
-  background: #1b1b1b; /* deep grey-black background */
-  color: #ccc; /* soft grey text */
+/* =========================================================
+   SECTIONS: RSVP, Dress Code, Accommodation, Venue, FAQ, Gallery
+========================================================= */
+/* RSVP Section Container */
+.rsvp-container {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 25px auto 0;
+  padding: 2em;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  box-sizing: border-box;
   text-align: center;
-  padding: 40px 20px;
-  font-size: 0.95rem;
-  border-top: 2px solid var(--primary-color);
-  font-family: 'Cormorant Garamond', serif;
-  letter-spacing: 0.5px;
 }
 
-.main-footer p {
-  margin: 0;
-  color: #e6e6e6;
-}
-
-.main-footer a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.main-footer a:hover {
-  color: #fff;
-}
-
-/* =============================
-   SECTIONS
-   ============================= */
-#fh5co-couple,
-#fh5co-couple-story,
-#fh5co-event,
-#fh5co-footer,
-#fh5co-gallery,
-#fh5co-services,
-#fh5co-started,
-#fh5co-testimonial,
-.fh5co-section {
-    padding: 7em 0;
-    clear: both;
-    position: relative;
-}
-
-.fh5co-section-gray {
-    background: rgba(0, 0, 0, 0.04);
-    color: var(--text-color);
-}
-
-/* =============================
-   TIMELINE
-   ============================= */
-.timeline {
-    list-style: none;
-    padding: 20px 0;
-    position: relative;
-}
-
-.timeline:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #d4d4d4;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.timeline > li {
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.timeline > li > .timeline-panel {
-    width: 40%;
-    float: left;
-    background: #fff;
-    border: 1px solid #d4d4d4;
-    padding: 30px;
-    border-radius: 6px;
-    position: relative;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.timeline > li > .timeline-panel:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.timeline > li.timeline-inverted > .timeline-panel {
-    float: right;
-}
-
-/* Timeline pointers */
-.timeline > li:after {
-    content: "";
-    position: absolute;
-    top: 30px;
-    left: 100%;
-    transform: translateX(-50%);
-    border-style: solid;
-    border-width: 10px;
-    border-color: transparent transparent transparent #fff;
-}
-
-.timeline > li.timeline-inverted:after {
-    left: auto;
-    right: 100%;
-    border-color: transparent #fff transparent transparent;
-}
-
-/* =============================
-   RESPONSIVE TIMELINE & SECTIONS
-   ============================= */
-@media screen and (max-width: 768px) {
-    .timeline:before {
-        left: 10px;
-    }
-
-    .timeline > li > .timeline-panel {
-        width: 90% !important;
-        float: none;
-        margin: 0 auto 20px;
-    }
-
-    .timeline > li:after,
-    .timeline > li.timeline-inverted:after {
-        left: 20px;
-        right: auto;
-        border-color: transparent #fff transparent transparent;
-    }
-
-    #fh5co-gallery-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #fh5co-gallery-list li {
-        width: 95%;
-        min-height: 250px;
-    }
-}
-
-
-/* ========================================
-   Gallery
-======================================== */
-#fh5co-gallery-list {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-#fh5co-gallery-list li {
-    list-style: none;
-    margin: 0 0 10px 1%;
-    min-height: 400px;
-    border-radius: 7px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-/* ========================================
-   Media Queries
-======================================== */
-
-@media screen and (max-width: 480px) {
-    #fh5co-gallery-list li.one-third {
-        width: 100%;
-    }
-
-    .timeline:before {
-        margin-left: -64px;
-    }
-
-    .timeline > li > .timeline-panel {
-        width: 75% !important;
-    }
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.container,
-.section {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* ========================================
-   Background Image (Global)
-======================================== */
-/* Add a soft overlay for readability */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.3); /* lighter overlay for better readability */
-    z-index: -1;
-}
-
-
-/* For mobile, disable fixed attachment (for smoother scrolling) */
-@media screen and (max-width: 768px) {
-    body {
-        background-attachment: scroll;
-        background-position: center top;
-    }
-
-    body::before {
-        background: rgba(255, 255, 255, 0.75);
-        /* slightly brighter on mobile */
-    }
-}
-
-
-
-/* ========================================
-   Improved Gallery Styling
-======================================== */
-#fh5co-gallery-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-#fh5co-gallery-list li {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    min-height: 300px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-#fh5co-gallery-list li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-#fh5co-gallery-list a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-/* Overlay effect */
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.45);
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s ease;
-    color: #fff;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-family: "Sofia Sans Condensed", sans-serif;
-}
-
-#fh5co-gallery-list li:hover .gallery-overlay {
-    opacity: 1;
-}
-
-/* Mobile Adjustments */
-@media screen and (max-width: 768px) {
-    #fh5co-gallery-list {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 10px;
-    }
-
-    #fh5co-gallery-list li {
-        min-height: 200px;
-    }
-
-    .gallery-overlay span {
-        font-size: 1rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #fh5co-gallery-list {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-}
-
-/* ========================================
-   Dress Code Section
-======================================== */
+/* Dress Code Section */
 #fh5co-dresscode {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0,0,0,0.85);
   color: #fff;
   padding: 4em 1em;
   text-align: center;
@@ -942,9 +345,6 @@ body::before {
   color: #f0f0f0;
 }
 
-/* ========================================
-   Dress Code Gallery (CSS Grid)
-======================================== */
 .dresscode-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -967,10 +367,7 @@ body::before {
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* ========================================
-   Responsive Adjustments
-======================================== */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   #fh5co-dresscode h2 {
     font-size: 32px;
   }
@@ -985,7 +382,7 @@ body::before {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
   #fh5co-dresscode h2 {
     font-size: 28px;
   }
@@ -1000,17 +397,14 @@ body::before {
   }
 }
 
-/* ==============================
-   Accommodation Section
-============================== */
+/* Accommodation Card & Slider */
 .accommodation-card {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   margin-bottom: 25px;
   background-color: #fff;
-  touch-action: pan-y; /* allows vertical scroll + horizontal swipe */
 }
 
 .accommodation-slider {
@@ -1028,13 +422,12 @@ body::before {
   border-radius: 12px;
 }
 
-/* Overlay stays at bottom */
 .accommodation-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0,0,0,0.55);
   color: #fff;
   font-weight: 500;
   text-align: center;
@@ -1044,10 +437,9 @@ body::before {
   z-index: 2;
 }
 
-/* Indicator dots (now above overlay) */
 .slider-dots {
   position: absolute;
-  bottom: 45px; /* lift dots above overlay */
+  bottom: 45px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1058,7 +450,7 @@ body::before {
 .slider-dots span {
   width: 8px;
   height: 8px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255,255,255,0.5);
   border-radius: 50%;
   transition: background 0.3s;
 }
@@ -1067,13 +459,12 @@ body::before {
   background: #fff;
 }
 
-/* Desktop navigation arrows */
 .accommodation-card .prev,
 .accommodation-card .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255,255,255,0.7);
   color: #333;
   border: none;
   padding: 6px 10px;
@@ -1085,7 +476,7 @@ body::before {
 
 .accommodation-card .prev:hover,
 .accommodation-card .next:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255,255,255,0.9);
 }
 
 .accommodation-card .prev {
@@ -1096,7 +487,6 @@ body::before {
   right: 10px;
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
   .accommodation-slider img {
     height: 220px;
@@ -1104,7 +494,7 @@ body::before {
 
   .accommodation-card .prev,
   .accommodation-card .next {
-    display: none; /* hide arrows on mobile */
+    display: none;
   }
 
   .accommodation-overlay {
@@ -1117,9 +507,7 @@ body::before {
   }
 }
 
-
-
-/* 💒 Venue & Location Section Styling */
+/* Venue & Location Section */
 .venue-location-section {
   position: relative;
   background: url('images/wedding-bg.jpg') center/cover no-repeat;
@@ -1129,8 +517,8 @@ body::before {
 
 .venue-location-section .overlay {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.45);
+  inset: 0;
+  background: rgba(0,0,0,0.45);
 }
 
 .venue-location-section .container {
@@ -1149,9 +537,8 @@ body::before {
   letter-spacing: 1px;
 }
 
-/* 🩷 Venue Card */
-.venue-card {
-  background: rgba(255, 255, 255, 0.9);
+.venue-card, .location-section {
+  background: rgba(255,255,255,0.9);
   color: #333;
   padding: 25px 20px;
   border-radius: 12px;
@@ -1159,11 +546,9 @@ body::before {
   margin-bottom: 40px;
 }
 
-.venue-card h3 {
+.venue-card h3, .location-section h3 {
   color: #c85a9e;
   font-family: "Great Vibes", cursive;
-  font-size: 2rem;
-  margin-bottom: 15px;
 }
 
 .venue-details {
@@ -1180,21 +565,6 @@ body::before {
   gap: 8px;
   font-size: 1.1rem;
   color: #444;
-}
-
-/* 🗺️ Location Section */
-.location-section {
-  background: rgba(255, 255, 255, 0.85);
-  color: #333;
-  padding: 25px 20px;
-  border-radius: 12px;
-}
-
-.location-section h3 {
-  color: #c85a9e;
-  font-family: "Great Vibes", cursive;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
 }
 
 .map-container {
@@ -1215,7 +585,6 @@ body::before {
   color: #555;
 }
 
-/* 📱 Mobile Friendly Layout */
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
@@ -1236,13 +605,87 @@ body::before {
   }
 }
 
-/* ========================================
-   Q&A / FAQ Section
-======================================== */
+/* Gallery */
+#fh5co-gallery-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#fh5co-gallery-list li {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 300px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#fh5co-gallery-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+#fh5co-gallery-list a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Parisienne", cursive;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#fh5co-gallery-list li:hover .gallery-overlay {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #fh5co-gallery-list {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  #fh5co-gallery-list li {
+    min-height: 200px;
+  }
+
+  .gallery-overlay span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #fh5co-gallery-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* FAQ Section & Overlay Polish */
 #fh5co-faq {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 6em 0;
+  background: rgba(255,255,255,0.9);
+  padding: 6em 1em;
   font-family: "Playfair Display", serif;
+  text-align: center;
 }
 
 #fh5co-faq h2 {
@@ -1260,14 +703,12 @@ body::before {
   letter-spacing: 1px;
 }
 
-/* FAQ Container */
 .faq-container {
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
 }
 
-/* Individual Items */
 .faq-item {
   background: #fff;
   border-radius: 10px;
@@ -1281,7 +722,6 @@ body::before {
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-/* Question Button */
 .faq-question {
   width: 100%;
   background: #f8f8f8;
@@ -1293,7 +733,6 @@ body::before {
   text-align: left;
   cursor: pointer;
   position: relative;
-  font-family: "Playfair Display", serif;
   transition: background 0.3s ease;
 }
 
@@ -1312,7 +751,6 @@ body::before {
   transform: rotate(45deg);
 }
 
-/* Answer Panel */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -1332,27 +770,7 @@ body::before {
   line-height: 1.7;
 }
 
-/* ========================================
-   Optional Polish — Elegant Header Overlay
-======================================== */
-header h1, 
-header h2, 
-header nav a {
-  color: #fff;
-  font-family: "Playfair Display", serif;
-  letter-spacing: 1px;
-}
-
-/* Make navigation overlay soft and elegant */
-.fh5co-nav {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-  padding: 20px 0;
-  border-radius: 0 0 10px 10px;
-}
-
-/* Mobile Adjustments */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   #fh5co-faq {
     padding: 4em 1em;
   }
@@ -1369,206 +787,4 @@ header nav a {
   .faq-answer p {
     font-size: 15px;
   }
-}
-
-/* ================================
-   RSVP SECTION — polished + readable
-   ================================ */
-#fh5co-started,
-.rsvp-section {
-  background: rgba(0, 0, 0, 0.5); /* adds subtle dark overlay behind form */
-  color: #fff; /* ensures text stands out */
-  padding: 60px 20px;
-  border-radius: 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Make the form itself stand out */
-.rsvp-section form {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 16px;
-  padding: 30px;
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Input + button polish */
-.rsvp-section input,
-.rsvp-section select,
-.rsvp-section textarea {
-  background: rgba(255, 255, 255, 0.9);
-  color: #333;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  width: 100%;
-  margin-bottom: 15px;
-  font-size: 1rem;
-}
-
-.rsvp-section button {
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-.rsvp-section button:hover {
-  background: var(--secondary-color);
-  transform: translateY(-2px);
-}
-
-/* Headings */
-.rsvp-section h2, 
-.rsvp-section h3 {
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-/* Mobile friendly adjustments */
-@media (max-width: 768px) {
-  .rsvp-section form {
-    padding: 20px;
-  }
-
-  .rsvp-section h2 {
-    font-size: 1.6rem;
-  }
-}
-
-.add-name-btn {
-  display: block;
-  margin: 10px 0;
-  background: #f3f3f3;
-  border: none;
-  padding: 8px 12px;
-   border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.add-name-btn:hover {
-  background: #e5e5e5;
-}
-
-#namesContainer input {
-  display: block;
-  width: 90%;
-  margin: 5px auto;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-/* === Fix: force vertical stacking in header & RSVP ===
-   Put this at the end of style.css so it overrides previous rules
-*/
-
- /* Make header content a column and center it */
-#fh5co-header .display-t {
-  display: flex !important;
-  flex-direction: column !important; /* stack children vertically */
-  align-items: center !important;    /* center horizontally */
-  justify-content: center !important;
-  gap: 12px;                          /* breathing room between items */
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Ensure the inner cell stacks and takes full width */
-#fh5co-header .display-tc {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  width: 100%;
-  max-width: 1000px;
-  box-sizing: border-box;
-  padding: 0 15px;
-}
-
-/* Make headings and the image full-width (but centered) so they appear one below the other */
-#fh5co-header h1,
-#fh5co-header h2,
-#fh5co-header img {
-  display: block;
-  width: 100%;
-  max-width: 900px;     /* prevents huge stretched text/image */
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Make form elements stack and take full width */
-.rsvp-form label,
-.rsvp-form input,
-.rsvp-form .guest-inputs,
-.add-name-btn,
-.rsvp-btn {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Guest inputs: two columns on wide screens, stacked on small screens */
-.guest-inputs {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-.guest-inputs input {
-  flex: 1 1 0;
-}
-
-/* Mobile: stack guest inputs vertically */
-@media (max-width: 600px) {
-  .guest-inputs {
-    flex-direction: column;
-  }
-
-  #fh5co-header h1 {
-    font-size: 28px; /* slightly smaller on small screens */
-  }
-
-  #fh5co-header h2 {
-    font-size: 16px;
-  }
-
-  #fh5co-header img {
-    max-width: 120px;
-  }
-}
-
-/* Safety: prevent accidental horizontal overflow caused by large elements */
-#fh5co-header,
-#fh5co-header * {
-  max-width: 100%;
-}
-
-/* If any earlier rule sets .row or .col in header to flex-row, force columns there */
-#fh5co-header .row {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 8px;
-}
-.rsvp-container {
-  display: block;
-  width: 100%;
-  max-width: 500px;
-  margin: 25px auto 0;
-  padding: 2em;
-  background: rgba(255, 255, 255, 0.85); /* choose your preferred */
-  backdrop-filter: blur(6px);
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  box-sizing: border-box;
-  text-align: center;
 }
