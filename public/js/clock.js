@@ -1,18 +1,18 @@
 $(document).ready(function () {
   let clock;
 
-  // ✅ Grab the current date
+  // Current date
   const currentDate = new Date();
 
-  // ✅ Correct timezone for South Africa
+  // Target date in South Africa timezone
   const targetDate = moment.tz("2026-05-16 15:00", "Africa/Johannesburg");
 
-  // ✅ Calculate time difference in seconds
+  // Time difference in seconds
   const diff = targetDate.unix() - moment(currentDate).unix();
 
-  // ✅ Initialize FlipClock
+  // Initialize FlipClock
   if (diff <= 0) {
-    $(".clock").FlipClock(0, {
+    clock = $(".clock").FlipClock(0, {
       clockFace: "DailyCounter",
       countdown: true,
       autoStart: false
@@ -25,12 +25,12 @@ $(document).ready(function () {
       autoStart: true,
       callbacks: {
         stop: function () {
-          console.log("Timer has ended!");
+          console.log("⏰ Countdown finished!");
         }
       }
     });
 
-    // ✅ Keep it from going negative
+    // Prevent negative numbers
     setInterval(() => {
       if (clock.getTime() <= 0) {
         clock.setTime(0);
