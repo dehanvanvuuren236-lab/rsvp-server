@@ -87,6 +87,16 @@ button:focus {
   outline-offset: 3px;
 }
 
+/* ========================================
+   Header Image (fprint.png) Fix
+======================================== */
+#fh5co-header .display-tc img {
+    max-width: 150px;   /* adjust size as needed */
+    height: auto;       /* maintain aspect ratio */
+    display: block;     /* ensures proper block behavior */
+    margin: 20px auto;  /* center it with spacing */
+}
+
 /* =========================================================
    HEADER / HERO SECTION
 ========================================================= */
