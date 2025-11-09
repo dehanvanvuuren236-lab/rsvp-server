@@ -1,103 +1,101 @@
+:root {
+  --primary-color: #b8a9c9;    /* Soft Purple */
+  --secondary-color: #c3b1d1;  /* Dusty Lavender */
+  --accent-color: #6f42c1;     /* Deep Purple */
+  --light-gray: #f2f2f2;
+}
+
+/* Flip Clock Container */
 .flipTimebox {
   margin: 40px auto;
   text-align: center;
 }
 
-/* Force side-by-side digits */
+/* Flex layout for digits */
 .flip-clock-wrapper {
   display: flex !important;
   justify-content: center;
-  align-items: flex-start;
   gap: 8px;
 }
 
-/* Each digit container */
+/* Individual digit cards */
 .flip-clock-wrapper ul {
-  width: 80px;
+  width: 70px;
   height: 100px;
-  margin: 0 3px;
-  padding: 0;
+  margin: 0 4px;
+  position: relative;
   list-style: none;
-  position: relative;
+  display: inline-block;
 }
 
-/* Only one <li> visible per digit */
-.flip-clock-wrapper ul li {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  position: relative;
-}
-
-/* Flip panels */
-.flip-clock-wrapper ul li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  perspective: 1000px;
-  position: relative;
-}
-
+/* Upper and lower half of the flip card */
 .flip-clock-wrapper ul li a div.up,
 .flip-clock-wrapper ul li a div.down {
-  height: 100% !important; /* full digit height */
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  background-color: var(--primary-color);
-  box-shadow: 0 0 10px rgba(111, 66, 193, 0.4);
   overflow: hidden;
-  transform: none !important;
+  border-radius: 8px;
   backface-visibility: hidden;
+  background-color: var(--primary-color);
 }
 
-/* Inner number */
+/* Top half border */
+.flip-clock-wrapper ul li a div.up {
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Bottom half border */
+.flip-clock-wrapper ul li a div.down {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  background-color: var(--secondary-color);
+}
+
+/* Inner number text */
 .flip-clock-wrapper ul li a div div.inn,
 .flip-clock-wrapper ul li a div div.out {
-  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-size: clamp(48px, 6vw, 100px);
   font-weight: 700;
-  font-size: clamp(36px, 6vw, 80px);
+  font-family: 'Sofia Sans Condensed', sans-serif;
   color: var(--light-gray);
   line-height: 1;
   text-align: center;
   position: relative;
   transform: none !important;
-  backface-visibility: visible !important;
 }
 
-/* Divider dots */
+/* Dots/Dividers */
 .flipTimebox .flip-clock-dot {
   background-color: var(--accent-color);
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgba(111, 66, 193, 0.6);
+  box-shadow: 0 0 5px rgba(111,66,193,0.6);
+  margin: 4px 3px;
 }
 
-/* Labels */
+/* Labels below digits */
 .flipTimebox .flip-clock-label {
   font-size: 0.9em;
   color: var(--light-gray);
   font-weight: bold;
-  margin-top: 6px;
+  margin-top: 4px;
   font-family: 'Sofia Sans Condensed';
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .flip-clock-wrapper ul { width: 60px; height: 80px; }
-  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(28px, 5vw, 60px); }
+  .flip-clock-wrapper ul { width: 50px; height: 80px; }
+  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(36px, 5vw, 60px); }
 }
 
 @media screen and (max-width: 480px) {
-  .flip-clock-wrapper ul { width: 45px; height: 60px; }
-  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(22px, 6vw, 48px); }
-  .flipTimebox .flip-clock-dot { width: 5px; height: 5px; }
+  .flip-clock-wrapper ul { width: 40px; height: 65px; }
+  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(28px, 6vw, 50px); }
 }
 
 @media screen and (max-width: 360px) {
-  .flip-clock-wrapper ul { width: 35px; height: 50px; }
-  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(18px, 6vw, 36px); }
-  .flipTimebox .flip-clock-dot { width: 4px; height: 4px; }
+  .flip-clock-wrapper ul { width: 35px; height: 55px; }
+  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(24px, 7vw, 40px); }
 }

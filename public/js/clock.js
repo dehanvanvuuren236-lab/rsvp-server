@@ -1,23 +1,42 @@
 $(document).ready(function () {
+  // Current date/time
   const currentDate = moment();
+
+  // Target date in South Africa timezone
   const targetDate = moment.tz("2026-05-16 15:00", "Africa/Johannesburg");
 
-  let diff = targetDate.unix() - currentDate.unix();
-  if (diff < 0) diff = 0;
+  // Time difference in seconds
+  const diff = targetDate.unix() - currentDate.unix();
 
-  const clock = $('.clock').FlipClock(diff, {
-    clockFace: 'DailyCounter',
-    countdown: true,
-    autoStart: true,
-    callbacks: {
-      stop: function () {
-        console.log("⏰ Countdown finished!");
+  let clock;
+
+  if (diff <= 0) {
+    // If date already passed
+    clock = $(".clock").FlipClock(0, {
+      clockFace: "DailyCounter",
+      countdown: true,
+      autoStart: false
+    });
+    console.log("Date has already passed!");
+  } else {
+    // Initialize countdown
+    clock = $(".clock").FlipClock(diff, {
+      clockFace: "DailyCounter",
+      countdown: true,
+      autoStart: true,
+      callbacks: {
+        stop: function () {
+          console.log("⏰ Countdown finished!");
+        }
       }
-    }
-  });
+    });
 
-  // Force only one <li> per digit
-  $('.flip-clock-wrapper ul li').each(function () {
-    $(this).siblings().remove(); // remove duplicates
-  });
+    // Prevent negative numbers
+    setInterval(() => {
+      if (clock.getTime() <= 0) {
+        clock.setTime(0);
+        clock.stop();
+      }
+    }, 1000);
+  }
 });
