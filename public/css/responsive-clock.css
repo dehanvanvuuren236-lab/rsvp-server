@@ -12,6 +12,31 @@
   background: transparent;
 }
 
+/* ========================================
+   🔧 Fix Clock Alignment (side-by-side digits)
+======================================== */
+.flip-clock-wrapper {
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap; /* prevents stacking */
+  gap: 6px; /* small space between digits */
+}
+
+.flip-clock-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 6px !important;
+}
+
+.flip-clock-wrapper ul {
+  display: inline-block !important;
+  vertical-align: top;
+}
+
 /* ==============================
    Layout & Base
 ============================== */
