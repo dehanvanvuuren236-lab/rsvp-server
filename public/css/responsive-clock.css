@@ -1,5 +1,5 @@
 /* ========================================
-   💜 Flip Clock Styling (Fixed + Polished)
+   💜 Flip Clock Styling (Clean & Polished)
    Compatible with FlipClock 0.7.8
 ======================================== */
 
@@ -13,49 +13,25 @@
 }
 
 /* ========================================
-   🔧 Fix Clock Alignment (side-by-side digits)
+   🔧 Clock Layout: side-by-side digits
 ======================================== */
 .flip-clock-wrapper {
   display: flex !important;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: nowrap; /* prevents stacking */
-  gap: 6px; /* small space between digits */
-}
-
-.flip-clock-divider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 0 6px !important;
+  gap: 6px; /* spacing between digits */
 }
 
 .flip-clock-wrapper ul {
   display: inline-block !important;
   vertical-align: top;
-}
-
-/* ==============================
-   Layout & Base
-============================== */
-.flipTimebox .flip-clock-wrapper {
-  display: inline-block;
-  margin: 0 auto !important;
-  padding: 0;
-  background: transparent;
-}
-
-.flip-clock-wrapper ul {
-  position: relative;
-  list-style: none;
-  display: inline-block;
-  margin: 3px;
-  padding: 0;
   width: 60px;
   height: 90px;
-  background: transparent;
+  margin: 3px;
+  padding: 0;
+  list-style: none;
+  position: relative;
 }
 
 .flip-clock-wrapper ul li {
@@ -67,9 +43,9 @@
   text-align: center;
 }
 
-/* ==============================
-   Panels
-============================== */
+/* ========================================
+   🔧 Flip Panels (Top & Bottom)
+======================================== */
 .flip-clock-wrapper ul li a {
   display: block;
   height: 100%;
@@ -107,62 +83,29 @@
 }
 
 /* ========================================
-   🔧 Fix FlipCard Height & Font Size
+   🔧 Digit Styling
 ======================================== */
 .flip-clock-wrapper ul li a div div.inn,
 .flip-clock-wrapper ul li a div div.out {
-  min-height: 80px;         /* increase the card height */
-  line-height: 80px;        /* vertically center the digit */
-  font-size: clamp(28px, 4vw, 60px); /* adjust font size for bigger digits */
-  box-sizing: border-box;   /* prevent padding/margin cutting off content */
-}
-
-/* Optional: for smaller screens, increase min-height */
-@media screen and (max-width: 768px) {
-  .flip-clock-wrapper ul li a div div.inn,
-  .flip-clock-wrapper ul li a div div.out {
-    min-height: 70px;
-    line-height: 70px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .flip-clock-wrapper ul li a div div.inn,
-  .flip-clock-wrapper ul li a div div.out {
-    min-height: 60px;
-    line-height: 60px;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  .flip-clock-wrapper ul li a div div.inn,
-  .flip-clock-wrapper ul li a div div.out {
-    min-height: 50px;
-    line-height: 50px;
-  }
-}
-
-/* ==============================
-   Inner Text
-============================== */
-.flip-clock-wrapper ul li a div div.inn {
   font-family: 'Sofia Sans Condensed', sans-serif;
   font-weight: 700;
+  font-size: clamp(28px, 4vw, 60px);
   color: var(--light-gray);
-  font-size: clamp(26px, 3vw, 48px);
-  line-height: 1.5;
+  line-height: 1;
+  text-align: center;
   position: absolute;
+  top: 50%;
   left: 0;
   right: 0;
-  text-align: center;
-  top: 50%;
   transform: translateY(-50%);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  min-height: 80px;
 }
 
-/* ==============================
-   Dividers (Dots)
-============================== */
+/* ========================================
+   🔧 Dividers (Colons)
+======================================== */
 .flipTimebox .flip-clock-dot {
   background-color: var(--accent-color);
   width: 6px;
@@ -188,26 +131,30 @@
   font-family: 'Sofia Sans Condensed';
 }
 
-/* ==============================
-   Responsive Tweaks
-============================== */
+/* ========================================
+   🔧 Responsive Adjustments
+======================================== */
 @media screen and (max-width: 768px) {
   .flip-clock-wrapper ul {
-    width: 45px;
-    height: 70px;
+    width: 50px;
+    height: 75px;
   }
-  .flip-clock-wrapper ul li a div div.inn {
-    font-size: clamp(20px, 4vw, 40px);
+  .flip-clock-wrapper ul li a div div.inn,
+  .flip-clock-wrapper ul li a div div.out {
+    font-size: clamp(24px, 4vw, 50px);
+    min-height: 70px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .flip-clock-wrapper ul {
-    width: 35px;
-    height: 55px;
+    width: 40px;
+    height: 60px;
   }
-  .flip-clock-wrapper ul li a div div.inn {
-    font-size: clamp(18px, 5vw, 32px);
+  .flip-clock-wrapper ul li a div div.inn,
+  .flip-clock-wrapper ul li a div div.out {
+    font-size: clamp(20px, 5vw, 40px);
+    min-height: 55px;
   }
   .flipTimebox .flip-clock-dot {
     width: 5px;
@@ -217,10 +164,16 @@
 
 @media screen and (max-width: 360px) {
   .flip-clock-wrapper ul {
-    width: 30px;
-    height: 45px;
+    width: 35px;
+    height: 50px;
   }
-  .flip-clock-wrapper ul li a div div.inn {
-    font-size: clamp(16px, 6vw, 28px);
+  .flip-clock-wrapper ul li a div div.inn,
+  .flip-clock-wrapper ul li a div div.out {
+    font-size: clamp(16px, 6vw, 32px);
+    min-height: 45px;
+  }
+  .flipTimebox .flip-clock-dot {
+    width: 4px;
+    height: 4px;
   }
 }
