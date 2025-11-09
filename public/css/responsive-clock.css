@@ -106,6 +106,42 @@
   border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* ========================================
+   🔧 Fix FlipCard Height & Font Size
+======================================== */
+.flip-clock-wrapper ul li a div div.inn,
+.flip-clock-wrapper ul li a div div.out {
+  min-height: 80px;         /* increase the card height */
+  line-height: 80px;        /* vertically center the digit */
+  font-size: clamp(28px, 4vw, 60px); /* adjust font size for bigger digits */
+  box-sizing: border-box;   /* prevent padding/margin cutting off content */
+}
+
+/* Optional: for smaller screens, increase min-height */
+@media screen and (max-width: 768px) {
+  .flip-clock-wrapper ul li a div div.inn,
+  .flip-clock-wrapper ul li a div div.out {
+    min-height: 70px;
+    line-height: 70px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .flip-clock-wrapper ul li a div div.inn,
+  .flip-clock-wrapper ul li a div div.out {
+    min-height: 60px;
+    line-height: 60px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .flip-clock-wrapper ul li a div div.inn,
+  .flip-clock-wrapper ul li a div div.out {
+    min-height: 50px;
+    line-height: 50px;
+  }
+}
+
 /* ==============================
    Inner Text
 ============================== */
