@@ -47,16 +47,9 @@
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive-clock.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/FlipClock/0.7.8/flipclock.css"/>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
-        <script src="js/flipclock.min.js"></script> <!-- your plugin file -->
-        <script src="js/countdown.js"></script> <!-- this script -->
-
-        <!-- Modernizr -->
-        <script src="js/modernizr-2.6.2.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/FlipClock/0.7.8/flipclock.css"/>
 
         <style>
             /* Spinner for RSVP form */
@@ -78,6 +71,17 @@
                 100% {
                     transform: rotate(360deg);
                 }
+            }
+
+            /* FlipClock positioning fix */
+            .flipTimebox {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                background: transparent;
+            }
+            .flip-clock-wrapper {
+                zoom: 0.8;
             }
         </style>
     </head>
@@ -125,12 +129,16 @@
                background-position: center;
                background-repeat: no-repeat;"
                 data-stellar-background-ratio="0.5">
+
                 <div class="overlay"></div>
                 <div class="container text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
                             <h1>Dehan & Michaela</h1>
-                            <img src="images/fprint.png" alt="Dehan + Michaela">
+                            <img
+                                src="images/fprint.png"
+                                alt="Dehan + Michaela"
+                                style="max-width: 120px; height: auto;">
                             <h2>16.05.2026</h2>
                             <h2>"I Love You To The Moon And Back Times Infinity And Beyond"</h2>
                         </div>
@@ -176,275 +184,261 @@
                         <p id="response" style="margin-top:20px;"></p>
                     </div>
                 </section>
-            </div>
-        </div>
-    </div>
-</header>
 
-<!-- ============================= Venue & Location
-============================= -->
-<section id="fh5co-venue-location" class="venue-location-section">
-    <div class="overlay"></div>
-    <div class="container text-center">
-        <h2 class="section-title animate-box">Venue & Location</h2>
-        <div class="venue-card animate-box">
-            <h3>Wedding Ceremony</h3>
-            <div class="venue-details">
-                <div class="venue-item">
-                    <i class="icon-calendar"></i>
-                    <span>16 May 2026</span></div>
-                <div class="venue-item">
-                    <i class="icon-clock"></i>
-                    <span>15:00</span></div>
-            </div>
-            <p>At
-                <b>Rustic Gem Venue, Cullinan</b>
-            </p>
-        </div>
+            </header>
 
-        <div class="location-section animate-box">
-            <h3>📍 Our Location</h3>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed/v1/place?q=Rustic%20Gem&amp;zoom=10&amp;key=AIzaSyD_2W-9sRMRs8i9SxrMDipODq1YBnVDvLs"
-                    allowfullscreen=""
-                    loading="lazy"></iframe>
-            </div>
-            <p class="directions">
-                Take the N1 North from Johannesburg / N1 South from Polokwane. Turn off at the
-                Zambezi Toll and off ramp and turn East towards Cullinan. Turn left on the R573
-                KwaMahlango / Moloto road (first major intersection). Keep driving for ~26 km,
-                turn left on the Hammanskraal dirt road. We are located 4 km on the right side
-                of the road.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ============================= Gallery ============================= -->
-<div id="fh5co-gallery" class="fh5co-section-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-                <h2>Gallery</h2>
-            </div>
-        </div>
-        <div class="row row-bottom-padded-md">
-            <div class="col-md-12">
-                <ul id="fh5co-gallery-list">
-                    <li
-                        class="one-third animate-box"
-                        style="background-image: url(images/8270.jpg);">
-                        <a href="images/8270.jpg">
-                            <div class="gallery-overlay">
-                                <span>View Photo</span></div>
-                        </a>
-                    </li>
-                    <li
-                        class="one-third animate-box"
-                        style="background-image: url(images/8272.jpg);">
-                        <a href="images/8272.jpg">
-                            <div class="gallery-overlay">
-                                <span>View Photo</span></div>
-                        </a>
-                    </li>
-                    <li
-                        class="one-third animate-box"
-                        style="background-image: url(images/8274.jpg);">
-                        <a href="images/8274.jpg">
-                            <div class="gallery-overlay">
-                                <span>View Photo</span></div>
-                        </a>
-                    </li>
-                    <li
-                        class="one-third animate-box"
-                        style="background-image: url(images/8275.jpg);">
-                        <a href="images/8275.jpg">
-                            <div class="gallery-overlay">
-                                <span>View Photo</span></div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ============================= FAQ Section ============================= -->
-<section id="fh5co-faq" class="fh5co-section-gray">
-    <div class="container text-center">
-        <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
-            <h2>Questions & Answers</h2>
-            <p class="section-subtitle">Everything you need to know for our special day</p>
-        </div>
-        <div class="faq-container">
-            <!-- FAQ Items -->
-            <div class="faq-item">
-                <button class="faq-question">What time should I arrive?
-                    <span class="faq-icon">+</span></button>
-                <div class="faq-answer">
-                    <p>We recommend arriving 30 minutes before the ceremony to ensure you're seated
-                        and ready for the festivities.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Can I bring a plus one?
-                    <span class="faq-icon">+</span></button>
-                <div class="faq-answer">
-                    <p>If your invitation includes a plus one, they will be listed on your RSVP. We
-                        wish we could invite everyone!</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Is there accommodation on the premises?
-                    <span class="faq-icon">+</span></button>
-                <div class="faq-answer">
-                    <p>Yes! We have reserved the farm for the weekend. Adults: R500 per person Kids
-                        (12 & under): R250 per child. Rates apply for the entire weekend
-                        (Friday–Sunday). Please bring your own towels as they are not provided.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">What activities are available at the venue?
-                    <span class="faq-icon">+</span></button>
-                <div class="faq-answer">
-                    <p>Fishing, swimming, hiking, dirt bike track, off-road cycling, and ziplining!</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">What is the weather like this time of year?
-                    <span class="faq-icon">+</span></button>
-                <div class="faq-answer">
-                    <p>Typically cool mornings, warm days, and chilly evenings. Dress accordingly
-                        and bring a spare blanket for comfort.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Can I bring my own alcohol?
-                    <span class="faq-icon">+</span></button>
-                <div class="faq-answer">
-                    <p>No outside alcohol is allowed. Thank you for understanding!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================= Dress Code ============================= -->
-<section id="fh5co-dresscode" class="fh5co-section">
-    <div class="container text-center">
-        <div class="fh5co-heading animate-box">
-            <h2>Dress Code</h2>
-        </div>
-        <p class="dresscode-text">
-            We kindly request our guests to wear
-            <strong>black attire</strong>
-            for the celebration.
-        </p>
-
-        <div class="dresscode-gallery animate-box">
-            <img src="images/dresscode1.webp" alt="Dress Code Example 1">
-            <img src="images/dresscode2.jpg" alt="Dress Code Example 2">
-            <img src="images/dresscode3.jpg" alt="Dress Code Example 3">
-            <img src="images/dresscode4.jpg" alt="Dress Code Example 4">
-            <img src="images/dresscode5.jpg" alt="Dress Code Example 5">
-            <img src="images/dresscode6.jpg" alt="Dress Code Example 6">
-        </div>
-    </div>
-</section>
-
-<!-- ============================= Accommodation =============================
--->
-<section id="fh5co-accommodation" class="fh5co-section text-center">
-    <div class="container">
-        <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
-            <h2>Accommodation</h2>
-            <p class="section-subtitle">Comfortable and elegant stays at our Venue.</p>
-            <p class="section-subtitle">Beds will be moved to accommodate our Guests.</p>
-        </div>
-
-        <div class="row accommodation-gallery">
-            <!--Accommodation 1-->
-            <div class="col-md-4 col-sm-6 animate-box">
-                <div class="accommodation-card">
-                    <div class="accommodation-slider">
-                        <img src="images/CabinOutside.jpg" alt="Cabin Outside">
-                        <img src="images/CabinInside.jpg" alt="Cabin Inside">
-                        <img src="images/CabinBathroomOutside.jpg" alt="Cabin Bathroom Outside">
-                        <img src="images/CabinBathroomInside.jpg" alt="Cabin Bathroom Inside"></div>
-                    <div class="accommodation-overlay">
-                        <span>Wooden Cabins</span>
+            <!-- ============================= Venue & Location ============================= -->
+            <section id="fh5co-venue-location" class="venue-location-section">
+                <div class="overlay"></div>
+                <div class="container text-center">
+                    <h2 class="section-title animate-box">Venue & Location</h2>
+                    <div class="venue-card animate-box">
+                        <h3>Wedding Ceremony</h3>
+                        <div class="venue-details">
+                            <div class="venue-item">
+                                <i class="icon-calendar"></i>
+                                <span>16 May 2026</span>
+                            </div>
+                            <div class="venue-item">
+                                <i class="icon-clock"></i>
+                                <span>15:00</span>
+                            </div>
+                        </div>
+                        <p>At
+                            <b>Rustic Gem Venue, Cullinan</b>
+                        </p>
                     </div>
-                    <div class="slider-dots"></div>
-                    <button class="prev">&#10094;</button>
-                    <button class="next">&#10095;</button>
-                </div>
-            </div>
-            <!-- Accommodation 2 -->
-            <div class="col-md-4 col-sm-6 animate-box">
-                <div class="accommodation-card">
-                    <div class="accommodation-slider">
-                        <img src="images/GuestHouseMain.jpg" alt="Guest House Main Area">
-                        <img src="images/GuestHouse1.jpg" alt="Guest House Room 1">
-                        <img src="images/GuestHouse2.jpg" alt="Guest House Room 2">
-                        <img src="images/GuestHouse3.jpg" alt="Guest House Room 3">
-                        <img src="images/GuestHouse4.jpg" alt="Guest House Room 4"></div>
-                    <div class="accommodation-overlay">
-                        <span>Guest House</span>
+
+                    <div class="location-section animate-box">
+                        <h3>📍 Our Location</h3>
+                        <div class="map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed/v1/place?q=Rustic%20Gem&amp;zoom=10&amp;key=AIzaSyD_2W-9sRMRs8i9SxrMDipODq1YBnVDvLs"
+                                allowfullscreen=""
+                                loading="lazy"></iframe>
+                        </div>
+                        <p class="directions">
+                            Take the N1 North from Johannesburg / N1 South from Polokwane. Turn off at the
+                            Zambezi Toll and off ramp and turn East towards Cullinan. Turn left on the R573
+                            KwaMahlango / Moloto road (first major intersection). Keep driving for ~26 km,
+                            turn left on the Hammanskraal dirt road. We are located 4 km on the right side
+                            of the road.
+                        </p>
                     </div>
-                    <div class="slider-dots"></div>
-                    <button class="prev">&#10094;</button>
-                    <button class="next">&#10095;</button>
                 </div>
-            </div>
-            <!-- Accommodation 3 -->
-            <div class="col-md-4 col-sm-6 animate-box">
-                <div class="accommodation-card">
-                    <div class="accommodation-slider">
-                        <img src="images/EnSuiteOutside.jpg" alt="En Suite Outside">
-                        <img src="images/EnSuiteInside.jpg" alt="En Suite Inside"></div>
-                    <div class="accommodation-overlay">
-                        <span>En Suite Rooms</span>
+            </section>
+
+            <!-- ============================= Gallery ============================= -->
+            <div id="fh5co-gallery" class="fh5co-section-gray">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                            <h2>Gallery</h2>
+                        </div>
                     </div>
-                    <div class="slider-dots"></div>
-                    <button class="prev">&#10094;</button>
-                    <button class="next">&#10095;</button>
+                    <div class="row row-bottom-padded-md">
+                        <div class="col-md-12">
+                            <ul id="fh5co-gallery-list">
+                                <li
+                                    class="one-third animate-box"
+                                    style="background-image: url(images/8270.jpg);">
+                                    <a href="images/8270.jpg">
+                                        <div class="gallery-overlay">
+                                            <span>View Photo</span></div>
+                                    </a>
+                                </li>
+                                <li
+                                    class="one-third animate-box"
+                                    style="background-image: url(images/8272.jpg);">
+                                    <a href="images/8272.jpg">
+                                        <div class="gallery-overlay">
+                                            <span>View Photo</span></div>
+                                    </a>
+                                </li>
+                                <li
+                                    class="one-third animate-box"
+                                    style="background-image: url(images/8274.jpg);">
+                                    <a href="images/8274.jpg">
+                                        <div class="gallery-overlay">
+                                            <span>View Photo</span></div>
+                                    </a>
+                                </li>
+                                <li
+                                    class="one-third animate-box"
+                                    style="background-image: url(images/8275.jpg);">
+                                    <a href="images/8275.jpg">
+                                        <div class="gallery-overlay">
+                                            <span>View Photo</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- ============================= FAQ Section ============================= -->
+            <section id="fh5co-faq" class="fh5co-section-gray">
+                <div class="container text-center">
+                    <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
+                        <h2>Questions & Answers</h2>
+                        <p class="section-subtitle">Everything you need to know for our special day</p>
+                    </div>
+                    <div class="faq-container">
+                        <!-- FAQ Items -->
+                        <div class="faq-item">
+                            <button class="faq-question">What time should I arrive?
+                                <span class="faq-icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>We recommend arriving 30 minutes before the ceremony to ensure you're seated
+                                    and ready for the festivities.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Can I bring a plus one?
+                                <span class="faq-icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>If your invitation includes a plus one, they will be listed on your RSVP. We
+                                    wish we could invite everyone!</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Is there accommodation on the premises?
+                                <span class="faq-icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>Yes! We have reserved the farm for the weekend. Adults: R500 per person Kids
+                                    (12 & under): R250 per child. Rates apply for the entire weekend
+                                    (Friday–Sunday). Please bring your own towels as they are not provided.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">What activities are available at the venue?
+                                <span class="faq-icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>Fishing, swimming, hiking, dirt bike track, off-road cycling, and ziplining!</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">What is the weather like this time of year?
+                                <span class="faq-icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>Typically cool mornings, warm days, and chilly evenings. Dress accordingly
+                                    and bring a spare blanket for comfort.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">Can I bring my own alcohol?
+                                <span class="faq-icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>No outside alcohol is allowed. Thank you for understanding!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================= Dress Code ============================= -->
+            <section id="fh5co-dresscode" class="fh5co-section">
+                <div class="container text-center">
+                    <div class="fh5co-heading animate-box">
+                        <h2>Dress Code</h2>
+                    </div>
+                    <p class="dresscode-text">
+                        We kindly request our guests to wear
+                        <strong>black attire</strong>
+                        for the celebration.
+                    </p>
+                    <div class="dresscode-gallery animate-box">
+                        <img src="images/dresscode1.webp" alt="Dress Code Example 1">
+                        <img src="images/dresscode2.jpg" alt="Dress Code Example 2">
+                        <img src="images/dresscode3.jpg" alt="Dress Code Example 3">
+                        <img src="images/dresscode4.jpg" alt="Dress Code Example 4">
+                        <img src="images/dresscode5.jpg" alt="Dress Code Example 5">
+                        <img src="images/dresscode6.jpg" alt="Dress Code Example 6">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================= Accommodation =============================
+            -->
+            <section id="fh5co-accommodation" class="fh5co-section text-center">
+                <div class="container">
+                    <div class="col-md-8 col-md-offset-2 fh5co-heading animate-box">
+                        <h2>Accommodation</h2>
+                        <p class="section-subtitle">Comfortable and elegant stays at our Venue.</p>
+                        <p class="section-subtitle">Beds will be moved to accommodate our Guests.</p>
+                    </div>
+                    <div class="row accommodation-gallery">
+                        <!--Accommodation 1-->
+                        <div class="col-md-4 col-sm-6 animate-box">
+                            <div class="accommodation-card">
+                                <div class="accommodation-slider">
+                                    <img src="images/CabinOutside.jpg" alt="Cabin Outside">
+                                    <img src="images/CabinInside.jpg" alt="Cabin Inside">
+                                    <img src="images/CabinBathroomOutside.jpg" alt="Cabin Bathroom Outside">
+                                    <img src="images/CabinBathroomInside.jpg" alt="Cabin Bathroom Inside"></div>
+                                <div class="accommodation-overlay">
+                                    <span>Wooden Cabins</span>
+                                </div>
+                                <div class="slider-dots"></div>
+                                <button class="prev">&#10094;</button>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
+                        <!-- Accommodation 2 -->
+                        <div class="col-md-4 col-sm-6 animate-box">
+                            <div class="accommodation-card">
+                                <div class="accommodation-slider">
+                                    <img src="images/GuestHouseMain.jpg" alt="Guest House Main Area">
+                                    <img src="images/GuestHouse1.jpg" alt="Guest House Room 1">
+                                    <img src="images/GuestHouse2.jpg" alt="Guest House Room 2">
+                                    <img src="images/GuestHouse3.jpg" alt="Guest House Room 3">
+                                    <img src="images/GuestHouse4.jpg" alt="Guest House Room 4"></div>
+                                <div class="accommodation-overlay">
+                                    <span>Guest House</span>
+                                </div>
+                                <div class="slider-dots"></div>
+                                <button class="prev">&#10094;</button>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
+                        <!-- Accommodation 3 -->
+                        <div class="col-md-4 col-sm-6 animate-box">
+                            <div class="accommodation-card">
+                                <div class="accommodation-slider">
+                                    <img src="images/EnSuiteOutside.jpg" alt="En Suite Outside">
+                                    <img src="images/EnSuiteInside.jpg" alt="En Suite Inside"></div>
+                                <div class="accommodation-overlay">
+                                    <span>En Suite Rooms</span>
+                                </div>
+                                <div class="slider-dots"></div>
+                                <button class="prev">&#10094;</button>
+                                <button class="next">&#10095;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================= FOOTER ============================= -->
+            <footer class="main-footer">
+                <div class="container footer-content">
+                    <p>| Designed by Dehan & Michaela |</p>
+                </div>
+            </footer>
         </div>
-    </div>
-</div>
-</div>
-</div>
-</section>
-<!-- ============================= FOOTER ============================= -->
-<footer class="main-footer">
-<div class="container footer-content">
-<p>| Designed by Dehan & Michaela |</p>
-</div>
-</footer>
-</div>
 
-<!-- ============================= SCRIPTS ============================= -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://momentjs.com/downloads/moment.js"></script>
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data.min.js"></script>
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
-<script src="js/clock.js"></script>
-
-<!-- FAQ Toggle -->
-<script src="js/faq.js"></script>
-
-<!-- Accommodation Slider -->
-<script src="js/accommodation-slider.js"></script>
-
-<!-- Navigation Toggle -->
-<script src="js/navigation.js"></script>
-
-<!-- RSVP Form -->
-<script src="js/rsvp.js"></script>
-
-</body>
+        <!-- ============================= SCRIPTS ============================= -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+        <script src="js/clock.js"></script>
+        <script src="js/faq.js"></script>
+        <script src="js/accommodation-slider.js"></script>
+        <script src="js/navigation.js"></script>
+        <script src="js/rsvp.js"></script>
+    </body>
 </html>
