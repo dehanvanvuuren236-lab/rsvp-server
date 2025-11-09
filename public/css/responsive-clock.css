@@ -1,6 +1,6 @@
 /* ========================================
-   💜 Flip Clock Styling (Final Clean Version)
-   Follows Website Color Palette
+   💜 Flip Clock Styling (Fixed + Polished)
+   Compatible with FlipClock 0.7.8
 ======================================== */
 
 .flipTimebox {
@@ -16,20 +16,21 @@
    Layout & Base
 ============================== */
 .flipTimebox .flip-clock-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: inline-block;
   margin: 0 auto !important;
   padding: 0;
+  background: transparent;
 }
 
-/* === FlipClock Core Reset Patch === */
 .flip-clock-wrapper ul {
   position: relative;
   list-style: none;
   display: inline-block;
-  margin: 2px;
+  margin: 3px;
   padding: 0;
+  width: 60px;
+  height: 90px;
+  background: transparent;
 }
 
 .flip-clock-wrapper ul li {
@@ -37,64 +38,77 @@
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%;
   text-align: center;
-  transform-style: preserve-3d;
-  transform-origin: 50% 100%;
-  backface-visibility: hidden;
-  transition: transform 0.5s ease-in-out;
 }
 
-
 /* ==============================
-   3D Flip Effect
+   Panels
 ============================== */
-.flipTimebox .flip-clock-wrapper ul li a div {
+.flip-clock-wrapper ul li a {
+  display: block;
+  height: 100%;
+  color: var(--light-gray);
+  text-decoration: none;
+  perspective: 1000px;
+  background: transparent;
+}
+
+.flip-clock-wrapper ul li a div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  overflow: hidden;
+  border-radius: 6px;
+  backface-visibility: hidden;
+  transform-origin: 50% 100%;
   transform-style: preserve-3d;
-  position: relative;
-  perspective: 600px;
-  height: auto;
   transition: transform 0.6s ease-in-out;
 }
 
-.flipTimebox .flip-clock-wrapper ul li a div div.inn,
-.flipTimebox .flip-clock-wrapper ul li a div div.out {
-  display: block;
-  width: 100%;
-  border-radius: 6px;
-  text-align: center;
-  color: var(--light-gray);
-  backface-visibility: hidden;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 8px rgba(111, 66, 193, 0.5);
-  background-clip: padding-box;
-}
-
 /* Top Half */
-.flipTimebox .flip-clock-wrapper ul li a div div.inn {
+.flip-clock-wrapper ul li a div.up {
+  top: 0;
   background-color: var(--primary-color);
-  font-size: clamp(22px, 3vw, 48px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Bottom Half */
-.flipTimebox .flip-clock-wrapper ul li a div div.out {
+.flip-clock-wrapper ul li a div.down {
+  bottom: 0;
   background-color: var(--secondary-color);
-  font-size: clamp(22px, 3vw, 48px);
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotateX(180deg);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* ==============================
-   Colons & Labels
+   Inner Text
+============================== */
+.flip-clock-wrapper ul li a div div.inn {
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-weight: 700;
+  color: var(--light-gray);
+  font-size: clamp(26px, 3vw, 48px);
+  line-height: 1.5;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   Dividers (Dots)
 ============================== */
 .flipTimebox .flip-clock-dot {
   background-color: var(--accent-color);
-  box-shadow: 0 0 5px rgba(111, 66, 193, 0.6);
   width: 6px;
   height: 6px;
-  margin: 0 3px;
+  margin: 4px 3px;
   border-radius: 50%;
+  box-shadow: 0 0 5px rgba(111, 66, 193, 0.6);
 }
 
 .flipTimebox .flip-clock-divider {
@@ -102,49 +116,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 5px;
+  margin: 0 8px;
 }
 
-.flipTimebox .flip-clock-divider .flip-clock-label {
+.flipTimebox .flip-clock-label {
   font-size: 0.9em;
-  color: var(--light-gray) !important;
-  font-weight: bold !important;
-  font-family: 'Sofia Sans Condensed' !important;
+  color: var(--light-gray);
+  font-weight: bold;
   margin-top: 4px;
-}
-
-/* AM/PM */
-.flipTimebox .flip-clock-meridium {
-  font-size: 1.2em;
-  margin-top: 5px;
+  font-family: 'Sofia Sans Condensed';
 }
 
 /* ==============================
    Responsive Tweaks
 ============================== */
 @media screen and (max-width: 768px) {
-  .flipTimebox .flip-clock-wrapper ul.flip {
-    width: 14vw;
-    max-width: 50px;
+  .flip-clock-wrapper ul {
+    width: 45px;
+    height: 70px;
   }
-
-  .flipTimebox .flip-clock-wrapper ul li a div div.inn,
-  .flipTimebox .flip-clock-wrapper ul li a div div.out {
+  .flip-clock-wrapper ul li a div div.inn {
     font-size: clamp(20px, 4vw, 40px);
   }
 }
 
 @media screen and (max-width: 480px) {
-  .flipTimebox .flip-clock-wrapper ul.flip {
-    width: 18vw;
-    max-width: 40px;
+  .flip-clock-wrapper ul {
+    width: 35px;
+    height: 55px;
   }
-
-  .flipTimebox .flip-clock-wrapper ul li a div div.inn,
-  .flipTimebox .flip-clock-wrapper ul li a div div.out {
+  .flip-clock-wrapper ul li a div div.inn {
     font-size: clamp(18px, 5vw, 32px);
   }
-
   .flipTimebox .flip-clock-dot {
     width: 5px;
     height: 5px;
@@ -152,18 +155,11 @@
 }
 
 @media screen and (max-width: 360px) {
-  .flipTimebox .flip-clock-wrapper ul.flip {
-    width: 20vw;
-    max-width: 35px;
+  .flip-clock-wrapper ul {
+    width: 30px;
+    height: 45px;
   }
-
-  .flipTimebox .flip-clock-wrapper ul li a div div.inn,
-  .flipTimebox .flip-clock-wrapper ul li a div div.out {
+  .flip-clock-wrapper ul li a div div.inn {
     font-size: clamp(16px, 6vw, 28px);
-  }
-
-  .flipTimebox .flip-clock-dot {
-    width: 4px;
-    height: 4px;
   }
 }
