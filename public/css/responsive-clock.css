@@ -1,19 +1,17 @@
-/* ========================================
-   💜 Flip Clock Unified Digits Styling
-======================================== */
-
 .flipTimebox {
   margin: 40px auto;
   text-align: center;
 }
 
+/* Force side-by-side digits */
 .flip-clock-wrapper {
   display: flex !important;
   justify-content: center;
   align-items: flex-start;
-  gap: 6px;
+  gap: 8px;
 }
 
+/* Each digit container */
 .flip-clock-wrapper ul {
   width: 80px;
   height: 100px;
@@ -23,32 +21,47 @@
   position: relative;
 }
 
-/* Hide traditional split top/bottom halves */
+/* Only one <li> visible per digit */
+.flip-clock-wrapper ul li {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+/* Flip panels */
+.flip-clock-wrapper ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  position: relative;
+}
+
 .flip-clock-wrapper ul li a div.up,
 .flip-clock-wrapper ul li a div.down {
-  height: 100% !important;
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: var(--primary-color);
-  box-shadow: 0 0 10px rgba(111, 66, 193, 0.4);
+  height: 100% !important; /* full digit height */
   display: flex;
   align-items: center;
   justify-content: center;
-  backface-visibility: hidden;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(111, 66, 193, 0.4);
+  overflow: hidden;
   transform: none !important;
+  backface-visibility: hidden;
 }
 
-/* Only show one number centered */
+/* Inner number */
 .flip-clock-wrapper ul li a div div.inn,
 .flip-clock-wrapper ul li a div div.out {
   font-family: 'Sofia Sans Condensed', sans-serif;
   font-weight: 700;
   font-size: clamp(36px, 6vw, 80px);
-  line-height: 1;
   color: var(--light-gray);
+  line-height: 1;
   text-align: center;
   position: relative;
-  top: 0;
   transform: none !important;
   backface-visibility: visible !important;
 }
@@ -62,7 +75,7 @@
   box-shadow: 0 0 5px rgba(111, 66, 193, 0.6);
 }
 
-/* Labels under digits */
+/* Labels */
 .flipTimebox .flip-clock-label {
   font-size: 0.9em;
   color: var(--light-gray);
@@ -73,39 +86,18 @@
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .flip-clock-wrapper ul {
-    width: 60px;
-    height: 80px;
-  }
-  .flip-clock-wrapper ul li a div div.inn {
-    font-size: clamp(28px, 5vw, 60px);
-  }
+  .flip-clock-wrapper ul { width: 60px; height: 80px; }
+  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(28px, 5vw, 60px); }
 }
 
 @media screen and (max-width: 480px) {
-  .flip-clock-wrapper ul {
-    width: 45px;
-    height: 60px;
-  }
-  .flip-clock-wrapper ul li a div div.inn {
-    font-size: clamp(22px, 6vw, 48px);
-  }
-  .flipTimebox .flip-clock-dot {
-    width: 5px;
-    height: 5px;
-  }
+  .flip-clock-wrapper ul { width: 45px; height: 60px; }
+  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(22px, 6vw, 48px); }
+  .flipTimebox .flip-clock-dot { width: 5px; height: 5px; }
 }
 
 @media screen and (max-width: 360px) {
-  .flip-clock-wrapper ul {
-    width: 35px;
-    height: 50px;
-  }
-  .flip-clock-wrapper ul li a div div.inn {
-    font-size: clamp(18px, 6vw, 36px);
-  }
-  .flipTimebox .flip-clock-dot {
-    width: 4px;
-    height: 4px;
-  }
+  .flip-clock-wrapper ul { width: 35px; height: 50px; }
+  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(18px, 6vw, 36px); }
+  .flipTimebox .flip-clock-dot { width: 4px; height: 4px; }
 }
