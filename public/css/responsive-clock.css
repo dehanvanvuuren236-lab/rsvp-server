@@ -1,101 +1,191 @@
-:root {
-  --primary-color: #b8a9c9;    /* Soft Purple */
-  --secondary-color: #c3b1d1;  /* Dusty Lavender */
-  --accent-color: #6f42c1;     /* Deep Purple */
-  --light-gray: #f2f2f2;
-}
 
-/* Flip Clock Container */
-.flipTimebox {
-  margin: 40px auto;
-  text-align: center;
-}
 
-/* Flex layout for digits */
-.flip-clock-wrapper {
-  display: flex !important;
-  justify-content: center;
-  gap: 8px;
+@media screen and (max-width: 767px) {
+  .flipTimebox .flip-clock-wrapper ul {
+    height: 50px;
+    line-height: 50px;
+  }
+  .flipTimebox .flip-clock-wrapper ul li {
+    line-height: 50px;
+  }
+  .flipTimebox .flip-clock-wrapper ul li a div.up:after {
+    top: 24px;
+  }
+  .flipTimebox .flip-clock-divider {
+    height: 50px;
+  }
+  .flipTimebox .flip-clock-dot {
+    height: 6px;
+    width: 6px;
+    left: 7px;
+  }
+  .flipTimebox .flip-clock-dot.top {
+    top: 17px;
+  }
+  .flipTimebox .flip-clock-dot.bottom {
+    bottom: 8px;
+  }
+  .flipTimebox .flip-clock-divider.days .flip-clock-label {
+    right: -58px;
+  }
+  .flipTimebox .flip-clock-divider.hours .flip-clock-label {
+    right: -62px;
+  }
+  .flipTimebox .flip-clock-divider.minutes .flip-clock-label {
+    right: -68px;
+  }
+  .flipTimebox .flip-clock-divider.seconds .flip-clock-label {
+    right: -69px;
+  }
+  .flipTimebox .flip-clock-wrapper ul {
+    width: 37px;
+    margin: 2px;
+  }
+  .flipTimebox .flip-clock-wrapper ul li a div div.inn {
+    font-size: 38px;
+  }
+  .flipTimebox .flip-clock-meridium {
+    font-size: 20px !important;
+  }
 }
-
-/* Individual digit cards */
-.flip-clock-wrapper ul {
-  width: 70px;
-  height: 100px;
-  margin: 0 4px;
-  position: relative;
-  list-style: none;
-  display: inline-block;
+@media screen and (max-width: 568px) {
+  .flipTimebox .flip-clock-wrapper ul {
+    margin: 2px;
+  }
+  .flipTimebox .flip-clock-divider {
+    width: 5px;
+  }
+  .flipTimebox .flip-clock-dot {
+    height: 5px;
+    width: 5px;
+    left: 0;
+  }
+  .flipTimebox .flip-clock-divider.days .flip-clock-label {
+    right: -58px;
+  }
+  .flipTimebox .flip-clock-divider.hours .flip-clock-label {
+    right: -62px;
+  }
+  .flipTimebox .flip-clock-divider.minutes .flip-clock-label {
+    right: -68px;
+  }
+  .flipTimebox .flip-clock-divider.seconds .flip-clock-label {
+    right: -69px;
+  }
+  .flipTimebox .flip-clock-meridium {
+    font-size: 18px !important;
+  }
 }
-
-/* Upper and lower half of the flip card */
-.flip-clock-wrapper ul li a div.up,
-.flip-clock-wrapper ul li a div.down {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 8px;
-  backface-visibility: hidden;
-  background-color: var(--primary-color);
-}
-
-/* Top half border */
-.flip-clock-wrapper ul li a div.up {
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-}
-
-/* Bottom half border */
-.flip-clock-wrapper ul li a div.down {
-  border-top: 1px solid rgba(255,255,255,0.3);
-  background-color: var(--secondary-color);
-}
-
-/* Inner number text */
-.flip-clock-wrapper ul li a div div.inn,
-.flip-clock-wrapper ul li a div div.out {
-  font-size: clamp(48px, 6vw, 100px);
-  font-weight: 700;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  color: var(--light-gray);
-  line-height: 1;
-  text-align: center;
-  position: relative;
-  transform: none !important;
-}
-
-/* Dots/Dividers */
-.flipTimebox .flip-clock-dot {
-  background-color: var(--accent-color);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(111,66,193,0.6);
-  margin: 4px 3px;
-}
-
-/* Labels below digits */
-.flipTimebox .flip-clock-label {
-  font-size: 0.9em;
-  color: var(--light-gray);
-  font-weight: bold;
-  margin-top: 4px;
-  font-family: 'Sofia Sans Condensed';
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .flip-clock-wrapper ul { width: 50px; height: 80px; }
-  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(36px, 5vw, 60px); }
-}
-
 @media screen and (max-width: 480px) {
-  .flip-clock-wrapper ul { width: 40px; height: 65px; }
-  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(28px, 6vw, 50px); }
+  .flipTimemodulesboxes {
+    padding: 0;
+  }
+  .flipTimebox .flip-clock-divider .flip-clock-label {
+    font-size: 1em;
+  }
+  .flipTimebox .flip-clock-divider.days .flip-clock-label {
+    right: -33px;
+  }
+  .flipTimebox .flip-clock-divider.hours .flip-clock-label {
+    right: -37px;
+  }
+  .flipTimebox .flip-clock-divider.minutes .flip-clock-label {
+    right: -43px;
+  }
+  .flipTimebox .flip-clock-divider.seconds .flip-clock-label {
+    right: -45px;
+  }
+  .flipTimebox .flip-clock-wrapper ul li a div div.inn {
+    font-size: 28px;
+  }
+  .flipTimebox .flip-clock-meridium {
+    font-size: 14px !important;
+  }
+  .flipTimebox .flip-clock-wrapper ul.flip {
+    width: 27px;
+    background-color: transparent;
+    box-shadow: none;
+    margin-left: -8px;
+  }
+  .flipTimebox .flip-clock-wrapper ul li {
+    width: 30px;
+  }
+  .flipTimebox .flip-clock-dot {
+    margin-left: -10px;
+  }
+  .flipTimebox {
+    margin: 50px 0 100px 20px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .flipTimebox .flip-clock-divider .flip-clock-label {
+    font-size: 1em;
+    width: 3px;
+  }
+  .flipTimebox .flip-clock-divider.days .flip-clock-label {
+    right: -1px;
+  }
+  .flipTimebox .flip-clock-divider.hours .flip-clock-label {
+    right: 2px;
+  }
+  .flipTimebox .flip-clock-divider.minutes .flip-clock-label {
+    right: 6px;
+  }
+  .flipTimebox .flip-clock-divider.seconds .flip-clock-label {
+    right: 9px;
+  }
+  .flipTimebox .flip-clock-wrapper ul.flip {
+    width: 25px;
+    margin-left: -14px;
+  }
+  .flipTimebox .flip-clock-wrapper {
+    padding-left: 5px;
+  }
+  .flipTimebox .flip-clock-wrapper ul li {
+    width: 25px;
+  }
+  .flipTimebox .flip-clock-dot {
+    margin-left: -16px;
+  }
+  .flipTimebox {
+    margin: 50px 0 100px 20px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .flipTimebox .flip-clock-wrapper {
+    padding-left: 5px;
+  }
+  .flipTimebox .flip-clock-wrapper ul.flip {
+    width: 22px;
+    margin-left: -16px;
+  }
+  .flipTimebox .flip-clock-wrapper ul li {
+    width: 22px;
+  }
+  .flipTimebox .flip-clock-dot {
+    margin-left: -18px;
+  }
+    .flipTimebox .flip-clock-divider.days .flip-clock-label {
+    right: 3px;
+  }
+  .flipTimebox .flip-clock-divider.hours .flip-clock-label {
+    right: 6px;
+  }
+  .flipTimebox .flip-clock-divider.minutes .flip-clock-label {
+    right: 11px;
+  }
+  .flipTimebox .flip-clock-divider.seconds .flip-clock-label {
+    right: 14px;
+  }
 }
 
-@media screen and (max-width: 360px) {
-  .flip-clock-wrapper ul { width: 35px; height: 55px; }
-  .flip-clock-wrapper ul li a div div.inn { font-size: clamp(24px, 7vw, 40px); }
+.flip-clock-wrapper {
+  margin: 4em !important;
+}
+
+.flip-clock-divider .flip-clock-label {
+  color: white !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  font-family: Sofia Sans Condensed !important; 
 }
