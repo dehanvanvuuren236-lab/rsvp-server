@@ -164,21 +164,28 @@
                     </div>
                 </div>
 
-                <!-- RSVP Form -->
+                <!-- RSVP Section -->
                 <section id="fh5co-rsvp">
-                    <h2>RSVP</h2>
                     <div class="rsvp-container animate-box" data-animate-effect="fadeIn">
+                        <h2>RSVP</h2>
                         <form id="rsvpForm" class="rsvp-form">
-                            <label>Your Name(s)</label>
-                            <div id="namesContainer">
-                                <input type="text" name="name" placeholder="Guest Name" required="required">
+                            <!-- Guest Names -->
+                            <div class="form-group">
+                                <label>Your Name(s)</label>
+                                <div id="namesContainer">
+                                    <input type="text" name="name" placeholder="Guest Name" required="required">
+                                </div>
+                                <button type="button" id="addNameBtn" class="add-name-btn">+ Add Another Name</button>
                             </div>
-                            <button type="button" id="addNameBtn" class="add-name-btn">+ Add Another Name</button>
 
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" placeholder="Your Email" required="required">
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" placeholder="Your Email" required="required">
+                            </div>
 
-                            <div class="guest-inputs">
+                            <!-- Guest Numbers -->
+                            <div class="form-group guest-counts">
                                 <input
                                     type="number"
                                     id="adults"
@@ -193,9 +200,11 @@
                                     required="required">
                             </div>
 
+                            <!-- Submit -->
                             <button type="submit" class="rsvp-btn">Send RSVP</button>
                         </form>
-                        <p id="response" style="margin-top:20px;"></p>
+
+                        <p id="response" class="rsvp-response"></p>
                     </div>
                 </section>
 
