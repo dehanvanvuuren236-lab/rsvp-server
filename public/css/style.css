@@ -319,28 +319,36 @@ button:focus {
 ========================================================= */
 /* RSVP Form Styling */
 .rsvp-container {
-  width: 95%; /* fills most of the viewport width */
-  max-width: 600px; /* nice balanced size on desktop */
-  margin: 30px auto;
-  padding: 2em;
-  background: rgba(255,255,255,0.9);
+  width: 100%;
+  max-width: 900px; /* ⬆ wider form for desktop */
+  margin: 40px auto;
+  padding: 2.5em 3em;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(6px);
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   text-align: center;
-  min-height: 600px; /* 👈 keeps it stable but not too tall */
+  min-height: 620px; /* fixed height to prevent resizing */
   box-sizing: border-box;
+  overflow: hidden; /* prevents jumping when adding names */
 }
 
 .rsvp-container h2 {
   font-family: "Amsterdam", cursive;
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  font-size: 2.4rem;
+  margin-bottom: 25px;
   color: var(--primary-color);
 }
 
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  height: 100%;
+  justify-content: flex-start;
+}
+
 .rsvp-form .form-group {
-  margin-bottom: 1.5em;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -350,8 +358,8 @@ button:focus {
 .rsvp-form input[type="email"],
 .rsvp-form input[type="number"] {
   width: 100%;
-  padding: 0.8em 1em;
-  border-radius: 8px;
+  padding: 0.9em 1.1em;
+  border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 1rem;
   box-sizing: border-box;
@@ -359,10 +367,9 @@ button:focus {
 }
 
 .add-name-btn {
-  margin-top: 5px;
   background-color: var(--secondary-color);
-  font-size: 0.95rem;
-  padding: 0.5em 1.2em;
+  font-size: 1rem;
+  padding: 0.6em 1.3em;
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
@@ -373,7 +380,7 @@ button:focus {
 
 .guest-counts {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: space-between;
 }
 
@@ -383,43 +390,48 @@ button:focus {
 
 .rsvp-btn {
   width: 100%;
-  padding: 0.9em 1.2em;
-  font-size: 1rem;
+  padding: 1em 1.4em;
+  font-size: 1.1rem;
   font-weight: bold;
-  border-radius: 8px;
-  margin-top: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
 }
 
 .rsvp-response {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 1rem;
   min-height: 24px;
 }
 
-/* ✅ Mobile Adjustments */
+/* ===============================
+   📱 Responsive Tweaks
+=============================== */
+@media (max-width: 1024px) {
+  .rsvp-container {
+    max-width: 700px;
+    padding: 2em;
+  }
+}
+
 @media (max-width: 768px) {
   .rsvp-container {
-    width: 90%;
-    max-width: 650px; /* 👈 wider on tablets */
+    width: 95vw;
+    max-width: none;
     padding: 2em;
-    min-height: 650px;
   }
 }
 
 @media (max-width: 480px) {
   .rsvp-container {
-    width: 95%; /* 👈 fills nearly full screen width */
-    max-width: none;
-    padding: 1.8em;
+    width: 100vw;
+    border-radius: 0;
+    padding: 1.5em;
     min-height: 650px;
+    margin: 0;
   }
 
   .guest-counts {
     flex-direction: column;
-  }
-
-  .guest-counts input {
-    width: 100%;
   }
 
   .add-name-btn {
