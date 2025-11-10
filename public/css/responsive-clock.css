@@ -27,3 +27,92 @@
   text-transform: uppercase;
   color: #dcdcdc;
 }
+
+/* ===============================
+   📱 Responsive Countdown Clock
+   =============================== */
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  color: var(--light-gray);
+  margin: 40px auto;
+  text-align: center;
+}
+
+.countdown div {
+  background: rgba(111, 66, 193, 0.1);
+  border: 2px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 20px 30px;
+  min-width: 100px;
+  transition: all 0.3s ease;
+}
+
+.countdown div span {
+  display: block;
+  font-size: clamp(32px, 6vw, 60px);
+  font-weight: 700;
+}
+
+.countdown div small {
+  display: block;
+  font-size: clamp(12px, 3vw, 16px);
+  font-weight: 500;
+  margin-top: 8px;
+  color: var(--light-gray);
+  opacity: 0.8;
+}
+
+/* ===============================
+   Responsive Behavior
+   =============================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .countdown {
+    gap: 12px;
+  }
+  .countdown div {
+    padding: 15px 20px;
+    min-width: 80px;
+  }
+  .countdown div span {
+    font-size: clamp(28px, 5vw, 50px);
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .countdown {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .countdown div {
+    padding: 10px 12px;
+    min-width: 70px;
+  }
+  .countdown div span {
+    font-size: clamp(22px, 6vw, 40px);
+  }
+  .countdown div small {
+    font-size: 0.75em;
+  }
+}
+
+/* Tiny screens */
+@media (max-width: 360px) {
+  .countdown {
+    gap: 8px;
+  }
+  .countdown div {
+    padding: 8px 10px;
+    min-width: 60px;
+  }
+  .countdown div span {
+    font-size: clamp(20px, 7vw, 36px);
+  }
+}
