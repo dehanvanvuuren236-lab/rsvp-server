@@ -86,7 +86,7 @@ app.post('/api/rsvp', async (req, res) => {
       <h2 style="color:#c85a9e;">Hi ${nameList},</h2>
       <p>Thank you for RSVPing! We’ve recorded <b>${adults}</b> adult(s) and <b>${kids}</b> child(ren).</p>
       <p>We can’t wait to celebrate with you on <b>16 May 2026</b> at Rustic Gem Venue, Cullinan.</p>
-      <p>💖 With love,<br>Dehan & Michaela</p>
+      <p>With love,<br>Dehan & Michaela</p>
     </div>`
   };
 
