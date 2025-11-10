@@ -319,80 +319,53 @@ button:focus {
 ========================================================= */
 /* RSVP Form Styling */
 .rsvp-container {
-  width: 100%;
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 1.5em;
-  background: rgba(255,255,255,0.9);
+  width: 95%; /* 👈 wider than before */
+  max-width: 700px; /* 👈 bigger side-to-side on desktop */
+  margin: 40px auto;
+  padding: 3em 2.5em;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(6px);
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   text-align: center;
   box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-  height: 480px; /* keeps same visible size */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  transition: all 0.3s ease;
+  min-height: 800px; /* 👈 tall enough to prevent jumps */
 }
 
 .rsvp-container h2 {
   font-family: "Amsterdam", cursive;
-  font-size: 2.2rem;
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
   color: var(--primary-color);
 }
 
-.rsvp-form {
+.rsvp-form .form-group {
+  margin-bottom: 1.6em;
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  overflow-y: auto; /* scroll within form */
-  padding-right: 5px; /* space for scrollbar */
-  flex-grow: 1;
-  scroll-behavior: smooth;
-}
-
-.rsvp-form::-webkit-scrollbar {
-  width: 6px;
-}
-
-.rsvp-form::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-color);
-  border-radius: 10px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6em;
-  text-align: left;
-}
-
-#namesContainer input {
-  margin-bottom: 0.6em;
+  gap: 10px;
 }
 
 .rsvp-form input[type="text"],
 .rsvp-form input[type="email"],
 .rsvp-form input[type="number"] {
   width: 100%;
-  padding: 0.9em 1em;
-  border-radius: 8px;
+  padding: 1em 1.2em;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  font-size: 1.1rem;
   box-sizing: border-box;
   background-color: #fff;
 }
 
 .add-name-btn {
-  margin-top: 0.3em;
+  margin-top: 5px;
   background-color: var(--secondary-color);
-  font-size: 0.9rem;
-  padding: 0.5em 1em;
-  border-radius: 6px;
-  align-self: flex-start;
+  font-size: 1rem;
+  padding: 0.6em 1.4em;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .add-name-btn:hover {
@@ -401,37 +374,45 @@ button:focus {
 
 .guest-counts {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .guest-counts input {
   flex: 1;
-  min-width: 130px;
 }
 
 .rsvp-btn {
   width: 100%;
-  padding: 0.9em 1.2em;
-  font-size: 1rem;
+  padding: 1em 1.5em;
+  font-size: 1.1rem;
   font-weight: bold;
-  border-radius: 8px;
-  margin-top: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
 }
 
 .rsvp-response {
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 1rem;
   min-height: 24px;
 }
 
-/* Mobile Adjustments */
+/* 📱 Mobile Adjustments */
+@media (max-width: 768px) {
+  .rsvp-container {
+    width: 90%;
+    max-width: 600px;
+    padding: 2.5em 2em;
+    min-height: 850px; /* 👈 taller on mobile to handle extra fields */
+  }
+}
+
 @media (max-width: 480px) {
   .rsvp-container {
-    height: 400px;
-    padding: 1.2em;
-    margin: 20px 10px;
+    width: 90%;
+    max-width: 95%;
+    padding: 2em;
+    min-height: 900px;
   }
 
   .guest-counts {
@@ -444,11 +425,6 @@ button:focus {
 
   .add-name-btn {
     width: 100%;
-    margin-top: 0.5em;
-  }
-
-  #namesContainer input {
-    margin-bottom: 0.4em;
   }
 }
 
