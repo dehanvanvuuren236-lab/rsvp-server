@@ -214,20 +214,21 @@ button:focus {
 }
 
 /* =========================================================
-   NAVIGATION BAR
+   NAVIGATION BAR - Elegant Wedding Style
 ========================================================= */
 .main-nav {
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.55); /* slightly transparent */
+  backdrop-filter: blur(12px);
   color: #fff;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
-  padding: 12px 0;
+  padding: 14px 0;
   transition: all 0.4s ease;
   opacity: 0;
   transform: translateY(-20px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .main-nav.visible {
@@ -242,20 +243,28 @@ button:focus {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
+  font-family: "Playfair Display", serif; /* elegant serif */
 }
 
 .logo {
   color: var(--primary-color);
+  font-family: "Great Vibes", cursive; /* matches headings */
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   letter-spacing: 1px;
   text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  color: var(--secondary-color);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
@@ -263,8 +272,25 @@ button:focus {
 .nav-links a {
   color: #fff;
   font-weight: 500;
+  font-family: "Merriweather", serif; /* consistent with body text */
   text-decoration: none;
-  transition: color 0.3s;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .nav-links a:hover {
@@ -275,8 +301,8 @@ button:focus {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 25px;
-  height: 18px;
+  width: 28px;
+  height: 20px;
   background: none;
   border: none;
   cursor: pointer;
@@ -293,7 +319,7 @@ button:focus {
 }
 
 .nav-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 4px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .nav-toggle.active span:nth-child(2) {
@@ -301,7 +327,7 @@ button:focus {
 }
 
 .nav-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(4px, -4px);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 @media (max-width: 768px) {
@@ -318,7 +344,9 @@ button:focus {
     flex-direction: column;
     align-items: center;
     display: none;
-    padding: 20px 0;
+    padding: 25px 0;
+    gap: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
   }
 
   .nav-links.show {
@@ -326,7 +354,63 @@ button:focus {
   }
 
   .nav-links li {
-    margin: 10px 0;
+    margin: 12px 0;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.main-footer {
+  background: rgba(0,0,0,0.85); /* dark semi-transparent background */
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: "Merriweather", serif; /* consistent with body text */
+  position: relative;
+  z-index: 10;
+  border-top: 2px solid var(--primary-color); /* subtle top border */
+  box-shadow: 0 -3px 15px rgba(0,0,0,0.1);
+}
+
+.main-footer .footer-content p {
+  margin: 0;
+  font-size: 16px;
+  color: #f0f0f0;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.main-footer .footer-content p::before,
+.main-footer .footer-content p::after {
+  content: "|";
+  margin: 0 8px;
+  color: var(--primary-color); /* accent color for vertical bars */
+}
+
+.main-footer .footer-content p a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.main-footer .footer-content p a:hover {
+  color: var(--primary-color);
+}
+
+/* Optional: smaller screens */
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 30px 15px;
+  }
+
+  .main-footer .footer-content p {
+    font-size: 14px;
   }
 }
 
