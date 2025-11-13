@@ -317,70 +317,85 @@ button:focus {
 /* =========================================================
    SECTIONS: RSVP, Dress Code, Accommodation, Venue, FAQ, Gallery
 ========================================================= */
-/* RSVP Form Styling */
+/* RSVP Form Container */
 .rsvp-container {
   width: 100%;
-  max-width: 900px; /* ⬆ wider form for desktop */
-  margin: 40px auto;
-  padding: 2.5em 3em;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  max-width: 950px;       /* wider for desktop */
+  margin: 50px auto;      /* add some top margin */
+  padding: 3em 3.5em;     /* spacious padding */
+  background: rgba(255, 255, 255, 0.95); /* slightly more solid */
+  backdrop-filter: blur(8px); /* soft glass effect */
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* stronger shadow */
   text-align: center;
-  min-height: 620px; /* fixed height to prevent resizing */
+  min-height: 650px;      /* fixed height to prevent resizing */
+  overflow: hidden;       /* prevent scroll/jump when adding names */
   box-sizing: border-box;
-  overflow: hidden; /* prevents jumping when adding names */
 }
 
+/* RSVP Heading */
 .rsvp-container h2 {
   font-family: "Amsterdam", cursive;
-  font-size: 2.4rem;
-  margin-bottom: 25px;
+  font-size: 2.6rem;
+  margin-bottom: 30px;
   color: var(--primary-color);
+  letter-spacing: 1px;
 }
 
+/* Form layout */
 .rsvp-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 1.8em;
   height: 100%;
   justify-content: flex-start;
 }
 
+/* Form Groups */
 .rsvp-form .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
+/* Inputs */
 .rsvp-form input[type="text"],
 .rsvp-form input[type="email"],
 .rsvp-form input[type="number"] {
   width: 100%;
-  padding: 0.9em 1.1em;
-  border-radius: 10px;
+  padding: 1em 1.2em;
+  border-radius: 12px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  font-size: 1.05rem;
   box-sizing: border-box;
   background-color: #fff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
+.rsvp-form input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(111, 66, 193, 0.3);
+  outline: none;
+}
+
+/* Add Name Button */
 .add-name-btn {
   background-color: var(--secondary-color);
   font-size: 1rem;
-  padding: 0.6em 1.3em;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+  padding: 0.7em 1.4em;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .add-name-btn:hover {
   background-color: var(--accent-color);
+  transform: scale(1.03);
 }
 
+/* Guest Numbers */
 .guest-counts {
   display: flex;
-  gap: 12px;
+  gap: 15px;
   justify-content: space-between;
 }
 
@@ -388,28 +403,36 @@ button:focus {
   flex: 1;
 }
 
+/* Submit Button */
 .rsvp-btn {
   width: 100%;
-  padding: 1em 1.4em;
-  font-size: 1.1rem;
+  padding: 1.1em 1.5em;
+  font-size: 1.15rem;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-top: 15px;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
+.rsvp-btn:hover {
+  transform: scale(1.03);
+}
+
+/* Response Message */
 .rsvp-response {
   margin-top: 20px;
   font-size: 1rem;
   min-height: 24px;
+  color: #333;
 }
 
 /* ===============================
-   📱 Responsive Tweaks
+   Responsive Adjustments
 =============================== */
 @media (max-width: 1024px) {
   .rsvp-container {
-    max-width: 700px;
-    padding: 2em;
+    max-width: 750px;
+    padding: 2.5em 2.5em;
   }
 }
 
@@ -417,7 +440,15 @@ button:focus {
   .rsvp-container {
     width: 95vw;
     max-width: none;
-    padding: 2em;
+    padding: 2em 2em;
+  }
+
+  .guest-counts {
+    flex-direction: column;
+  }
+
+  .add-name-btn {
+    width: 100%;
   }
 }
 
@@ -428,14 +459,6 @@ button:focus {
     padding: 1.5em;
     min-height: 650px;
     margin: 0;
-  }
-
-  .guest-counts {
-    flex-direction: column;
-  }
-
-  .add-name-btn {
-    width: 100%;
   }
 }
 
