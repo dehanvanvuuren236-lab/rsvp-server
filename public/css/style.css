@@ -88,13 +88,29 @@ button:focus {
 }
 
 /* ========================================
-   Header Image (fprint.png) Fix
+   Header Image Responsive Fix
 ======================================== */
 #fh5co-header .display-tc img {
-    max-width: 150px;   /* adjust size as needed */
-    height: auto;       /* maintain aspect ratio */
-    display: block;     /* ensures proper block behavior */
-    margin: 20px auto;  /* center it with spacing */
+    max-width: 100%;      /* scale image to container width */
+    width: 150px;         /* default width for desktop */
+    height: auto;         /* maintain aspect ratio */
+    display: block;       /* ensures proper block behavior */
+    margin: 20px auto;    /* center it with spacing */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    #fh5co-header .display-tc img {
+        width: 100px;     /* smaller width on mobile */
+        margin: 15px auto; /* slightly less spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    #fh5co-header .display-tc img {
+        width: 80px;      /* adjust for very small screens */
+        margin: 10px auto;
+    }
 }
 
 /* =========================================================
@@ -462,23 +478,24 @@ button:focus {
   }
 }
 
-/* Dress Code Section */
+/* Dress Code Section - Updated to match website font/style */
 #fh5co-dresscode {
   background: rgba(0,0,0,0.85);
   color: #fff;
   padding: 4em 1em;
   text-align: center;
+  font-family: "Playfair Display", serif; /* matches rest of website */
 }
 
 #fh5co-dresscode h2 {
-  font-family: "Amsterdam", serif;
+  font-family: "Great Vibes", cursive; /* matches website header style */
   font-size: 42px;
   margin-bottom: 10px;
   color: #fff;
 }
 
 .dresscode-text {
-  font-family: "Engagement", serif;
+  font-family: "Merriweather", serif; /* matches subtitle/FAQ text */
   font-size: 20px;
   max-width: 600px;
   margin: 0 auto 30px;
@@ -648,12 +665,13 @@ button:focus {
   }
 }
 
-/* Venue & Location Section */
+/* Venue & Location Section - Updated to match website style */
 .venue-location-section {
   position: relative;
   background: url('images/wedding-bg.jpg') center/cover no-repeat;
   color: #fff;
   padding: 80px 20px;
+  font-family: "Playfair Display", serif; /* matches rest of website */
 }
 
 .venue-location-section .overlay {
@@ -670,26 +688,30 @@ button:focus {
 }
 
 .section-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Great Vibes", cursive; /* matches headers elsewhere */
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #fff;
+  color: #2f2f2f; /* dark gray for elegance */
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.venue-card, .location-section {
-  background: rgba(255,255,255,0.9);
+.venue-card,
+.location-section {
+  background: rgba(255,255,255,0.95); /* matches FAQ/dresscode cards */
   color: #333;
   padding: 25px 20px;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   margin-bottom: 40px;
+  font-family: "Merriweather", serif; /* consistent body text */
 }
 
-.venue-card h3, .location-section h3 {
-  color: #c85a9e;
-  font-family: "Great Vibes", cursive;
+.venue-card h3,
+.location-section h3 {
+  color: #6f42c1; /* deep purple accent to match FAQ icons */
+  font-family: "Great Vibes", cursive; /* header style consistent */
+  margin-bottom: 15px;
 }
 
 .venue-details {
@@ -698,6 +720,8 @@ button:focus {
   gap: 25px;
   flex-wrap: wrap;
   margin-bottom: 10px;
+  font-family: "Merriweather", serif; /* consistent body text */
+  color: #555;
 }
 
 .venue-item {
@@ -705,7 +729,7 @@ button:focus {
   align-items: center;
   gap: 8px;
   font-size: 1.1rem;
-  color: #444;
+  color: #555;
 }
 
 .map-container {
@@ -718,12 +742,14 @@ button:focus {
   width: 100%;
   height: 300px;
   border: none;
+  border-radius: 8px;
 }
 
 .directions {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #555;
+  font-family: "Merriweather", serif; /* consistent body text */
 }
 
 @media (max-width: 768px) {
@@ -868,7 +894,7 @@ button:focus {
   background: #f8f8f8;
   border: none;
   outline: none;
-  padding: 18px 22px;
+  padding: 18px 50px 18px 22px; /* added extra right padding */
   font-size: 18px;
   color: #333;
   text-align: left;
