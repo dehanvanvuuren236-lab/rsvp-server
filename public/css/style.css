@@ -533,6 +533,14 @@ button:focus {
   min-height: 24px;
   color: #333;
 }
+.rsvp-footnote {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #6f42c1; /* elegant purple */
+  text-align: center;
+  opacity: 0.85;
+  font-family: "Merriweather", serif;
+}
 
 /* ===============================
    Responsive Adjustments
