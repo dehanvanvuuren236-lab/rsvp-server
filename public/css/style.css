@@ -1065,3 +1065,95 @@ button:focus {
     font-size: 15px;
   }
 }
+
+/* ========================================
+   Accommodation Payment Section
+======================================== */
+.payment-section {
+    padding: 60px 20px;
+    background: #000000; /* deep black for contrast */
+    position: relative;
+}
+
+.payment-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Elegant glowing box */
+.payment-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 25px;
+    background: rgba(255, 255, 255, 0.03); /* subtle transparent white */
+    border: 1px solid rgba(184, 169, 201, 0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 20px rgba(184, 169, 201, 0.3); /* purple glow */
+}
+
+/* Lists */
+.payment-details {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.payment-details li {
+    padding: 6px 0;
+    font-size: 1.1rem;
+    color: #ddd;
+}
+
+.payment-details li strong {
+    color: var(--accent-color);
+}
+
+/* Rates Box */
+.payment-rates {
+    margin: 25px 0;
+    padding: 20px;
+    border-left: 4px solid var(--accent-color);
+    background: rgba(111, 66, 193, 0.08);
+    border-radius: 10px;
+}
+
+.payment-rates h3 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.payment-rates p {
+    color: #ddd;
+    margin: 3px 0;
+}
+
+/* Notes */
+.payment-note,
+.payment-proof {
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-proof strong {
+    color: var(--primary-color);
+}
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+    .payment-box {
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+    .payment-title {
+        font-size: 1.6rem;
+    }
+    .payment-details li {
+        font-size: 1rem;
+    }
+}
