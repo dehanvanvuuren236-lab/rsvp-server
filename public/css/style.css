@@ -1241,3 +1241,42 @@ button:focus {
         font-size: 48px;
     }
 }
+
+.payment-box h2 {
+  font-family: "Great Vibes", cursive;
+  color: #c85a9e;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.payment-box p, .payment-box label {
+  font-family: "Merriweather", serif;
+  color: #eee;
+}
+
+.payment-box input, .payment-box select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(184,169,201,0.5);
+  font-size: 16px;
+}
+
+.rsvp-btn {
+  background: #6f42c1;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  padding: 12px 0;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(111,66,193,0.6);
+  transition: all 0.3s ease;
+}
+
+.rsvp-btn:hover {
+  background: #b89ac9;
+  box-shadow: 0 0 25px rgba(184,169,201,0.7);
+}
