@@ -1157,3 +1157,87 @@ button:focus {
         font-size: 1rem;
     }
 }
+
+/* ========================================
+   PAYMENT PAGE (NO NAV)
+======================================== */
+
+.payment-hero {
+    background: radial-gradient(circle at top, #2b1a3d, #000);
+    padding: 120px 20px 80px;
+    text-align: center;
+}
+
+.payment-hero h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 64px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.payment-hero p {
+    font-family: "Merriweather", serif;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Reuse payment section styling */
+.payment-section {
+    padding: 60px 20px;
+    background: #000;
+}
+
+.payment-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 35px 30px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 22px;
+    border: 1px solid rgba(184,169,201,0.4);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 25px rgba(184,169,201,0.35);
+}
+
+.payment-details li {
+    font-family: "Playfair Display", serif;
+    font-size: 1.1rem;
+    color: #eee;
+    padding: 6px 0;
+}
+
+.payment-details li strong {
+    color: #b89ac9;
+}
+
+.payment-rates {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(111,66,193,0.12);
+    border-left: 4px solid #6f42c1;
+    border-radius: 10px;
+}
+
+.payment-rates h3 {
+    font-family: "Playfair Display", serif;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.payment-rates p {
+    color: #ddd;
+}
+
+.payment-proof,
+.payment-note {
+    text-align: center;
+    color: #ccc;
+    margin-top: 20px;
+    font-family: "Merriweather", serif;
+}
+
+@media (max-width: 768px) {
+    .payment-hero h1 {
+        font-size: 48px;
+    }
+}
