@@ -170,6 +170,87 @@ app.post('/api/payment/ipn', async (req, res) => {
 });
 
 // ============================
+// Dynamic Payment Page
+// ============================
+app.get('/payment', (req, res) => {
+  const html = `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Payment | Dehan & Michaela Wedding</title>
+    <style>
+      body { background:#1a1a1a; color:#eee; font-family:"Merriweather", serif; margin:0; }
+      .payment-section { padding:80px 20px; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+      .payment-box { background: rgba(0,0,0,0.85); padding:40px; border-radius:16px; max-width:500px; width:100%; box-shadow:0 0 30px rgba(111,66,193,0.7); text-align:center; }
+      .payment-box h2 { font-family:"Great Vibes", cursive; font-size:36px; color:#c85a9e; margin-bottom:20px; }
+      .payment-box p, .payment-box label { font-size:16px; margin-bottom:15px; }
+      .payment-box input { width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid rgba(184,169,201,0.5); font-size:16px; }
+      .rsvp-btn { background:#6f42c1; color:#fff; font-family:"Playfair Display", serif; font-size:18px; padding:12px 0; border-radius:12px; border:none; cursor:pointer; box-shadow:0 0 15px rgba(111,66,193,0.6); transition:all 0.3s ease; }
+      .rsvp-btn:hover { background:#b89ac9; box-shadow:0 0 25px rgba(184,169,201,0.7); }
+      .payment-note { font-size:14px; margin-top:15px; color:#ccc; }
+      .total-amount { font-size:20px; font-weight:bold; color:#c85a9e; margin-bottom:15px; }
+    </style>
+  </head>
+  <body>
+    <section class="payment-section">
+      <div class="payment-box">
+        <h2>Accommodation Payment</h2>
+        <p>Secure your accommodation for the wedding weekend by paying below.</p>
+
+        <form id="payfastForm" action="https://${process.env.PAYFAST_SANDBOX === 'true' ? 'sandbox.' : ''}payfast.co.za/eng/process" method="POST" target="_blank">
+          <input type="hidden" name="merchant_id" value="${process.env.PAYFAST_MERCHANT_ID}">
+          <input type="hidden" name="merchant_key" value="${process.env.PAYFAST_MERCHANT_KEY}">
+          <input type="hidden" name="return_url" value="${process.env.DOMAIN}/success.html">
+          <input type="hidden" name="cancel_url" value="${process.env.DOMAIN}/cancel.html">
+          <input type="hidden" name="notify_url" value="${process.env.DOMAIN}/api/payment/ipn">
+          <input type="hidden" name="amount" id="amount" value="">
+
+          <label for="item_name">Your Name / Reference</label>
+          <input type="text" id="item_name" name="item_name" placeholder="Family Name" required>
+
+          <label>Number of Adults (R500 each)</label>
+          <input type="number" id="adults" min="0" value="0" required>
+
+          <label>Number of Children (R250 each)</label>
+          <input type="number" id="kids" min="0" value="0" required>
+
+          <div class="total-amount" id="totalDisplay">Total: R0</div>
+
+          <button type="submit" class="rsvp-btn">Pay Now</button>
+        </form>
+
+        <p class="payment-note">Please check your email for confirmation. If you don’t see it, check your spam folder 💜</p>
+      </div>
+    </section>
+
+    <script>
+      const adultsInput = document.getElementById('adults');
+      const kidsInput = document.getElementById('kids');
+      const totalDisplay = document.getElementById('totalDisplay');
+      const amountField = document.getElementById('amount');
+
+      function updateTotal() {
+        const adults = parseInt(adultsInput.value) || 0;
+        const kids = parseInt(kidsInput.value) || 0;
+        const total = (adults * 500) + (kids * 250);
+        totalDisplay.textContent = 'Total: R' + total;
+        amountField.value = total.toFixed(2);
+      }
+
+      adultsInput.addEventListener('input', updateTotal);
+      kidsInput.addEventListener('input', updateTotal);
+      updateTotal();
+    </script>
+  </body>
+  </html>
+  `;
+
+  res.send(html);
+});
+
+// ============================
 // Start Server
 // ============================
 app.listen(PORT, () => {
