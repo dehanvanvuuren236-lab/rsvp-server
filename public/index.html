@@ -156,20 +156,21 @@
             const adultsInput = document.getElementById('adults');
             const kidsInput = document.getElementById('kids');
             const totalDisplay = document.getElementById('totalDisplay');
-            const amountField = document.getElementById('amount');
+            const totalField = document.getElementById('total');
 
             function updateTotal() {
                 const adults = parseInt(adultsInput.value) || 0;
                 const kids = parseInt(kidsInput.value) || 0;
                 const total = (adults * 500) + (kids * 250);
+
                 totalDisplay.textContent = 'Total: R' + total;
-                amountField.value = total.toFixed(2);
+                totalField.value = total;
             }
 
             adultsInput.addEventListener('input', updateTotal);
             kidsInput.addEventListener('input', updateTotal);
 
-            updateTotal(); // initialize on load
+            updateTotal();
         </script>
 
     </body>
