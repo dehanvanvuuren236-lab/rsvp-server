@@ -1067,216 +1067,123 @@ button:focus {
 }
 
 /* ========================================
-   Accommodation Payment Section
+   Accommodation Payment Page
 ======================================== */
+body {
+    background: #fafafa; /* lighter background like wedding page */
+    color: #333;
+    font-family: "Merriweather", serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for payment form */
 .payment-section {
     padding: 60px 20px;
-    background: #000000; /* deep black for contrast */
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.payment-title {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-/* Elegant glowing box */
 .payment-box {
     max-width: 700px;
+    width: 100%;
     margin: 0 auto;
-    padding: 30px 25px;
-    background: rgba(255, 255, 255, 0.03); /* subtle transparent white */
-    border: 1px solid rgba(184, 169, 201, 0.4);
+    padding: 35px 30px;
+    background: #fff; /* white card */
     border-radius: 20px;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 20px rgba(184, 169, 201, 0.3); /* purple glow */
-}
-
-/* Lists */
-.payment-details {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.payment-details li {
-    padding: 6px 0;
-    font-size: 1.1rem;
-    color: #ddd;
-}
-
-.payment-details li strong {
-    color: var(--accent-color);
-}
-
-/* Rates Box */
-.payment-rates {
-    margin: 25px 0;
-    padding: 20px;
-    border-left: 4px solid var(--accent-color);
-    background: rgba(111, 66, 193, 0.08);
-    border-radius: 10px;
-}
-
-.payment-rates h3 {
-    margin-bottom: 10px;
-    color: var(--secondary-color);
-}
-
-.payment-rates p {
-    color: #ddd;
-    margin: 3px 0;
-}
-
-/* Notes */
-.payment-note,
-.payment-proof {
-    color: #ccc;
+    box-shadow: 0 4px 25px rgba(111, 66, 193, 0.1);
     text-align: center;
+}
+
+/* Headings */
+.payment-box h2 {
+    font-family: "Great Vibes", cursive;
+    color: #c85a9e;
+    font-size: 42px;
     margin-bottom: 20px;
 }
 
-.payment-proof strong {
-    color: var(--primary-color);
+.payment-box p, .payment-box label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
 }
 
-/* MOBILE FIXES */
+/* Form inputs */
+.payment-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Button */
+.rsvp-btn {
+    background: #c85a9e;
+    color: #fff;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    padding: 12px 0;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rsvp-btn:hover {
+    background: #e297c1;
+    box-shadow: 0 0 15px rgba(200, 90, 158, 0.4);
+}
+
+/* Total amount */
+.total-amount {
+    font-size: 20px;
+    font-weight: bold;
+    color: #c85a9e;
+    margin-bottom: 20px;
+}
+
+/* Banking details */
+.banking-details {
+    display: none;
+    margin-top: 25px;
+    text-align: left;
+    background: #f5f0f8;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e0d6e8;
+}
+
+.banking-details h3 {
+    color: #c85a9e;
+    margin-bottom: 10px;
+}
+
+.banking-details p {
+    margin: 5px 0;
+    color: #333;
+}
+
+/* Notes */
+.payment-note {
+    font-size: 14px;
+    margin-top: 15px;
+    color: #777;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
     .payment-box {
         padding: 25px 20px;
         border-radius: 16px;
     }
-    .payment-title {
-        font-size: 1.6rem;
+    .payment-box h2 {
+        font-size: 36px;
     }
-    .payment-details li {
-        font-size: 1rem;
+    .total-amount {
+        font-size: 18px;
     }
-}
-
-/* ========================================
-   PAYMENT PAGE (NO NAV)
-======================================== */
-
-.payment-hero {
-    background: radial-gradient(circle at top, #2b1a3d, #000);
-    padding: 120px 20px 80px;
-    text-align: center;
-}
-
-.payment-hero h1 {
-    font-family: "Great Vibes", cursive;
-    font-size: 64px;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.payment-hero p {
-    font-family: "Merriweather", serif;
-    color: #ddd;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* Reuse payment section styling */
-.payment-section {
-    padding: 60px 20px;
-    background: #000;
-}
-
-.payment-box {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 35px 30px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 22px;
-    border: 1px solid rgba(184,169,201,0.4);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 25px rgba(184,169,201,0.35);
-}
-
-.payment-details li {
-    font-family: "Playfair Display", serif;
-    font-size: 1.1rem;
-    color: #eee;
-    padding: 6px 0;
-}
-
-.payment-details li strong {
-    color: #b89ac9;
-}
-
-.payment-rates {
-    margin: 30px 0;
-    padding: 20px;
-    background: rgba(111,66,193,0.12);
-    border-left: 4px solid #6f42c1;
-    border-radius: 10px;
-}
-
-.payment-rates h3 {
-    font-family: "Playfair Display", serif;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-.payment-rates p {
-    color: #ddd;
-}
-
-.payment-proof,
-.payment-note {
-    text-align: center;
-    color: #ccc;
-    margin-top: 20px;
-    font-family: "Merriweather", serif;
-}
-
-@media (max-width: 768px) {
-    .payment-hero h1 {
-        font-size: 48px;
-    }
-}
-
-.payment-box h2 {
-  font-family: "Great Vibes", cursive;
-  color: #c85a9e;
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.payment-box p, .payment-box label {
-  font-family: "Merriweather", serif;
-  color: #eee;
-}
-
-.payment-box input, .payment-box select {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0 15px;
-  border-radius: 8px;
-  border: 1px solid rgba(184,169,201,0.5);
-  font-size: 16px;
-}
-
-.rsvp-btn {
-  background: #6f42c1;
-  color: #fff;
-  font-family: "Playfair Display", serif;
-  font-size: 18px;
-  padding: 12px 0;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(111,66,193,0.6);
-  transition: all 0.3s ease;
-}
-
-.rsvp-btn:hover {
-  background: #b89ac9;
-  box-shadow: 0 0 25px rgba(184,169,201,0.7);
 }
