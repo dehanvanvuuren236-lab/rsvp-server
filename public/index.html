@@ -4,41 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accommodation Payment | Dehan & Michaela Wedding</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       background: #1a1a1a;
       color: #eee;
       font-family: "Merriweather", serif;
+      margin: 0;
+      padding: 0;
     }
-    .payment-section {
-      padding: 80px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .payment-box {
-      background: rgba(0,0,0,0.85);
-      padding: 40px;
-      border-radius: 16px;
+    .container {
       max-width: 500px;
-      width: 100%;
-      box-shadow: 0 0 30px rgba(111,66,193,0.7);
+      margin: 80px auto;
+      padding: 40px;
+      background: rgba(0,0,0,0.85);
+      border-radius: 16px;
       text-align: center;
+      box-shadow: 0 0 30px rgba(111,66,193,0.7);
     }
-    .payment-box h2 {
+    h2 {
       font-family: "Great Vibes", cursive;
       font-size: 36px;
       color: #c85a9e;
       margin-bottom: 20px;
     }
-    .payment-box label,
-    .payment-box p {
+    label, p {
+      display: block;
+      margin: 10px 0 5px;
       font-size: 16px;
-      margin-bottom: 15px;
     }
-    .payment-box input {
+    input[type="number"] {
       width: 100%;
       padding: 12px;
       margin-bottom: 20px;
@@ -46,136 +40,80 @@
       border: 1px solid rgba(184,169,201,0.5);
       font-size: 16px;
     }
-    .rsvp-btn {
-      background: #6f42c1;
-      color: #fff;
-      font-family: "Playfair Display", serif;
-      font-size: 18px;
-      padding: 12px 0;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(111,66,193,0.6);
-      transition: all 0.3s ease;
-    }
-    .rsvp-btn:hover {
-      background: #b89ac9;
-      box-shadow: 0 0 25px rgba(184,169,201,0.7);
-    }
-    .payment-note {
-      font-size: 14px;
-      margin-top: 15px;
-      color: #ccc;
-    }
-    .total-amount {
+    .total {
       font-size: 20px;
       font-weight: bold;
       color: #c85a9e;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
-    .banking-details {
-      display: none;
-      margin-top: 20px;
+    .banking {
       text-align: left;
       background: rgba(255,255,255,0.05);
       padding: 20px;
       border-radius: 12px;
+      margin-top: 20px;
     }
-    .banking-details p {
+    .banking p {
       margin: 5px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #6f42c1;
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      background: #b89ac9;
     }
   </style>
 </head>
 <body>
 
-  <section class="payment-section">
-    <div class="payment-box">
-      <h2>Accommodation Payment</h2>
-      <p>Secure your accommodation for the wedding weekend by filling out the form below.</p>
+  <div class="container">
+    <h2>Accommodation Payment</h2>
+    <p>Enter the number of guests to see your total:</p>
 
-      <form id="paymentForm">
-        <label for="name">Your Name / Reference</label>
-        <input type="text" id="name" name="name" placeholder="Family Name" required>
+    <label>Number of Adults (R500 each)</label>
+    <input type="number" id="adults" min="0" value="0">
 
-        <label>Number of Adults (R500 each)</label>
-        <input type="number" id="adults" name="adults" min="0" value="0" required>
+    <label>Number of Children (R250 each)</label>
+    <input type="number" id="kids" min="0" value="0">
 
-        <label>Number of Children (R250 each)</label>
-        <input type="number" id="kids" name="kids" min="0" value="0" required>
+    <p class="total" id="totalDisplay">Total: R0</p>
 
-        <input type="hidden" id="total" name="total">
-
-        <div class="total-amount" id="totalDisplay">Total: R0</div>
-
-        <button type="submit" class="rsvp-btn">Confirm & View Banking Details</button>
-      </form>
-
-      <div class="banking-details" id="bankingDetails">
-        <h3 style="color:#c85a9e;">Banking Details</h3>
-        <p><strong>Bank:</strong> Discovery Bank</p>
-        <p><strong>Account Name:</strong> Dehan & Michaela</p>
-        <p><strong>Account Number:</strong> 19568400414</p>
-        <p><strong>Branch Code:</strong> 679000</p>
-        <p><strong>Reference:</strong> <span id="bankRef"></span></p>
-      </div>
-
-      <p class="payment-note">Please check your email for confirmation. If you don’t see it, check your spam folder 💜</p>
+    <div class="banking">
+      <h3>Banking Details</h3>
+      <p><strong>Bank:</strong> Discovery Bank</p>
+      <p><strong>Account Name:</strong> Dehan & Michaela</p>
+      <p><strong>Account Number:</strong> 19568400414</p>
+      <p><strong>Branch Code:</strong> 679000</p>
+      <p><strong>Reference:</strong> Your Family Name</p>
+      <p>Please use these details to pay for accommodation via EFT. 💜</p>
     </div>
-  </section>
+
+    <a href="wedding.html" class="btn">Back to Wedding Details</a>
+  </div>
 
   <script>
     const adultsInput = document.getElementById('adults');
     const kidsInput = document.getElementById('kids');
     const totalDisplay = document.getElementById('totalDisplay');
-    const totalField = document.getElementById('total');
-    const paymentForm = document.getElementById('paymentForm');
-    const bankingDetails = document.getElementById('bankingDetails');
-    const bankRef = document.getElementById('bankRef');
-    const nameInput = document.getElementById('name');
 
     function updateTotal() {
       const adults = parseInt(adultsInput.value) || 0;
       const kids = parseInt(kidsInput.value) || 0;
       const total = (adults * 500) + (kids * 250);
       totalDisplay.textContent = 'Total: R' + total;
-      totalField.value = total;
     }
 
     adultsInput.addEventListener('input', updateTotal);
     kidsInput.addEventListener('input', updateTotal);
     updateTotal();
-
-    paymentForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      updateTotal();
-
-      const payload = {
-        name: nameInput.value.trim(),
-        adults: adultsInput.value,
-        kids: kidsInput.value,
-        total: totalField.value
-      };
-
-      try {
-        const res = await fetch('/api/payment', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          bankRef.textContent = payload.name;
-          bankingDetails.style.display = 'block';
-          window.scrollTo({ top: bankingDetails.offsetTop, behavior: 'smooth' });
-        } else {
-          const data = await res.json();
-          alert('Error: ' + (data.error || 'Failed to submit.'));
-        }
-      } catch (err) {
-        console.error(err);
-        alert('Error submitting form. Please try again.');
-      }
-    });
   </script>
 
 </body>
