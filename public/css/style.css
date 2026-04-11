@@ -1174,6 +1174,7 @@ body {
     color: #777;
 }
 
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .payment-box {
