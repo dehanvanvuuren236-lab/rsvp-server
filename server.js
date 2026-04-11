@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ debug: true });
 const express = require('express');
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail');
